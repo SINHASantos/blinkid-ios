@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		184E17B21EBB41DD00DCD6B4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 184E17B11EBB41DD00DCD6B4 /* libz.tbd */; };
+		189E1F77231C6D3600DDFE8F /* PPBelgianIDRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 189E1F76231C6D3600DDFE8F /* PPBelgianIDRecognizer.m */; };
 		3153E6741D08758900797C93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3153E6731D08758900797C93 /* main.m */; };
 		3153E6771D08758900797C93 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3153E6761D08758900797C93 /* AppDelegate.m */; };
 		3153E67A1D08758900797C93 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3153E6791D08758900797C93 /* ViewController.m */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		184E17B11EBB41DD00DCD6B4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		189E1F75231C6D3600DDFE8F /* PPBelgianIDRecognizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPBelgianIDRecognizer.h; sourceTree = "<group>"; };
+		189E1F76231C6D3600DDFE8F /* PPBelgianIDRecognizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPBelgianIDRecognizer.m; sourceTree = "<group>"; };
 		3153E66F1D08758900797C93 /* Templating-Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Templating-Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3153E6731D08758900797C93 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3153E6751D08758900797C93 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				3153E6781D08758900797C93 /* ViewController.h */,
 				3153E6791D08758900797C93 /* ViewController.m */,
 				3153E67B1D08758900797C93 /* Main.storyboard */,
+				189E1F75231C6D3600DDFE8F /* PPBelgianIDRecognizer.h */,
+				189E1F76231C6D3600DDFE8F /* PPBelgianIDRecognizer.m */,
 				3153E67E1D08758900797C93 /* Assets.xcassets */,
 				3153E6801D08758900797C93 /* LaunchScreen.storyboard */,
 				3153E6831D08758900797C93 /* Info.plist */,
@@ -181,6 +186,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -215,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3153E67A1D08758900797C93 /* ViewController.m in Sources */,
+				189E1F77231C6D3600DDFE8F /* PPBelgianIDRecognizer.m in Sources */,
 				3153E6771D08758900797C93 /* AppDelegate.m in Sources */,
 				3153E6741D08758900797C93 /* main.m in Sources */,
 			);
@@ -351,7 +358,7 @@
 				INFOPLIST_FILE = "Templating-Sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.microblink.Templating-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microblinBelgium.Templating;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -365,7 +372,7 @@
 				INFOPLIST_FILE = "Templating-Sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.microblink.Templating-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microblinBelgium.Templating;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
