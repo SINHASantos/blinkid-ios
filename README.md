@@ -88,7 +88,7 @@ https://github.com/BlinkID/blinkid-sp
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/BlinkID/blinkid-ios.git", .upToNextMajor(from: "7.0.0"))
+    .package(url: "https://github.com/microblink/blinkid-ios.git", .upToNextMajor(from: "7.7.0"))
 ]
 ```
 
@@ -134,7 +134,7 @@ $ git init
 - Add BlinkIDUX as a git submodule by running the following command:
 
 ```shell
-$ git submodule add https://github.com/BlinkID/blinkid-ios.git
+$ git submodule add https://github.com/microblink/blinkid-ios.git
 ```
 
 To add a local Swift package as a dependency in Xcode:
@@ -1223,5 +1223,5 @@ You can find the *App Size Report* [here]().
 
 Complete API references can be found:
 
-* [BlinkID](http://blinkid.github.io/blinkid-swift-package/documentation/blinkid/)
-* [BlinkIDUX](http://blinkid.github.io/blinkid-ios/documentation/blinkidux/)
+* [BlinkID](http://microblink.github.io/blinkid-swift-package/documentation/blinkid/)
+* [BlinkIDUX](http://microblink.github.io/blinkid-ios/documentation/blinkidux/)
