@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-compiler-version: Apple Swift version 6.2.4 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
 // swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -Osize -enable-experimental-feature DebugDescriptionMacro -module-name BlinkID
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=swift-6 -interface-compiler-version 6.2.3
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=swift-6 -interface-compiler-version 6.2.4
 import AVFoundation
 @_exported import BlinkID
 import CoreData
@@ -291,7 +291,7 @@ public enum Country : Swift.String, Swift.Decodable, Swift.Sendable, Swift.CaseI
   case vanuatu
   case vaticanCity
   case virginIslandsBritish
-  case virginIslandsUs
+  case virginIslandsOfTheUnitedStates
   case wallisAndFutuna
   case westernSahara
   case yemen
@@ -567,6 +567,7 @@ public enum DocumentType : Swift.String, Swift.Decodable, Swift.Sendable, Swift.
   case mysssCard
   case gendarmerieId
   case policeId
+  case originCard
   public init(from decoder: any Swift.Decoder) throws
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
@@ -922,6 +923,7 @@ public struct UxEventPinglet : BlinkID.Pinglet {
     case networkerror
     case documentclassnotallowed
     case steptimeout
+    case documentnotsupported
     #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.String)
     #endif
@@ -1216,6 +1218,7 @@ public struct VIZResult : Swift.Sendable {
   public let dateOfExpiryPermanent: Swift.Bool
   public let effectiveDate: BlinkID.DateResult<BlinkID.BlinkIDSDK.StringResult>?
   public let documentNumber: BlinkID.BlinkIDSDK.StringResult?
+  public let cardAccessNumber: BlinkID.BlinkIDSDK.StringResult?
   public let personalIdNumber: BlinkID.BlinkIDSDK.StringResult?
   public let documentAdditionalNumber: BlinkID.BlinkIDSDK.StringResult?
   public let documentOptionalAdditionalNumber: BlinkID.BlinkIDSDK.StringResult?
@@ -1356,7 +1359,7 @@ public struct SingleSideScanningResult : Swift.Sendable {
   @objc deinit
   final public func cancelActiveProcessing()
   final public func resumeActiveProcessing()
-  @BlinkID.ProcessingActor final public func process(inputImage: BlinkID.InputImage) -> BlinkID.FrameProcessResult
+  @BlinkID.ProcessingActor final public func process(inputImage: BlinkID.InputImage) async throws -> BlinkID.FrameProcessResult
   @BlinkID.ProcessingActor final public func reset() throws
   @BlinkID.ProcessingActor final public func allowBarcodeStep()
   @BlinkID.ProcessingActor final public func getResult() -> BlinkID.BlinkIDScanningResult
@@ -1674,6 +1677,7 @@ public struct BlinkIDScanningResult : Swift.Sendable {
   public let sponsor: BlinkID.BlinkIDSDK.StringResult?
   public let bloodType: BlinkID.BlinkIDSDK.StringResult?
   public let documentNumber: BlinkID.BlinkIDSDK.StringResult?
+  public let cardAccessNumber: BlinkID.BlinkIDSDK.StringResult?
   public let personalIdNumber: BlinkID.BlinkIDSDK.StringResult?
   public let documentAdditionalNumber: BlinkID.BlinkIDSDK.StringResult?
   public let documentOptionalAdditionalNumber: BlinkID.BlinkIDSDK.StringResult?
@@ -1976,14 +1980,12 @@ public enum FieldType : Swift.String, Swift.Decodable, Swift.Sendable, Swift.Cas
   case stateName
   case effectiveDate
   case parentsLastName
-  case parentsLastName2
-  case parentsFirstName2
   case workRestriction
   case parentsFirstName
   case socialSecurityStatus
   case legalStatus
   case husbandName
-  case chinPermanentExpiry
+  case cardAccessNumber
   public init(from decoder: any Swift.Decoder) throws
   #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)

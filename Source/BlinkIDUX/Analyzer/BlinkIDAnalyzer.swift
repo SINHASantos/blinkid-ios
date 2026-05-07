@@ -100,40 +100,43 @@ public actor BlinkIDAnalyzer: CameraFrameAnalyzer {
         }
         
         let inputImage = InputImage(cameraFrame: image)
-        
-        let frameProcessResult = await session.process(inputImage: inputImage)
-        
-        if let classInfo = frameProcessResult.processResult?.inputImageAnalysisResult.documentClassInfo,
-           !classInfo.isEmpty(),
-           let filter = classFilter {
-            if !filter.classAllowed(classInfo: classInfo) {
-                /// - Note: scanInterrupted returns alert type in continuation which results in presenting an alert.
-                ///         Presening an alert results in paused scanning, which is resumed and reset on alert dismiss.
-                ///                                                          (4.3.2025. Toni Kreso)
-                scanInterrupted(with: .disallowedClass)
-                return
+        do {
+            let frameProcessResult = try await session.process(inputImage: inputImage)
+            
+            if let classInfo = frameProcessResult.processResult?.inputImageAnalysisResult.documentClassInfo,
+               !classInfo.isEmpty(),
+               let filter = classFilter {
+                if !filter.classAllowed(classInfo: classInfo) {
+                    /// - Note: scanInterrupted returns alert type in continuation which results in presenting an alert.
+                    ///         Presening an alert results in paused scanning, which is resumed and reset on alert dismiss.
+                    ///                                                          (4.3.2025. Toni Kreso)
+                    scanInterrupted(with: .disallowedClass)
+                    return
+                }
             }
-        }
-        
-        let events = translator.translate(frameProcessResult: frameProcessResult, scanningSettings: session.settings.scanningSettings)
-
-        if events.contains(.requestDocumentSide(side: .barcode)) {
-            timerTask?.cancel()
-            startTimer(stepTimeoutDuration)
-            Task { @ProcessingActor in
-                session.allowBarcodeStep()
+            
+            let events = translator.translate(frameProcessResult: frameProcessResult, scanningSettings: session.settings.scanningSettings)
+            
+            if events.contains(.requestDocumentSide(side: .barcode)) {
+                timerTask?.cancel()
+                startTimer(stepTimeoutDuration)
+                Task { @ProcessingActor in
+                    session.allowBarcodeStep()
+                }
             }
-        }
-        
-        await eventStream.send(events)
-        
-        if frameProcessResult.processResult?.resultCompleteness.scanningStatus == .documentScanned {
-            guard !scanningDone else { return }
-            scanningDone = true
-            Task { @ProcessingActor in
-                let sessionResult = session.getResult()
-                await finishScanning(with: .completed(sessionResult))
+            
+            await eventStream.send(events)
+            
+            if frameProcessResult.processResult?.resultCompleteness.scanningStatus == .documentScanned {
+                guard !scanningDone else { return }
+                scanningDone = true
+                Task { @ProcessingActor in
+                    let sessionResult = session.getResult()
+                    await finishScanning(with: .completed(sessionResult))
+                }
             }
+        } catch {
+            resultContinuation?.resume(returning: .cancelled)
         }
         
     }
