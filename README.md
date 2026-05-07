@@ -8,6 +8,8 @@
 
 The BlinkID SDK is a comprehensive solution for implementing secure document scanning on iOS. It offers powerful capabilities for capturing and analyzing a wide range of identification documents. The package consists of BlinkID, which serves as the core module, and an optional BlinkIDUX package that provides a complete, ready-to-use solution with a user-friendly interface.
 
+The list of all supported documents and result fields can be found [here](https://docs.microblink.com/blinkid/supported-documents).
+
 # Table of Contents
 
 - [Requirements](#requirements)
@@ -88,7 +90,7 @@ https://github.com/BlinkID/blinkid-sp
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/microblink/blinkid-ios.git", .upToNextMajor(from: "7.7.0"))
+    .package(url: "https://github.com/BlinkID/blinkid-ios.git", .upToNextMajor(from: "7.0.0"))
 ]
 ```
 
@@ -134,7 +136,7 @@ $ git init
 - Add BlinkIDUX as a git submodule by running the following command:
 
 ```shell
-$ git submodule add https://github.com/microblink/blinkid-ios.git
+$ git submodule add https://github.com/BlinkID/blinkid-ios.git
 ```
 
 To add a local Swift package as a dependency in Xcode:
@@ -1223,5 +1225,5 @@ You can find the *App Size Report* [here]().
 
 Complete API references can be found:
 
-* [BlinkID](http://microblink.github.io/blinkid-swift-package/documentation/blinkid/)
-* [BlinkIDUX](http://microblink.github.io/blinkid-ios/documentation/blinkidux/)
+* [BlinkID](http://blinkid.github.io/blinkid-swift-package/documentation/blinkid/)
+* [BlinkIDUX](http://blinkid.github.io/blinkid-ios/documentation/blinkidux/)

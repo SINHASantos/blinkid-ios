@@ -241,6 +241,8 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
         Task {
             await processAnalyzerResult()
         }
+        
+        await analyzer.resume()
 
         for await frame in await camera.sampleBuffer {
             await analyzer.analyze(image: CameraFrame(buffer: MBSampleBufferWrapper(cmSampleBuffer: frame.buffer), roi: roi, orientation: camera.orientation.toCameraFrameVideoOrientation()))
@@ -337,6 +339,8 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
         guard stateChanged else { return }
 
         if reticleStateMachine.reticleState.isErrorState {
+            trackErrorMessage()
+            
             if uxSettings.allowHapticFeedback {
                 UINotificationFeedbackGenerator().notificationOccurred(.warning)
             }
@@ -394,12 +398,11 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
         showTooltip = false
     }
     
-    func trackErrorMessage(_ messageType: UxEventPinglet.ErrorMessageType) {
+    func trackErrorMessage() {
         Task {
-            if currentErrorMessage == messageType { return }
-            currentErrorMessage = messageType
+            guard currentErrorMessage != nil else { return }
             if sessionNumber <= 0 { return }
-            let uxEventPinglet = UxEventPinglet(eventType: .errormessage, errorMessageType: messageType)
+            let uxEventPinglet = UxEventPinglet(eventType: .errormessage, errorMessageType: currentErrorMessage)
             await PingManager.shared.addPinglet(pinglet: uxEventPinglet, sessionNumber: sessionNumber)
         }
     }

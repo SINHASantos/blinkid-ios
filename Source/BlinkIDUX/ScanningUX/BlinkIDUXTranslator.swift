@@ -32,7 +32,7 @@ final class BlinkIDUXTranslator {
                 if [Country.usa, Country.india].contains(inputImageAnalysisResult.documentClassInfo.country) {
                     events.append(.requestDocumentSide(side: .passportBarcode))
                 } else {
-                    events.append(.requestDocumentSide(side: .passport(getPassportOrientation(inputImageAnalysisResult.documentRotation))))
+                    events.append(.requestDocumentSide(side: .passport(inputImageAnalysisResult.documentRotation.passportOrientation)))
                 }
                 
             }
@@ -63,7 +63,7 @@ final class BlinkIDUXTranslator {
                 if [Country.usa, Country.india].contains(inputImageAnalysisResult.documentClassInfo.country) {
                     events.append(.wrongSidePassportWithBarcode)
                 } else {
-                    events.append(.wrongSidePassport(passportOrientation: getPassportOrientation(inputImageAnalysisResult.documentRotation)))
+                    events.append(.wrongSidePassport(passportOrientation: inputImageAnalysisResult.documentRotation.passportOrientation))
                 }
             }
             else {
@@ -134,16 +134,18 @@ final class BlinkIDUXTranslator {
             }
         }
     }
-    
-    private func getPassportOrientation(_ documentRotation: DocumentRotation) -> PassportOrientation {
+}
+
+extension DocumentRotation {
+    public var passportOrientation: PassportOrientation {
         let currentOrientation = UIDevice.current.orientation
         let isPortrait = currentOrientation.isPortrait || currentOrientation == .unknown
         let isFlat = currentOrientation.isFlat
         if isPortrait {
-            if documentRotation == .zero {
+            if self == .zero {
                 return PassportOrientation.right90
             }
-            if documentRotation == .upsideDown {
+            if self == .upsideDown {
                 return PassportOrientation.left90
             }
         }
@@ -152,10 +154,10 @@ final class BlinkIDUXTranslator {
         }
         else {
             if currentOrientation.isLandscape {
-                if documentRotation == .zero {
+                if self == .zero {
                     return PassportOrientation.none
                 }
-                else if documentRotation == .clockwise90 {
+                else if self == .clockwise90 {
                     if currentOrientation == .landscapeLeft {
                         return PassportOrientation.right90
                     }
@@ -163,7 +165,7 @@ final class BlinkIDUXTranslator {
                         return PassportOrientation.right90
                     }
                 }
-                else if documentRotation == .counterClockwise90 {
+                else if self == .counterClockwise90 {
                     if currentOrientation == .landscapeLeft {
                         return PassportOrientation.left90
                     }
@@ -171,12 +173,12 @@ final class BlinkIDUXTranslator {
                         return PassportOrientation.right90
                     }
                 }
-                else if documentRotation == .upsideDown {
+                else if self == .upsideDown {
                     return PassportOrientation.none
                 }
             }
         }
-        
+
         return PassportOrientation.none
     }
 }

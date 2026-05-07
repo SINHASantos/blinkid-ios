@@ -18,14 +18,15 @@ public protocol ReticleStateMachineProtocol: ObservableObject {
     var reticleStateIsInterruptible: Bool { get set }
     func nextState(state: ReticleStateType, force: Bool) -> Bool
     func calculateState(using mostFrequentState: ReticleStateType) -> ReticleStateType
+    func forcedState(state: ReticleStateType)
     func setInitialState()
     func calculateRemainingTime(stateDuration: Double?) -> Double
+    func resetCustomProperties()
 }
 
 extension ReticleStateMachineProtocol {
     public func nextState(state: ReticleStateType, force: Bool = false) -> Bool {
         let timeLeft = calculateRemainingTime()
-        
         guard timeLeft < 0 || force else {
             if timeLeft <= stateCountingDuration {
                 eventCounter[state, default: 0] += 1
@@ -39,6 +40,7 @@ extension ReticleStateMachineProtocol {
            let (mostFrequentState, _) = eventCounter.max(by: { $0.value < $1.value }) {
             newState = calculateState(using: mostFrequentState)
         } else {
+            forcedState(state: state)
             newState = state
         }
         
@@ -73,5 +75,6 @@ extension ReticleStateMachineProtocol {
         fallbackState = reticleState
         lastReticleStateChange = Date().timeIntervalSince1970
         eventCounter.removeAll()
+        resetCustomProperties()
     }
 }

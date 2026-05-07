@@ -9,25 +9,20 @@ import Foundation
 public class ReticleStateMachine: ReticleStateMachineProtocol {
     public typealias ReticleStateType = ReticleState
     
-    @Published public var reticleState: ReticleState
-    public var fallbackState: ReticleState
-    public var lastReticleStateChange: TimeInterval
-    public var eventCounter: [ReticleState : Int]
-    public var reticleStateIsInterruptible: Bool
-    private var lastPassportErrorOrientation: PassportOrientation
+    @Published public var reticleState: ReticleState = .initialState
+    public var fallbackState: ReticleState = .initialState
+    public var lastReticleStateChange: TimeInterval = Date().timeIntervalSince1970
+    public var eventCounter: [ReticleState : Int] = [:]
+    public var reticleStateIsInterruptible: Bool = false
+    private var lastPassportErrorOrientation: PassportOrientation? = nil
     
-    public init() {
-        self.reticleState = .initialState
-        self.fallbackState = .initialState
-        self.lastReticleStateChange = Date().timeIntervalSince1970
-        self.eventCounter = [:]
-        self.reticleStateIsInterruptible = false
-        self.lastPassportErrorOrientation = .none
+    public func resetCustomProperties() {
+        lastPassportErrorOrientation = nil
     }
     
     public func calculateState(using mostFrequentState: ReticleState) -> ReticleState {
         if mostFrequentState == .error("mb_scanning_wrong_page_top") {
-            lastPassportErrorOrientation = .none
+            lastPassportErrorOrientation = PassportOrientation.none
         } else if mostFrequentState == .error("mb_scanning_wrong_page_left") {
             lastPassportErrorOrientation = .left90
         } else if mostFrequentState == .error("mb_scanning_wrong_page_right") {
@@ -36,19 +31,32 @@ public class ReticleStateMachine: ReticleStateMachineProtocol {
 
         if case .passport(let message) = mostFrequentState {
             if message == "mb_instructions_scan_barcode_last_page".localizedString {
-                return ReticleState.passport("mb_instructions_scan_barcode_last_page".localizedString)
+                return mostFrequentState
             } else {
-                switch lastPassportErrorOrientation {
-                case .none:
-                    return ReticleState.passport("mb_top_page_instructions".localizedString)
-                case .left90:
-                    return ReticleState.passport("mb_left_page_instructions".localizedString)
-                case .right90:
-                    return ReticleState.passport("mb_right_page_instructions".localizedString)
+                if let lastPassportErrorOrientation = lastPassportErrorOrientation {
+                    switch lastPassportErrorOrientation {
+                    case .none:
+                        return ReticleState.passport("mb_top_page_instructions".localizedString)
+                    case .left90:
+                        return ReticleState.passport("mb_left_page_instructions".localizedString)
+                    case .right90:
+                        return ReticleState.passport("mb_right_page_instructions".localizedString)
+                    }
                 }
             }
-        } else {
-            return mostFrequentState
+        }
+        return mostFrequentState
+    }
+    
+    public func forcedState(state: ReticleState){
+        if case .passport(let message) = state {
+            if message == "mb_top_page_instructions" {
+                lastPassportErrorOrientation = PassportOrientation.none
+            } else if message == "mb_left_page_instructions" {
+                lastPassportErrorOrientation = .left90
+            } else if message == "mb_right_page_instructions" {
+                lastPassportErrorOrientation = .right90
+            }
         }
     }
 }

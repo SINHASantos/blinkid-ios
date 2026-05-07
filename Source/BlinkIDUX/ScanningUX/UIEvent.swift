@@ -49,4 +49,7 @@ public enum UIEvent: Equatable, Sendable {
     
     /// Indicates the wrong side of the passport with a barcode is being presented
     case wrongSidePassportWithBarcode
+    
+    /// Document currently not supported by the recognizer
+    case unsupportedDocument
 }
