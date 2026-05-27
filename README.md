@@ -22,13 +22,14 @@ The list of all supported documents and result fields can be found [here](https:
 - [BlinkID Components](#BlinkID-components)
   - [BlinkIDSdk](#BlinkIDSdk)
   - [BlinkIDSession](#blinkidsession)
+  - [ScanningSettings](#scanningsettings)
   - [ProcessResult](#processresult)
   - [InputImage](#inputimage)
   - [Resource Management](#resource-management)
 - [BlinkIDUX Components](#BlinkID-ux-components)
   - [BlinkIDAnalyzer](#BlinkIDAnalyzer)
   - [BlinkIDUXModel](#BlinkIDUXModel)
-  - [BlinkIDUXView](#BlinkIDUXModel)
+  - [BlinkIDUXView](#BlinkIDUXView)
 - [Creating custom UX component](#creating-custom-ux-component)
 - [Localization](#localization)
 - [SDK Integration Troubleshooting](#sdk-integration-troubleshooting)
@@ -83,14 +84,14 @@ Once you have your Swift package set up, adding BlinkID and BlinkIDUX as a depen
 We provide a URL to the public package repository that you can add in Xcode:
 
 ```shell
-https://github.com/BlinkID/blinkid-sp
+https://github.com/microblink/blinkid-ios
 ```
 
 ##### **BlinkIDUX**
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/BlinkID/blinkid-ios.git", .upToNextMajor(from: "7.0.0"))
+    .package(url: "https://github.com/microblink/blinkid-ios.git", .upToNextMajor(from: "8000.0.0"))
 ]
 ```
 
@@ -117,7 +118,7 @@ If you prefer not to use Swift Package Manager, you can integrate BlinkID and Bl
 
 ##### **BlinkID**
 
-[Download](https://github.com/BlinkID/blinkid-ios/releases) latest release (Download `BlinkID.xcframework.zip` file or clone this repository).
+[Download](https://github.com/microblink/blinkid-ios/releases) latest release (Download `BlinkID.xcframework.zip` file or clone this repository).
 
 - Copy `BlinkID.xcframework` to your project folder.
 
@@ -136,7 +137,7 @@ $ git init
 - Add BlinkIDUX as a git submodule by running the following command:
 
 ```shell
-$ git submodule add https://github.com/BlinkID/blinkid-ios.git
+$ git submodule add https://github.com/microblink/blinkid-ios.git
 ```
 
 To add a local Swift package as a dependency in Xcode:
@@ -179,17 +180,13 @@ let session = await sdk.createScanningSession()
 3. Process images and handle results:
 
 ```swift
-let result = await session.process(inputImage: capturedImage)
-if result.processResult?.resultCompleteness.scanningStatus == .documentScanned {
+let scanResult = await session.process(inputImage: capturedImage)
+if scanResult.processResult?.inputImageAnalysisResult.processingStatus == .success { 
     let finalResult = await session.getResult()
-    Task { @ProcessingActor in
-        let sessionResult = BlinkIDSession.getResult()
-    }
 }
 ```
 
 ### <a name="initiating-blinkid-ux"></a> Initiating BlinkID UX
-
 We provide the BlinkIDUX package, which encapsulates all the necessary logic for the document scanning process, streamlining integration into your app.
 
 In files in which you want to use the functionality of the SDK place the import directive.
@@ -199,72 +196,58 @@ import BlinkIDUX
 ```
 
 1. Initialize the BlinkIDAnalyzer:
-
 - Begin by creating an instance of the BlinkIDAnalyzer after initializing the capture session:
 
 ```swift
-let analyzer = await BlinkIDAnalyzer(
-    sdk: sdk,
-    eventStream: BlinkIDEventStream()
-)
+let analyzer = await BlinkIDAnalyzer(sdk: sdk)
 ```
 
-2. Create a BlinkIDUXModel:
-
-- Next, use the BlinkIDAnalyzer to initialize the BlinkIDUXModel:
-
-```swift
-let viewModel = BlinkIDUXModel(analyzer: analyzer)
-```
-
-3. Display the BlinkIDUXView in SwiftUI:
-
-- Add the BlinkIDUXView to your SwiftUI view hierarchy using the BlinkIDUXModel::
+2. Display the BlinkIDUXView in SwiftUI:
+- Add the BlinkIDUXView to your SwiftUI view hierarchy using the BlinkIDAnalyzer:
 
 ```swift
 struct ContentView: View {
     var body: some View {
-        BlinkIDUXView(viewModel: viewModel)
+        BlinkIDUXView(analyzer: analyzer) { scanningResultState in }
     }
 }
 ```
 
-4. Access the Capture Result:
-
-- The BlinkIDUXModel exposes the scanning result through the result property, which is a @Published variable. You can observe it to handle the result of the document capture and verification process inside your ViewModel:
+3. Access results:
 
 ```swift
-viewModel.$result
-    .sink { [weak self] scanningResultState in
-        if let scanningResultState {
-                if let scanningResult = scanningResultState.scanningResult {
-                    // Handle the scanning result
-                    print("Scanning completed with result: \(scanningResult)")
-                }
-        }
-    }
-    .store(in: &cancellables)
-```
-
-- or you can also directly observe it within your SwiftUI views using SwiftUI’s @ObservedObject or @StateObject property wrappers. This allows you to automatically update your UI based on the capture result without manually handling Combine subscriptions.
-
-```swift
-struct ContentView: View {
-    @StateObject var viewModel: BlinkIDUXModel
-
-    var body: some View {
-        VStack {
-            BlinkIDUXView(viewModel: viewModel)
-
-            if let result = viewModel.scanningResult {
-                Text("Scanning Result: \(result.scanningResult.description)")
-            } else {
-                Text("Awaiting scanning...")
-            }
-        }
+BlinkIDUXView(analyzer: analyzer) { scanningResultState in
+    if let scanningResult = scanningResultState.scanningResult {
+        // do sth with result
+    } else {
+        // or here if there's no result
     }
 }
 ```
+
+4. You can also pass ScanningUXSettings as a view modifier:
+
+```swift
+BlinkIDUXView(analyzer: analyzer) { scanningResultState in
+}
+.uxSettings(uxSettings)
+```
+
+5. Observe per-frame processing with the `onFrameProcessResult` view modifier:
+- This modifier delivers a `FrameProcessResultHandle` on every processed camera frame (and once when the hard step timeout fires). Use `resultCompleteness` to inspect how much data has been extracted so far and decide whether to advance the scanning session to the next step:
+
+```swift
+BlinkIDUXView(analyzer: analyzer) { scanningResultState in
+}
+.onFrameProcessResult { handle in
+    guard let completeness = handle.processResult?.resultCompleteness else { return }
+    // inspect completeness and decide whether to advance to the next step
+}
+```
+
+> **Important:** Do not use `BlinkIDScanningResult` for this decision. `ResultCompleteness` is lightweight, always available per frame, and describes extraction status and presence requirements without constructing a full result.
+
+> **Warning:** This handle is delivered on the frame processing context, not on the main thread. Dispatch any UI work to `DispatchQueue.main` or `@MainActor` as needed.
 
 ### <a name="blinkid"></a> Initiating BlinkID
 
@@ -354,11 +337,9 @@ public func analyze(image: CameraFrame) async {
     
     let result = await BlinkIDSession.process(inputImage: inputImage)
 
-    if result.processResult?.resultCompleteness.scanningStatus == .documentScanned {
-        guard !scanningDone else { return }
-        scanningDone = true
+    if result.processResult?.inputImageAnalysisResult.processingStatus == .success {
         Task { @ProcessingActor in
-            let sessionResult = BlinkIDSession.getResult()
+            let sessionResult = session.getResult()
             // Finish scanning
         }
     }
@@ -381,52 +362,207 @@ The class implements the `Sendable` protocol and uses actor isolation (`@Process
 - Maintain proper lifecycle management of the session
 - Handle results appropriately according to your application's needs
 
+### FrameProcessResult
+`FrameProcessResult` is the top-level value returned from processing a single camera frame. It carries either a successful `ProcessResult` or a `SessionError`.
+- `processResult`: `ProcessResult?` - The result of the frame processing, or `nil` if processing did not produce one.
+- `sessionError`: `SessionError?` - The error that occurred during processing, if any.
+
+### ScanningSettings
+
+`ScanningSettings` is the central configuration for how a document is scanned. It groups together the individual extraction modules — document capture, MRZ, barcode, and VIZ — along with the data-matching tolerance. It's passed to `BlinkIDSessionSettings`, which in turn configures a scanning session.
+
+Each module is optional. A `nil` module means that module is disabled; a non-`nil` module means it runs with the supplied settings. By default every module is enabled with its standard settings.
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `documentCaptureModule` | `DocumentCaptureModuleSettings?` | `.init()` | Document detection, image extraction, and image-quality validation |
+| `mrzModule` | `MrzModuleSettings?` | `.init()` | Machine Readable Zone detection and parsing |
+| `barcodeModule` | `BarcodeModuleSettings?` | `.init()` | 1D/2D barcode detection and data extraction |
+| `vizModule` | `VizModuleSettings?` | `.init()` | Visual Inspection Zone field extraction |
+| `maxAllowedMismatchesPerField` | `Int` | `0` | Max characters per field that may differ during data matching across sides |
+
+```swift
+let settings = ScanningSettings(
+    documentCaptureModule: DocumentCaptureModuleSettings(),
+    mrzModule: MrzModuleSettings(),
+    barcodeModule: BarcodeModuleSettings(),
+    vizModule: VizModuleSettings(),
+    maxAllowedMismatchesPerField: 0
+)
+```
+
+To disable a module entirely, pass `nil`:
+
+```swift
+// Capture-only configuration with no barcode scanning
+let settings = ScanningSettings(barcodeModule: nil)
+```
+
+---
+
+### DocumentCaptureModuleSettings
+
+Responsible for the initial document detection, image extraction (face, document, signature), and image-quality validation (blur, glare, lighting, tilt, hand occlusion).
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `inputImageCropped` | `Bool` | `false` | Input is already cropped and perspective-corrected. Applies to `Photo` source only; ignored for `Video`. |
+| `unsupportedDocumentsAllowed` | `Bool` | `false` | Allow processing of documents classified as `OTHER`. |
+| `secondSideWithNoExtractableDataSkipped` | `Bool` | `true` | Stop after the front side when the back has no extractable data. If `false`, the back is still captured. |
+| `passportDataPageScanOnly` | `Bool` | `true` | Scan only the passport data page (the one with the MRZ). If `false`, a second page may be required for some passports. |
+| `faceImageExtractionEnabled` | `Bool` | `false` | Extract the document's face image when present. |
+| `faceImagePresenceMandatory` | `Bool` | `false` | Require a face image. In Automatic mode the side with the face must be scanned first. |
+| `inputImageReturnEnabled` | `Bool` | `false` | Return the input images in the result. Significantly increases memory use. |
+| `documentImageReturnEnabled` | `Bool` | `false` | Return the cropped document image in the result. |
+| `inputImageMargin` | `Float?` | `0.02` | Minimum margin (0.0–1.0) between the image edge and the document. `Video` source only; ignored when `inputImageCropped == true`. |
+| `dotsPerInch` | `DPI` | `250` | DPI for cropped document, face, and signature images. Allowed range 100–400. |
+| `extensionFactor` | `Float` | `0.0` | Extension factor (0.0–1.0) for the cropped document image. Document images only. |
+| `blurSensitivityLevel` | `SensitivityLevel` | `.mid` | Sensitivity of blur detection. |
+| `imageWithBlurRejected` | `Bool?` | `true` | Reject blurry images (sets `ProcessingStatus` to `imagePreprocessingFailed`). If `false`, blur is reported but processed. |
+| `glareSensitivityLevel` | `SensitivityLevel` | `.mid` | Sensitivity of glare detection. |
+| `imageWithGlareRejected` | `Bool?` | `true` | Reject images with glare. If `false`, glare is reported but processed. |
+| `tiltSensitivityLevel` | `SensitivityLevel` | `.mid` | Sensitivity of allowed document tilt. |
+| `imageWithPoorLightingRejected` | `Bool` | `true` | Reject images that are `tooBright` or `tooDark`. |
+| `imageWithHandOcclusionRejected` | `Bool?` | `true` | Reject images occluded by a hand. Applies only when `inputImageCropped == false`. |
+
+> `Bool?` fields use `nil` to defer to SDK behavior, distinct from an explicit `true`/`false`.
+
+---
+
+### MrzModuleSettings
+
+Handles detection and parsing of the Machine Readable Zone found on passports, visas, and identity cards.
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `presenceMandatory` | `Bool` | `false` | Require an MRZ regardless of document rules. In Single mode it must be on the scanned side; in Automatic mode on one of the scanned sides. |
+
+If a timeout advances the flow and an MRZ was detected but not extractable, the presence requirement is treated as fulfilled — MRZ extraction won't block completion on the next side.
+
+---
+
+### BarcodeModuleSettings
+
+Manages detection and data extraction from 1D and 2D barcode formats (PDF417, QR, and various retail codes). Can run standalone or alongside document capture.
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `presenceMandatory` | `Bool` | `false` | Require a barcode. Single mode: on the scanned side. Automatic mode: on one of the scanned sides. |
+| `barcodeImageReturnEnabled` | `Bool` | `false` | Return the barcode image. DPI and extension factor do not affect it. |
+| `pdf417ScanningEnabled` | `Bool` | `true` | Enable PDF417 scanning. |
+| `qrScanningEnabled` | `Bool` | `true` | Enable QR scanning. |
+| `upceScanningEnabled` | `Bool` | `false` | Enable UPC-E. Only if document capture is disabled. |
+| `upcaScanningEnabled` | `Bool` | `false` | Enable UPC-A. Only if document capture is disabled. |
+| `code128ScanningEnabled` | `Bool` | `false` | Enable Code-128. Only if document capture is disabled. |
+| `code39ScanningEnabled` | `Bool` | `false` | Enable Code-39. Only if document capture is disabled. |
+| `ean8ScanningEnabled` | `Bool` | `false` | Enable EAN-8. Only if document capture is disabled. |
+| `ean13ScanningEnabled` | `Bool` | `false` | Enable EAN-13. Only if document capture is disabled. |
+| `itfScanningEnabled` | `Bool` | `false` | Enable ITF. Only if document capture is disabled. |
+| `dataMatrixScanningEnabled` | `Bool` | `false` | Enable DataMatrix. Only if document capture is disabled. |
+
+> **Important:** The analyzer model flags a barcode as "present" when it detects either a PDF417 or a QR code, without distinguishing between them at that stage. If `pdf417ScanningEnabled` is on but `qrScanningEnabled` is off (or vice versa), the analyzer can trigger on the other type and hang. Keep `pdf417ScanningEnabled` and `qrScanningEnabled` enabled together.
+
+---
+
+### VizModuleSettings
+
+Extracts data from the document's visual fields. Supports character validation, signature image extraction, and aggregation across multiple video frames.
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `presenceMandatory` | `Bool` | `false` | Require VIZ. Single mode scans the front of supported documents only. Automatic mode is unaffected (front then back). |
+| `signatureImageExtractionEnabled` | `Bool` | `false` | Extract the signature image where supported by document rules. |
+| `characterValidationEnabled` | `Bool` | `true` | Allow only results with expected characters per field. An invalid character yields `ProcessingStatus.invalidCharactersFound`. Improves accuracy. |
+| `resultAggregationEnabled` | `Bool?` | `true` | Aggregate data across frames. Disabling yields higher-quality images but slower scanning. `Video` source only; ignored for `Photo`. |
+
+If a front-side VIZ isn't fully extracted before a timeout advances the flow, extraction continues on the back side when present.
+
+---
+
+### Supporting types
+
+#### SensitivityLevel
+
+Configures detection sensitivity for blur, glare, and tilt.
+
+- `off` — detection disabled
+- `low` — less sensitive
+- `mid` — balanced (default for quality checks)
+- `high` — most sensitive
+
+#### DPI
+
+A type alias for `UInt16`, used by `dotsPerInch`.
+
+---
+
+### Putting it together
+
+`ScanningSettings` is supplied via `BlinkIDSessionSettings`, which is what a scanning session actually consumes:
+
+```swift
+let sessionSettings = BlinkIDSessionSettings(
+    inputImageSource: .video,
+    scanningMode: .automatic,
+    scanningSettings: ScanningSettings(
+        documentCaptureModule: DocumentCaptureModuleSettings(
+            faceImageExtractionEnabled: true,
+            documentImageReturnEnabled: true
+        ),
+        mrzModule: MrzModuleSettings(presenceMandatory: true),
+        barcodeModule: BarcodeModuleSettings(),
+        vizModule: VizModuleSettings()
+    ),
+    stepTimeoutDuration: 60.0,
+    inactivityTimeoutDuration: 10.0
+)
+```
+
 ### ProcessResult
-
 `ProcessResult` is a Swift structure that encapsulates the complete results of a document scanning process, combining frame analysis with completion status information.
-
-- Document detection status
-- Completion status
+- `inputImageAnalysisResult`: `InputImageAnalysisResult` - Detailed analysis of the processed frame (detection, quality, document classification).
+- `resultCompleteness`: `ResultCompleteness` - Describes how much of the document's data has been extracted so far.
 
 #### Key Features
 
 ##### InputImageAnalysisResult
+Contains detailed analysis results for a single frame in the verification process, including processing status, document detection and classification, image quality checks (blur, glare, lighting, moiré, hand occlusion), and the lists of missing, extracted, invalid, and extra fields.
 
-Contains detailed analysis results for a single frame in the verification process.
+Notable fields include:
+- `processingStatus`: `ProcessingStatus` - Overall processing status for the frame
+- `documentDetectionStatus`: `DetectionStatus` - The status of document detection
+- `documentLocation`: `Quadrilateral?` - The location of the detected document within the image, or `nil` if not available
+- `documentOrientation`: `DocumentOrientation` - The orientation of the detected document
+- `documentRotation`: `DocumentRotation` - The rotation of the detected document
+- `documentClassInfo`: `DocumentClassInfo` - Information about the document class (country, region, type)
 
 ##### DetectionStatus
-
 An enumeration representing the status of document detection during scanning.
-
-- `failed`: Document recognition failed
-- `success`: Document recognition completed successfully
+- `failed`: Detection has failed
+- `success`: Document has been detected
 - `cameraTooFar`: Document has been detected but the camera is too far from the document
 - `cameraTooClose`: Document has been detected but the camera is too close to the document
-- `cameraAngleTooSteep`: Document has been detected but the camera’s angle is too steep
+- `cameraAngleTooSteep`: Document has been detected but the camera's angle is too steep
 - `documentTooCloseToCameraEdge`: Document has been detected but the document is too close to the camera edge
 - `documentPartiallyVisible`: Only part of the document is visible
 
 ##### ScanningStatus
-
-An enumeration that defines the possible statuses that can occur during the scanning operation, specifically for managing the progress of scanning sides and the entire document.
-
-- `scanningSideInProgress`: Document recognition failed
-- `scanningBarcodeInProgress`: Document recognition completed successfully
-- `sideScanned`: Document has been detected but the camera is too far from the document
-- `documentScanned`: Document has been detected but the camera is too close to the document
-- `cancelled`: Document has been detected but the camera’s angle is too steep
+An enumeration that defines the possible statuses that can occur during the scanning operation, specifically for managing the progress of scanning sides and the entire document. Retrieved via `session.getScanningStatus()`.
+- `scanningSideInProgress`: A document side is currently being scanned
+- `scanningBarcodeInProgress`: The barcode is currently being scanned
+- `sideScanned`: A document side has been scanned
+- `documentScanned`: The entire document has been scanned
+- `cancelled`: Scanning was cancelled
 
 ##### ResultCompleteness
-
-A structure tracking the progress of different verification phases.
-
-- `scanningStatus`: `ScanningStatus` - Indicates the status of the scanning process
-- `vizExtracted`: `Bool` - Indicates if the VIZ fields have been extracted
-- `mrzExtracted`: `Bool` - Indicates if the MRZ fields have been extracted
-- `barcodeExtracted`: `Bool` - Indicates if the barcode fields have been extracted
-- `documentImageExtracted`: `Bool` - Indicates if the document image has been extracted
-- `faceImageExtracted`: `Bool` - Indicates if the face image has been extracted
-- `signatureImageExtracted`: `Bool` - Indicates if the signature image has been extracted
+A structure tracking the completeness of the extraction process for a scanned document. It indicates whether specific components — VIZ, MRZ, barcode, and images — have been successfully extracted. All properties are optional and `nil` when not applicable to the scanned document.
+- `viz`: `[VizCompleteness?]?` - Completeness of VIZ extraction for one or more VIZ models
+- `mrz`: `MrzCompleteness?` - Completeness of MRZ extraction
+- `barcode`: `BarcodeCompleteness?` - Completeness of barcode extraction
+- `faceImage`: `ImageCompleteness?` - Completeness of face image extraction
+- `signatureImage`: `ImageCompleteness?` - Completeness of signature image extraction
+- `barcodeImage`: `ImageCompleteness?` - Completeness of barcode image extraction
+- `documentImages`: `[ImageCompleteness]?` - Completeness of document image extraction (one or more pages/sides)
 
 ##### Point
 
@@ -444,19 +580,10 @@ Represents a four-sided polygon defined by its corner points.
 - `lowerRight`: `Point`
 - `lowerLeft`: `Point`
 
-#### DocumentLocation
-
-Combines physical position and orientation information of a detected document.
-
-- `location`: `Quadrilateral` - Boundary coordinates of the detected document
-- `orientation`: `CardOrientation` - Orientation of the detected document
-
 #### Usage Example
 
 ```swift
-if result.processResult?.resultCompleteness.scanningStatus == .documentScanned {
-    guard !scanningDone else { return }
-    scanningDone = true
+if result.processResult?.inputImageAnalysisResult.processingStatus == .success {
     Task { @ProcessingActor in
         let sessionResult = session.getResult()
         // Finish scanning
@@ -471,21 +598,21 @@ if result.processResult?.resultCompleteness.scanningStatus == .documentScanned {
    - Check `processingStatus` for overall processing success
 
 2. Quality Control
-   - Use `blur` and `glare` detection to ensure optimal image quality
+   - Use `blurDetectionStatus` and `glareDetectionStatus` to ensure optimal image quality
 
 3. Progress Tracking
-   - Use `ResultCompleteness` to track verification progress
-   - Monitor `scanningStatus` for overall process state
+   - Use `ResultCompleteness` to track extraction progress
+   - Use `session.getScanningStatus()` to monitor overall process state
    - Handle partial completions appropriately
 
 All types conform to the `Sendable` protocol, ensuring thread-safe operations in concurrent environments.
 
 ##### Best practices
 
-1. Always check `resultCompleteness.scanningStatus == .documentScanned` before concluding the scanning process
+1. Always check `session.getScanningStatus() == .documentScanned` before concluding the scanning process
 2. Implement proper error handling for all possible `DetectionStatus` cases
-4. Monitor quality indicators (blur, glare, moire) for optimal capture conditions
-5. Implement appropriate user feedback based on `processingStatus` and `documentDetectionStatus`
+3. Monitor quality indicators (blur, glare, moire) for optimal capture conditions
+4. Implement appropriate user feedback based on `processingStatus` and `documentDetectionStatus`
 
 ### InputImage
 
@@ -525,7 +652,7 @@ An enumeration representing the device orientation during frame capture.
 
 A structure representing a complete camera frame with its metadata.
 
-- `buffer`: `MBSampleBufferWrapper` - Raw camera buffer containing image data
+- `buffer`: `CMSampleBuffer` - Raw camera buffer containing image data
 - `roi`: `RegionOfInterest` - Region of interest within the frame
 - `orientation`: `CameraFrameVideoOrientation` - Camera orientation
 - `width`: `Int` - Frame width in pixels (computed property)
@@ -533,7 +660,7 @@ A structure representing a complete camera frame with its metadata.
 
 ```swift
 public init(
-    buffer: MBSampleBufferWrapper, 
+    buffer: CMSampleBuffer, 
     roi: RegionOfInterest = RegionOfInterest(), 
     orientation: CameraFrameVideoOrientation = .portrait
 )
@@ -542,7 +669,7 @@ public init(
 ```swift
 func processCameraOutput(_ sampleBuffer: CMSampleBuffer) {
     let frame = CameraFrame(
-        buffer: MBSampleBufferWrapper(buffer: sampleBuffer),
+        buffer: sampleBuffer,
         roi: RegionOfInterest(x: 0, y: 0, width: 1.0, height: 1.0),
         orientation: .portrait
     )
@@ -739,14 +866,9 @@ public actor BlinkIDAnalyzer: CameraFrameAnalyzer {
 ##### Initialization
 
 ```swift
-// Create an event stream
-let eventStream = BlinkIDEventStream()
-
 // Initialize the analyzer
 let analyzer = await BlinkIDAnalyzer(
-    sdk: blinkIDVerifySdk,
-    blinkIDSessionSettings: BlinkIDSessionSettings(inputImageSource: .video),
-    eventStream: eventStream
+    sdk: blinkIDSDK
 )
 ```
 
@@ -755,7 +877,7 @@ let analyzer = await BlinkIDAnalyzer(
 ```swift
 // Analyze a camera frame
 for await frame in await camera.sampleBuffer {
-    await analyzer.analyze(image: CameraFrame(buffer: MBSampleBufferWrapper(cmSampleBuffer: frame.buffer), roi: roi, orientation: camera.orientation.toCameraFrameVideoOrientation()))
+    await analyzer.analyze(image: CameraFrame(buffer: frame.buffer, roi: roi, orientation: camera.orientation.toCameraFrameVideoOrientation()))
 }
 ```
 
@@ -934,8 +1056,6 @@ You have the flexibility to create your own custom UX if needed. However, we str
 
 We also highly recommend using our built-in Camera and CameraView components, as they are fully optimized for performance and seamlessly integrated with the BlinkIDAnalyzer. However, if necessary, you can implement and use your own camera solution. 
 
-> If implementing your own Camera component, be sure to wrap your CMSampleBufferRef to our own `MBSampleBufferWrapper`. `MBSampleBufferWrapper` safely encapsulates a Core Media sample buffer, ensuring proper reference counting and memory management while maintaining binary compatibility across different Swift versions.
-
 ### ViewModel Creation
 
 To integrate the document scanning workflow effectively, you will start by creating a ViewModel to manage the scanning logic and interface with the underlying components. The ViewModel acts as the bridge between the CameraFrameAnalyzer and your UI, handling data flow, state management, and event processing.
@@ -1015,7 +1135,7 @@ public func analyze() async {
     }
     
     for await frame in await camera.sampleBuffer {
-        await analyzer.analyze(image: CameraFrame(buffer: MBSampleBufferWrapper(cmSampleBuffer: frame.buffer), roi: roi, orientation: camera.orientation.toCameraFrameVideoOrientation()))
+        await analyzer.analyze(image: CameraFrame(buffer: frame.buffer, roi: roi, orientation: camera.orientation.toCameraFrameVideoOrientation()))
     }
 }
 ```
@@ -1210,7 +1330,7 @@ If you are having problems with scanning certain items, undesired behaviour on s
 
 # <a name="blinkid-sdk-size"></a> BlinkID SDK size
 
-BlinkID is really lightweight SDK. Compressed size is just **2.1MB**. SDK size calculation is done by [creating an App Size Report with Xcode](https://developer.apple.com/documentation/xcode/reducing-your-app-s-size), one with and one without the SDK.
+BlinkID is really lightweight SDK. Compressed size is just **2.4MB**. SDK size calculation is done by [creating an App Size Report with Xcode](https://developer.apple.com/documentation/xcode/reducing-your-app-s-size), one with and one without the SDK.
 Here is the SDK *App Size Report* for iPhone:
 
 | Size | App + On Demand Resources size | App size |
@@ -1219,7 +1339,7 @@ Here is the SDK *App Size Report* for iPhone:
 | uncompressed | 5.5 MB | 5.5 MB |
 
 The uncompressed size is equivalent to the size of the installed app on the device, and the compressed size is the download size of your app.
-You can find the *App Size Report* [here]().
+You can find the *App Size Report* [here](https://github.com/microblink/blinkid-ios/tree/master/size-report).
 
 # <a name="additional-info"></a> Additional info
 

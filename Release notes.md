@@ -1,5 +1,109 @@
 # Release notes
 
+## 8000.0.0
+
+### What's new
+- SDK Modularization & Enhanced Flexibility - We’ve transformed our core architecture. Features previously known as "fallback modes" are now independent SDK modules.
+    - Tailored Implementation: Users can now toggle specific modules such as Capture, Barcode, MRZ, or VIZ scanners to build a workflow that fits their exact needs.
+    - Total Control: This modular approach offers unprecedented flexibility, allowing you to use BlinkID as a comprehensive recognition tool or a specialized scanner, all while leveraging our latest feature updates.
+
+- Expanded Barcode Support - When operating in Barcode Mode, BlinkID is no longer limited to PDF417.
+    - Universal Scanning: We’ve added support for QR codes, Code 128, Code 39, ITF, EAN, UPC, and DataMatrix.
+    - Versatility: This expansion allows the SDK to be used across a wider variety of document types beyond standard IDs.
+
+- Streamlined Extraction & Anonymization - We are putting more power in the hands of our integrators by removing restrictive custom rules.
+    - Document Rules: Custom document rules have been removed. Customers can now implement their own logic based on result completeness to determine how a document is processed.
+    - Anonymization: We’ve transitioned away from fixed anonymization rules. You can now programmatically decide which fields to mask and how to handle them based on the specific data returned.
+
+- Intelligent Timeout Mechanism - To balance performance with accuracy, we’ve introduced a new timeout feature
+    - Non-Blocking Scans: Ensures a smooth user experience by preventing "stuck" scan states.
+    - Step-by-Step Decisions: After each extraction step, you can decide whether the current data is sufficient or if the SDK should continue processing to gather more information.
+    - Inactivity Timer: A new inactivity timer ends the scanning session after a configurable period (default `10` seconds) during which no changes in scanning events are observed.
+    - Per-Step Timer: The existing per-step timer continues to apply independently to each scanning step (first side, second side, and barcode), and works alongside the new inactivity timer.
+
+- Improved Barcode Reading Logic - Refined the internal logic for barcode detection and decoding, resulting in more reliable extraction across supported symbologies and document types.
+
+- New Initializers - `BlinkIDUXView` now exposes a simplified initializer that takes only the analyzer and a scan-completion closure. UX configuration and frame-processing callbacks are provided via SwiftUI environment values (`uxSettings`, `frameProcessResultCallback`), keeping the call site clean while remaining fully customizable.
+
+    ```swift
+    public struct BlinkIDUXView: View {
+        @Environment(\.uxSettings) private var uxSettings
+        @Environment(\.frameProcessResultCallback) private var frameProcessResultCallback
+
+        private let analyzer: any CameraFrameAnalyzer<CameraFrame, UIEvent>
+        private let onScanCompleted: (BlinkIDResultState) -> Void
+
+        public init(
+            analyzer: any CameraFrameAnalyzer<CameraFrame, UIEvent>,
+            onScanCompleted: @escaping (BlinkIDResultState) -> Void
+        ) {
+            self.analyzer = analyzer
+            self.onScanCompleted = onScanCompleted
+            self.externalViewModel = nil
+        }
+    }
+    ```
+
+- New UI for Extraction Modes - Added dedicated UI flows tailored to each extraction mode:
+    - `barcodeOnly`: streamlined UI focused exclusively on barcode capture.
+    - `documentWithBarcode`: UI optimized for documents where both the visual document and the barcode are captured.
+    - `fullDocument`: UI for complete document extraction across all supported sides.
+
+- Document-Specific Improvements
+    - EU Residence Permits: For documents with redundant fields on both the front and back, BlinkID now intelligently merges these into the top-level results for better data consistency.
+    - Egypt Driver’s License: Enhanced data extraction to now include Date of Birth (DOB) as an additional field.
+    - Zimbabwe ID: Improved data extraction to support and return both alphabetic and numeric characters within the document number field.
+
+## Bug fixes
+- Date Conversion Accuracy: Resolved an issue where Islamic-to-Gregorian date conversions could occasionally differ by +/- 1 day. These conversions are now precise and consistent.
+
+### API changes
+
+#### `BlinkIDUXView` API Redesign
+
+##### Overview
+
+The scanning result observation API has been redesigned from a Combine-based publisher pattern to a SwiftUI-native closure and modifier approach. This removes the need for managing `AnyCancellable` subscriptions manually and makes integration significantly more concise.
+
+##### What Changed
+
+**`BlinkIDUXModel` + Combine publisher -> `BlinkIDUXView` with result closure**
+
+The previous API required instantiating a `BlinkIDUXModel`, subscribing to its `$result` publisher via `.sink`, and storing the cancellable. The new API passes the result handler directly as a trailing closure on `BlinkIDUXView`, which receives the `scanningResultState` inline.
+
+**Frame processing result handling via `.onFrameProcessResult`**
+
+Advance-to-next-step logic is now expressed through the new `.onFrameProcessResult` modifier. The closure receives a `handle` with access to `processResult?.resultCompleteness`, and you call `handle.advanceToNextStep()` directly — no separate publisher or delegate needed.
+
+##### Migration
+
+**Before:**
+```swift
+let scanningUxModel = BlinkIDUXModel(analyzer: analyzer)
+scanningUxModel.$result
+    .sink { [weak self] scanningResultState in
+        if let scanningResultState {
+            if let scanningResult = scanningResultState.scanningResult {
+            } else {
+            }
+        }
+    }
+    .store(in: &cancellables)
+```
+
+**After:**
+```swift
+BlinkIDUXView(analyzer: analyzer) { scanningResultState in
+    if let scanningResult = scanningResultState.scanningResult {
+    } else {
+    }
+}
+```
+
+#### Buffer
+
+`MBSampleBufferWrapper` has been removed — pass your `CMSampleBuffer` directly to `CameraFrame` when handling camera processing yourself.
+
 ## v7.8.0
 
 ### What's new

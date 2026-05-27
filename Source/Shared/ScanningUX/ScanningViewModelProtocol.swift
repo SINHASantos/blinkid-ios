@@ -51,6 +51,7 @@ protocol ScanningViewModelProtocol: ObservableObject {
     func pauseScanning()
     func resumeScanning()
     func restartScanning()
+    func resetStepTimer()
     func licenseErrorAlertDismised()
     func presentAlert()
     func dismissAlert()
@@ -245,7 +246,7 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
         await analyzer.resume()
 
         for await frame in await camera.sampleBuffer {
-            await analyzer.analyze(image: CameraFrame(buffer: MBSampleBufferWrapper(cmSampleBuffer: frame.buffer), roi: roi, orientation: camera.orientation.toCameraFrameVideoOrientation()))
+            await analyzer.analyze(image: CameraFrame(buffer: frame.buffer, roi: roi, orientation: camera.orientation.toCameraFrameVideoOrientation()))
         }
     }
     
@@ -316,6 +317,12 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
             await camera.start()
         }
     }
+
+    public func resetStepTimer() {
+        Task {
+            await analyzer.resetStepTimer()
+        }
+    }
     
     // MARK: - Common Methods
     
@@ -354,7 +361,7 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
         showTooltip = false
         
         Task {
-            var interval = await analyzer.stepTimeoutDuration / 2.0
+            var interval = await analyzer.inactivityTimeoutDuration / 2.0
             
             if interval <= 0 {
                 interval = 8.0
@@ -473,6 +480,7 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
 
         showCardImage = false
         flipCardDegrees = 180.0
+        resetStepTimer()
         resumeScanning()
         setReticleState(nextState, force: true)
     }

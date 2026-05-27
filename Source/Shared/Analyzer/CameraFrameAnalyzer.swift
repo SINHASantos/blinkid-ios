@@ -59,7 +59,10 @@ public protocol CameraFrameAnalyzer<Frame, Event> : Sendable {
     
     /// Restart ``CameraFrame`` analyzation.
     func restart() async throws
-    
+
+    /// Reset the per-step timeout back to the full duration
+    func resetStepTimer() async
+
     /// End ``CameraFrame`` analyzation.
     func end() async
     
@@ -73,5 +76,15 @@ public protocol CameraFrameAnalyzer<Frame, Event> : Sendable {
     /// If less than zero, scanning will not time out.
     var stepTimeoutDuration: TimeInterval { get async }
     
+    /// Duration in seconds before scanning times out and is cancelled due to inactivity.
+    /// If less than zero, scanning will not time out.
+    var inactivityTimeoutDuration: TimeInterval { get async }
+    
     var sessionNumber: Int { get }
+}
+
+public extension CameraFrameAnalyzer {
+    /// Default no-op so analyzers without resumable step-timer semantics
+    /// don't need to implement anything.
+    func resetStepTimer() async {}
 }
