@@ -57,15 +57,6 @@
 ## Bug fixes
 - Date Conversion Accuracy: Resolved an issue where Islamic-to-Gregorian date conversions could occasionally differ by +/- 1 day. These conversions are now precise and consistent.
 
-### New documents support
-- 
-
-#### New document versions for supported documents
-- 
-
-#### New segments supported on documents
-- 
-
 ### API changes
 
 #### `BlinkIDUXView` API Redesign
