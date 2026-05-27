@@ -54,7 +54,7 @@ final class BlinkIDViewModel: ObservableObject {
             return
         }
         
-        if let analyzer = try? await BlinkIDAnalyzer(sdk: sdkInstance, blinkIdSessionSettings: BlinkIDSessionSettings(scanningSettings: ScanningSettings(croppedImageSettings: CroppedImageSettings(returnDocumentImage: true, returnFaceImage: true))), eventStream: BlinkIDEventStream()) {
+        if let analyzer = try? await BlinkIDAnalyzer(sdk: sdkInstance, blinkIdSessionSettings: createSettings(), eventStream: BlinkIDEventStream()) {
             if customScan {
                 let scanningUxModel = CustomScanningViewModel(analyzer: analyzer)
                 scanningUxModel.$scanningResult
@@ -69,22 +69,37 @@ final class BlinkIDViewModel: ObservableObject {
                 
                 state = .scanCustom(scanningUxModel)
             } else {
-                let scanningUxModel = BlinkIDUXModel(analyzer: analyzer)
-                scanningUxModel.$result
-                    .sink { [weak self] scanningResultState in
-                        if let scanningResultState {
-                            if let scanningResult = scanningResultState.scanningResult {
-                                self?.state = .success(scanningResult)
-                            }
-                            else {
-                                self?.state = .home
-                            }
-                        }
+                let scanningUxModel = BlinkIDUXModel(analyzer: analyzer) { scanningResultState in
+                    if let scanningResult = scanningResultState.scanningResult {
+                        self.state = .success(scanningResult)
                     }
-                    .store(in: &cancellables)
+                    else {
+                        self.state = .home
+                    }
+                }
                 
                 state = .scanBuiltin(scanningUxModel)
             }
         }
+    }
+    
+    func createSettings() -> BlinkIDSessionSettings {
+        let documentCapture = DocumentCaptureModuleSettings()
+        let mrzModuleSettings = MrzModuleSettings(presenceMandatory: false)
+        let vizModuleSettings = VizModuleSettings(presenceMandatory: true)
+        let barcodeModuleSettings = BarcodeModuleSettings(presenceMandatory: false)
+        
+        let scanningSettings = ScanningSettings(
+            documentCaptureModule: documentCapture,
+            mrzModule: mrzModuleSettings,
+            barcodeModule: barcodeModuleSettings,
+            vizModule: vizModuleSettings
+        )
+        
+        return BlinkIDSessionSettings(
+            inputImageSource:          .video,
+            scanningMode:              .automatic,
+            scanningSettings:          scanningSettings
+        )
     }
 }
