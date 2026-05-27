@@ -42,4 +42,28 @@ extension Image {
     static var passportTopImage: Image {
         Image("passport_top", bundle: Bundle.frameworkBundle)
     }
+    
+    static var harshLightBarcodeImage: Image {
+        Image("harsh_light_barcode", bundle: Bundle.frameworkBundle)
+    }
+    
+    static var keepBarcodeVisibleIdImage: Image {
+        Image("keep_barcode_visible_id", bundle: Bundle.frameworkBundle)
+    }
+    
+    static var keepBarcodeVisibleImage: Image {
+        Image("keep_barcode_visible", bundle: Bundle.frameworkBundle)
+    }
+    
+    static var keepStillBarcodeImage: Image {
+        Image("keep_still_barcode", bundle: Bundle.frameworkBundle)
+    }
+    
+    static var locateBarcodeIdImage: Image {
+        Image("locate_barcode_id", bundle: Bundle.frameworkBundle)
+    }
+    
+    static var locateBarcodeImage: Image {
+        Image("locate_barcode", bundle: Bundle.frameworkBundle)
+    }
 }

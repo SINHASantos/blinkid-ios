@@ -136,7 +136,7 @@ public actor CaptureService {
             activeVideoInput = try addInput(for: defaultCamera)
 
             // Configure the session for video capture by default.
-            captureSession.sessionPreset = .hd1920x1080
+            captureSession.sessionPreset = .high
             try addOutput(videoCapture.output)
             
             // Monitor the system-preferred camera state.
@@ -341,6 +341,9 @@ public actor CaptureService {
     /// Sets whether the SDK enables torch.
     func setTorchEnabled(_ isEnabled: Bool) {
         // Bracket the following configuration in a begin/commit configuration pair.
+        
+        guard captureSession.isRunning else { return }
+        
         captureSession.beginConfiguration()
         defer { captureSession.commitConfiguration() }
         do {

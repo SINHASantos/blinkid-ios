@@ -52,4 +52,10 @@ public enum UIEvent: Equatable, Sendable {
     
     /// Document currently not supported by the recognizer
     case unsupportedDocument
+    
+    /// Indicates that the encountered barcode is not parsable
+    case unparsableBarcode
+    
+    /// Trouble reading barcode
+    case undetectedBarcode
 }

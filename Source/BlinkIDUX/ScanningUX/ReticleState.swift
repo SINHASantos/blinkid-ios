@@ -7,16 +7,13 @@ public enum ReticleState: ReticleStateProtocol {
     case front
     case back
     case barcode
+    case barcodeSide
     case detecting
     case flip
     case error(String)
     case inactive
     case passport(String)
     case inactiveWithMessage(String)
-    
-    public static var initialState: ReticleState {
-        .front
-    }
     
     public static var inactiveState: ReticleState {
         .inactive
@@ -29,7 +26,9 @@ public enum ReticleState: ReticleStateProtocol {
         case .back:
             return "mb_back_instructions"
         case .barcode:
-            return "mb_back_instructions_barcode"
+            return "mb_barcode_instructions"
+        case .barcodeSide:
+            return "mb_barcode_id_instructions"
         case .flip:
             return "mb_camera_flip_document"
         case .error(let message):
@@ -45,7 +44,7 @@ public enum ReticleState: ReticleStateProtocol {
     
     public var duration: Double {
         switch self {
-        case .front, .back, .barcode:
+        case .front, .back, .barcode, .barcodeSide:
             2.0
         case .detecting:
             1.5
@@ -60,7 +59,7 @@ public enum ReticleState: ReticleStateProtocol {
     
     public var shouldExpire: Bool {
         switch self {
-        case .front, .back, .detecting, .inactive, .flip, .barcode:
+        case .front, .back, .detecting, .inactive, .flip, .barcode, .barcodeSide:
             return false
         case .error(_):
             return true
@@ -71,7 +70,7 @@ public enum ReticleState: ReticleStateProtocol {
     
     public var canBeFallback: Bool {
         switch self {
-        case .front, .back, .barcode, .passport(_), .inactiveWithMessage(_):
+        case .front, .back, .barcode, .barcodeSide, .passport(_), .inactiveWithMessage(_):
             return true
         case .flip, .inactive, .error(_), .detecting:
             return false
@@ -95,7 +94,7 @@ public enum ReticleState: ReticleStateProtocol {
             return .error
         case .detecting:
             return .detecting
-        case .front, .back, .barcode, .passport(_):
+        case .front, .back, .barcode, .barcodeSide, .passport(_):
             return .spinning
         }
     }

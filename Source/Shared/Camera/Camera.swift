@@ -263,6 +263,7 @@ public final class Camera: CameraModel {
     private func observeState() {
         Task {
             await captureService.$captureCapabilities
+                .receive(on: DispatchQueue.main)
                 .sink { [weak self] capabilities in
                     self?.isTorchSupported = capabilities.isTorchSupported
                 }
