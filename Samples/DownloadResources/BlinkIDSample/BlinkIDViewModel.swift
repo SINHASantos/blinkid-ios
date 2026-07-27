@@ -25,8 +25,8 @@ enum UIState {
 @MainActor
 final class BlinkIDViewModel: ObservableObject {
     
-    // Valid until: 2026-07-25
-    private let licenseKey = "sRwDAAEkY29tLm1pY3JvYmxpbmsuQmxpbmtJRERvd25sb2FkU2FtcGxlASRjb20ubWljcm9ibGluay5CbGlua0lERG93bmxvYWRTYW1wbGUAIlNbNKYu6bl4/feWqEYbYa13v3s5Lf15sC9RtUXtTuWsH4wNFFrxiAUm7ibF38G44LlxAtzjj/t+aYujbFmKhtcCqUE4Epra44k5wWPr9oFBYXAlyVikLKZXppsXcrknuYtUrKKZ5u6COBnOKiASYJBcZo6H0RIld51ns/0="
+    // Valid until: 2027-01-23
+    private let licenseKey = "sRwDAAEkY29tLm1pY3JvYmxpbmsuQmxpbmtJRERvd25sb2FkU2FtcGxlAQpNaWNyb2JsaW5rhuaVr+/r/nhTn6q1s7FIj5Rg8uB7Xq1/2KZDSxbJCudEDpCXvUr5zgBe+m4e2xxvsY3x5XUNSP92V1AUHQNm31rld5GBpMnOU1etGJ941nYKeYUpwoYY3y9ca7ge8CvIu0hhiQt94G4/AMf9X0nm3nFUyr1nxeT13t/X"
     private var sdkInstance: BlinkIDSdk?
     private var cancellables = Set<AnyCancellable>()
     @Published var state: UIState = .loading

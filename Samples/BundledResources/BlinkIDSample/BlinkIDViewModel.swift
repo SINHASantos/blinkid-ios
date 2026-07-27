@@ -25,8 +25,8 @@ enum UIState {
 @MainActor
 final class BlinkIDViewModel: ObservableObject {
     
-    // Valid until: 2026-07-25
-    private let licenseKey = "sRwDAAEcY29tLm1pY3JvYmxpbmsuQmxpbmtJRFNhbXBsZQEcY29tLm1pY3JvYmxpbmsuQmxpbmtJRFNhbXBsZWj+oX2cWh3W7GjctGYGSL1wjnHJ88xZuDPa91O601VDMe/QAVWA8W0DWAv27TQMt6iuBsZ+4XyUNYMDWRrBu5KXpNAWi7nDblAaiA5L+VDRjs6P+I+zqDsPWg8OTMa2PscHkXNXA9f4hE37or0mcENX556a2OgZiCyWCWZ6lw=="
+    // Valid until: 2026-07-23
+    private let licenseKey = "sRwDAAEcY29tLm1pY3JvYmxpbmsuQmxpbmtJRFNhbXBsZQEKTWljcm9ibGlua/+x1ICxGUwNkNF+/JxLO/vUNIsScZrY7CXCqZfENG4VXeDLY+pqZAftEffSx27sgsHCSSkPF1stONYcsZzo8sHHccKwzmB2tCkGwJswiVv7nnOj1BNBIsAu4f86cfIakdJ1uk8Z61XkIxV8JedM3inYN7ntkX8Oz1EQlg=="
     private var sdkInstance: BlinkIDSdk?
     private var cancellables = Set<AnyCancellable>()
     @Published var state: UIState = .loading
@@ -39,7 +39,9 @@ final class BlinkIDViewModel: ObservableObject {
     
     func initializeSdk() async {
         do {
-            let settings = BlinkIDSdkSettings(licenseKey: licenseKey, downloadResources: false, bundleURL: Bundle.main.bundleURL)
+            let resourcesConfig = ResourcesConfig(download: false, bundleUrl: Bundle.main.bundleURL)
+            let otaResourcesConfig = OTAResourcesConfig(bundleUrl: Bundle.main.bundleURL)
+            let settings = BlinkIDSdkSettings(licenseKey: licenseKey, resourcesConfiguration: resourcesConfig, otaResourcesConfiguration: otaResourcesConfig)
             sdkInstance = try await BlinkIDSdk.createBlinkIDSdk(withSettings: settings)
         } catch {
             state = .error(error.localizedDescription)
@@ -103,3 +105,16 @@ final class BlinkIDViewModel: ObservableObject {
         )
     }
 }
+
+/*
+ func initializeSdk() async {
+     do {
+         let resourcesConfig = ResourcesConfig(download: false, bundleUrl: Bundle.main.bundleURL)
+         let settings = BlinkIDSdkSettings(licenseKey: licenseKey, resourcesConfiguration: resourcesConfig)
+         sdkInstance = try await BlinkIDSdk.createBlinkIDSdk(withSettings: settings)
+     } catch {
+         state = .error(error.localizedDescription)
+     }
+     state = .home
+ }
+ */

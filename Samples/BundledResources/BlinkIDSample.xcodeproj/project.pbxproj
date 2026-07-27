@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2C6DF4C3017785800FBDC98 /* BlinkIDUX in Frameworks */ = {isa = PBXBuildFile; productRef = A2C6DF4B3017785800FBDC98 /* BlinkIDUX */; };
 		A2DDD1A82E2A50CB0025214C /* BlinkIDUX in Frameworks */ = {isa = PBXBuildFile; productRef = A2DDD1A72E2A50CB0025214C /* BlinkIDUX */; };
 		FF2144112D8D6912006E9A84 /* BlinkIDUX in Frameworks */ = {isa = PBXBuildFile; productRef = FF2144102D8D6912006E9A84 /* BlinkIDUX */; };
 		FF2144122D8D6916006E9A84 /* BlinkIDUX in Embed Frameworks */ = {isa = PBXBuildFile; productRef = FF2144102D8D6912006E9A84 /* BlinkIDUX */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2C6DF4C3017785800FBDC98 /* BlinkIDUX in Frameworks */,
 				FF2144112D8D6912006E9A84 /* BlinkIDUX in Frameworks */,
 				A2DDD1A82E2A50CB0025214C /* BlinkIDUX in Frameworks */,
 			);
@@ -90,6 +92,7 @@
 			packageProductDependencies = (
 				FF2144102D8D6912006E9A84 /* BlinkIDUX */,
 				A2DDD1A72E2A50CB0025214C /* BlinkIDUX */,
+				A2C6DF4B3017785800FBDC98 /* BlinkIDUX */,
 			);
 			productName = BlinkIDSample;
 			productReference = FF0977B72D8D67FA004C7219 /* BlinkIDSample.app */;
@@ -120,7 +123,7 @@
 			mainGroup = FF0977AE2D8D67FA004C7219;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A2DDD1A62E2A50CB0025214C /* XCLocalSwiftPackageReference "../../../blinkid-ios" */,
+				A2C6DF4A3017785800FBDC98 /* XCLocalSwiftPackageReference "../../../blinkid-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FF0977B82D8D67FA004C7219 /* Products */;
@@ -356,13 +359,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		A2DDD1A62E2A50CB0025214C /* XCLocalSwiftPackageReference "../../../blinkid-ios" */ = {
+		A2C6DF4A3017785800FBDC98 /* XCLocalSwiftPackageReference "../../../blinkid-ios" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../blinkid-ios";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A2C6DF4B3017785800FBDC98 /* BlinkIDUX */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BlinkIDUX;
+		};
 		A2DDD1A72E2A50CB0025214C /* BlinkIDUX */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BlinkIDUX;
