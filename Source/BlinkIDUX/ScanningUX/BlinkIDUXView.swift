@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-#if canImport(BlinkIDVerify)
+#if BLINKIDVERIFYUX
 import BlinkIDVerify
-#elseif canImport(BlinkID)
+#elseif BLINKIDUX
 import BlinkID
 #endif
 
@@ -30,6 +30,8 @@ private struct BlinkIDUXContentView: View, ScanningUXProtocol, PassportAnimatabl
             return Array(BarcodeOnlyOnboardingStep.allCases)
         case .documentWithBarcode:
             return Array(DocumentBarcodeOnboardingStep.allCases)
+        case .documentWithMrz:
+            return Array(DocumentMrzOnboardingStep.allCases)
         case .fullDocument, nil:
             return Array(FullDocumentOnboardingStep.allCases)
         }
@@ -48,6 +50,12 @@ private struct BlinkIDUXContentView: View, ScanningUXProtocol, PassportAnimatabl
                 title: "mb_onboarding_dialog_barcode_id_title",
                 description: "mb_onboarding_dialog_barcode_id_message",
                 image: Image.locateBarcodeIdImage
+            )
+        case .documentWithMrz:
+            return OnboardingAlertContent(
+                title: "mb_onboarding_dialog_mrz_id_title",
+                description: "mb_onboarding_dialog_mrz_id_message",
+                image: Image.locateMrzIdImage
             )
         case .fullDocument, nil:
             return OnboardingAlertContent(
@@ -88,7 +96,6 @@ private struct BlinkIDUXContentView: View, ScanningUXProtocol, PassportAnimatabl
             showToast: $viewModel.isToastVisible,
             showSheet: $viewModel.showSheet,
             showLicenseErrorAlert: $viewModel.showLicenseErrorAlert,
-            timeoutAlertDescription: "mb_recognition_timeout_dialog_message".localizedString,
             flashlightWarningMessage: "mb_flashlight_warning_message".localizedString
         )
     }

@@ -66,4 +66,12 @@ extension Image {
     static var locateBarcodeImage: Image {
         Image("locate_barcode", bundle: Bundle.frameworkBundle)
     }
+    
+    static var locateMrzIdImage: Image {
+        Image("locate_mrz_id", bundle: Bundle.frameworkBundle)
+    }
+    
+    static var keepMrzVisibleImage: Image {
+        Image("keep_mrz_visible_id", bundle: Bundle.frameworkBundle)
+    }
 }

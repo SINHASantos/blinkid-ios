@@ -1,5 +1,288 @@
 # Release notes
 
+## v8001.0.0
+
+### What's new
+- Accelerated support for newly issued documents
+  - We’ve dramatically optimized our document support and extraction pipeline to drastically accelerate our time-to-production for newly issued identity documents worldwide, as well as unobtrusively support improvements related to document rules and knowledge.
+  - Zero-day readiness: Depending on design availability and when a new document begins circulating, BlinkID can now deliver 0-day support-and at a maximum, within 4 weeks of the document's release.
+  - Future-proof compliance: This allows your workflows to seamlessly adapt to global document updates faster than ever before.
+- Enhanced frame selection & image quality
+  - We’ve upgraded our image capture engine to ensure only the highest-quality frames are processed, boosting extraction accuracy while reducing friction during scanning
+    - Smart quality selection: BlinkID now automatically analyzes multiple frames in real time and picks the crispest, most stable image before extracting data.
+    - Higher first-pass success: By filtering out blurry or unstable frames early, the SDK significantly reduces scan failures and false reads.
+    - Flexible speed vs. quality tuning: You can easily tune the scanner’s balance between ultra-fast results and maximum image precision to fit your specific onboarding flow.
+    - Intelligent app feedback: Clear state updates inform your application whenever more stable images are needed, making it easy to provide smooth, real-time guidance to end users.
+- Enhanced photo mode intelligence
+  - We’ve added a new configuration setting specifically designed for workflows utilizing Photo Mode:
+    - Smart image handling: If you are unsure whether the images being fed into the SDK are already cropped or uncropped, this new toggle optimizes how the SDK handles the input. It ensures maximum extraction accuracy regardless of the initial image state.
+    - Explicit image signals: The SDK now returns an explicit signal informing the caller whether the input image was cropped. This allows the host application to intelligently determine the required next steps in complex extraction and verification processes.
+- Expanded & improved barcode capabilities
+  - We’ve broadened our barcode recognition capabilities and boosted overall scanning performance
+    - Aztec barcode support: You can now enable scanning for Aztec barcodes, expanding the types of documents and codes BlinkID can read.
+    - Enhanced 2D & 1D reading: Substantially improved speed and accuracy when scanning QR codes, DataMatrix codes, and select 1D barcode formats, ensuring faster capture even on complex or damaged codes.
+- Parsing & extraction improvements
+  - Persian digit recognition: We have significantly improved our parser’s accuracy when reading and processing Persian numbers, ensuring more reliable data extraction for regional documents.
+- As part of the mandatory data redaction we have expanded the list with Netherlands DL QR code being redacted
+
+## Bug fixes
+- Document swap data caching: Fixed an issue in continuous-video mode where data from a previously scanned document could persist after a new document was introduced. The SDK now immediately detects document swaps-either when a document is removed from the frame or when a new document is introduced-and automatically clears cached images (such as cropped faces, signatures, and barcodes) to prevent data cross-contamination.
+
+#### New extracted fields from documents
+- Brazil national identity card and regional (22 regions) identity cards now extract parent names (`parentInfo`).
+- Croatia identity card: added support for cyrillic values in `sex`, `address`, `issuingAuthority`, `lastName` and `firstName`, and latin `sex`.
+- Virgin Islands of the United States identity card and driver's license: added `documentSubtype` and `specificDocumentValidity`.
+- Tunisia identity card: added arab values for `lastName`, `firstName`, `placeOfBirth`; added `dateOfBirth`.
+- Argentina identity card and alien identity card: instead of `documentAdditionalNumber`, `cardAccessNumber` should now be used.
+
+### API changes
+- In `documentCaptureModule`, the `inputImageCropped` setting has been renamed to `cropType` and is no longer a boolean.
+- added new ProcessingResult: AwaitingMoreStableInputImages
+- added new enums:
+  - InputImageCropType: NotCropped, Unknown, Cropped
+  - InputImageCropAnalysys: NotCropped, Cropped, NotAvailable, Undetermined
+  - InputImageSelectionStrategy: SingleImage, OptimizeForSpeed, Balanced, OptimizeForQuality
+  - VizExtractionType: NotAvailable - until a document is scanned, Segmentation, Templating, Unsupported
+- added new members to ProcessResult and InputImageAnalysisResult
+  - 'inputImageCropAnalysis'
+  - 'vizExtractionType'
+- added new members to ScanningResult and VIZResult
+  - 'ethnicity'
+- added new member in ParentInfo
+  - 'fullName'
+- added new items to enums:
+  - new FieldType enum values: ParentFullName, Ethnicity
+
+### API Changes - SDK Initialization Settings
+
+#### Summary
+
+Initialization settings have been restructured in two ways:
+
+1. **Resource configuration is now grouped into dedicated config types** instead of living directly on `BlinkIDSdkSettings`. Base (non-OTA) resource options move into `ResourcesConfig`, exposed via the `resourcesConfiguration` property.
+2. **OTA (over-the-air) resources are now a first-class, separate concern.** A new `OTAResourcesConfig` type and `otaResourcesConfiguration` property have been added, along with two new OTA behaviors (`checkForUpdates` and `strict`).
+
+Two new protocols formalize this split:
+
+| Protocol | Responsibility |
+|---|---|
+| `SdkSettings` | License + base resource configuration |
+| `OtaSdkSettings` | OTA resource configuration |
+
+`BlinkIDSdkSettings` now conforms to **both**.
+
+> **Assumption:** Based on your note, the previous `BlinkIDSdkSettings` exposed resource fields directly (e.g. a download flag, service URL, local folder, timeout, bundle URL) and had no OTA support. The exact old property names below are illustrative - adjust them to match your prior release.
+
+#### New / changed types
+
+##### `SdkSettings` (new protocol)
+
+```swift
+public protocol SdkSettings: Sendable {
+    var licenseKey: String { get set }
+    var licensee: String? { get set }
+    var helloLogEnabled: Bool { get set }
+    var resourcesConfiguration: ResourcesConfig { get set }
+}
+```
+
+Groups licensing and **base resource** configuration. Any settings type that needs the standard model resources conforms to this.
+
+##### `ResourcesConfig` (base resources)
+
+```swift
+public struct ResourcesConfig: Sendable {
+    var download: Bool                 // default: true
+    var serviceUrl: String             // default: "https://models.cdn.microblink.com/resources"
+    var localFolder: String            // default: "MLModels"
+    var requestTimeout: RequestTimeout // default: .default
+    var bundleUrl: URL?                // default: nil
+
+    public init(download: Bool = true,
+                serviceUrl: String = "https://models.cdn.microblink.com/resources",
+                localFolder: String = "MLModels",
+                requestTimeout: RequestTimeout = .default,
+                bundleUrl: URL? = nil)
+}
+```
+
+Behavior:
+- `download == true`: resources are downloaded from `serviceUrl` on first init and cached in `localFolder` inside your app's cache directory.
+- `download == false`: you must ship the required resources in your app; `bundleUrl` optionally points to the bundle where they reside.
+
+##### `OtaSdkSettings` (new protocol)
+
+```swift
+public protocol OtaSdkSettings: Sendable {
+    var otaResourcesConfiguration: OTAResourcesConfig { get set }
+}
+```
+
+##### `OTAResourcesConfig` (new - OTA resources)
+
+```swift
+public struct OTAResourcesConfig: Sendable {
+    var checkForUpdates: Bool          // default: true   (NEW)
+    var strict: Bool                   // default: false  (NEW)
+    var serviceUrl: String             // default: "https://blinkid-ota.microblink.com"
+    var localFolder: String            // default: "OTAMLModels"
+    var requestTimeout: RequestTimeout // default: .default
+    var bundleUrl: URL?                // default: nil
+
+    public init(checkForUpdates: Bool = true,
+                strict: Bool = false,
+                serviceUrl: String = "https://blinkid-ota.microblink.com",
+                localFolder: String = "OTAMLModels",
+                requestTimeout: RequestTimeout = .default,
+                bundleUrl: URL? = nil)
+}
+```
+
+Two new behaviors to be aware of:
+
+- **`checkForUpdates`** - when `true`, the SDK checks for and downloads *updated* OTA resources on init. When `false`, cached resources are reused as-is with no update check. First run is the exception: if resources are missing locally, they are downloaded regardless of this flag.
+- **`strict`** - controls failure handling for a failed OTA download during init. When `true`, initialization **throws** if the OTA update fails to download. When `false` (default), init continues silently and falls back to the currently bundled/cached version.
+
+##### `BlinkIDSdkSettings` (changed)
+
+```swift
+public struct BlinkIDSdkSettings: Sendable, SdkSettings, OtaSdkSettings {
+    public var licenseKey: String
+    public var licensee: String?
+    public var helloLogEnabled: Bool                       // default: false
+    public var resourcesConfiguration: ResourcesConfig     // NEW grouping
+    public var otaResourcesConfiguration: OTAResourcesConfig // NEW
+    public var microblinkProxyURL: String?
+
+    public init(licenseKey: String,
+                licensee: String? = nil,
+                helloLogEnabled: Bool = false,
+                resourcesConfiguration: ResourcesConfig = .init(),
+                otaResourcesConfiguration: OTAResourcesConfig = OTAResourcesConfig(
+                    serviceUrl: OtaServiceURL.default,
+                    localFolder: "OTAMLModels"),
+                microblinkProxyURL: String? = nil)
+}
+```
+
+Key points:
+- Resource fields no longer live directly on the struct - set them through `resourcesConfiguration`.
+- `otaResourcesConfiguration` is new.
+- `microblinkProxyURL` and `licenseKey`/`licensee`/`helloLogEnabled` are unchanged in meaning.
+
+#### Migration
+
+##### Minimal case - no resource customization
+
+If you previously created settings with just a license key and relied on defaults, **no change is required**. Both resource configs default sensibly.
+
+```swift
+// Before
+let settings = BlinkIDSdkSettings(licenseKey: "your-license-key")
+
+// After - identical
+let settings = BlinkIDSdkSettings(licenseKey: "your-license-key")
+```
+
+##### If you customized resource downloading
+
+Move the flattened fields into a `ResourcesConfig`.
+
+```swift
+// Before (illustrative old shape)
+let settings = BlinkIDSdkSettings(
+    licenseKey: "your-license-key",
+    downloadResources: false,
+    resourcesServiceUrl: "https://models.cdn.microblink.com/resources",
+    resourcesLocalFolder: "MLModels",
+    bundleUrl: myBundleURL
+)
+
+// After
+let settings = BlinkIDSdkSettings(
+    licenseKey: "your-license-key",
+    resourcesConfiguration: ResourcesConfig(
+        download: false,
+        serviceUrl: "https://models.cdn.microblink.com/resources",
+        localFolder: "MLModels",
+        bundleUrl: myBundleURL
+    )
+)
+```
+
+##### Opting into / tuning OTA (new)
+
+OTA is enabled by default (`checkForUpdates: true`, `strict: false`). To customize:
+
+```swift
+let settings = BlinkIDSdkSettings(
+    licenseKey: "your-license-key",
+    otaResourcesConfiguration: OTAResourcesConfig(
+        checkForUpdates: true,  // check for newer OTA resources on init
+        strict: true            // throw on OTA download failure instead of falling back
+    )
+)
+```
+
+To disable OTA update checks (reuse cached resources as-is after first run):
+
+```swift
+let settings = BlinkIDSdkSettings(
+    licenseKey: "your-license-key",
+    otaResourcesConfiguration: OTAResourcesConfig(checkForUpdates: false)
+)
+```
+
+#### Notes & gotchas
+
+- **First-run downloads are unavoidable for OTA** when resources are missing locally - `checkForUpdates: false` only suppresses *update* checks, not the initial fetch.
+- **`strict: true` changes init to a throwing failure path.** Make sure your initialization error handling accounts for OTA download failures if you enable it.
+- **Two distinct hosts:** base resources default to `https://models.cdn.microblink.com/resources`; OTA resources default to `https://blinkid-ota.microblink.com`. Don't cross-wire the service URLs.
+- **Distinct cache folders:** `MLModels` (base) vs `OTAMLModels` (OTA). Keep them separate to avoid collisions.
+- **Protocol conformance:** if you had any code typed against a concrete settings struct, note you can now program against `SdkSettings` / `OtaSdkSettings` where appropriate.
+
+### API Changes - BlinkIDSdk
+ 
+- added **`deleteCachedResources(resourcesLocalFolder:otaResourcesLocalFolder:)`** — a new static method that removes all cached SDK resources from the device, covering both base and OTA caches in a single call.
+
+```swift
+public static func deleteCachedResources(
+    resourcesLocalFolder: String = "MLModels",
+    otaResourcesLocalFolder: String = "OTAMLModels"
+)
+```
+ 
+#### What it does
+ 
+- Deletes the base resources cache folder (default `MLModels`).
+- Deletes the OTA resources cache folder (default `OTAMLModels`).
+- Resets the SDK's internal OTA-managed state for the OTA folder, so the next initialization treats it as a clean first run.
+
+#### When to use it
+ 
+Call this when you want to guarantee no downloaded SDK data remains on the device — for example on logout, on uninstall-style cleanup flows, when freeing storage, or to force a fresh download of resources on the next init.
+ 
+#### Usage
+ 
+```swift
+// Using defaults (MLModels + OTAMLModels)
+BlinkIDSdk.deleteCachedResources()
+ 
+// If you customized folder names in your ResourcesConfig / OTAResourcesConfig,
+// pass the same names so the correct caches are cleared:
+BlinkIDSdk.deleteCachedResources(
+    resourcesLocalFolder: "MyModels",
+    otaResourcesLocalFolder: "MyOTAModels"
+)
+```
+ 
+#### Behavior notes & gotchas
+ 
+- **Pass matching folder names.** The defaults align with the defaults in `ResourcesConfig` (`MLModels`) and `OTAResourcesConfig` (`OTAMLModels`). If you overrode `localFolder` in either config, pass the same values here or the intended caches won't be removed.
+- **Errors are silently ignored.** Deletion failures (e.g. a folder that doesn't exist, or a filesystem error) are swallowed to avoid disrupting cleanup. The method does not throw and does not report which folders were actually removed, so treat it as best-effort rather than a guaranteed/verified wipe.
+- **Next init will re-download.** After clearing the caches, the following initialization is effectively a first run — required resources will be fetched again (subject to your `download` / `checkForUpdates` settings).
+- **Not tied to a specific instance.** It's a static utility operating on cache folders, so it can be called without an initialized SDK instance.
+
 ## 8000.0.0
 
 ### What's new
@@ -57,6 +340,7 @@
 ## Bug fixes
 - Date Conversion Accuracy: Resolved an issue where Islamic-to-Gregorian date conversions could occasionally differ by +/- 1 day. These conversions are now precise and consistent.
 
+
 ### API changes
 
 #### `BlinkIDUXView` API Redesign
@@ -73,7 +357,7 @@ The previous API required instantiating a `BlinkIDUXModel`, subscribing to its `
 
 **Frame processing result handling via `.onFrameProcessResult`**
 
-Advance-to-next-step logic is now expressed through the new `.onFrameProcessResult` modifier. The closure receives a `handle` with access to `processResult?.resultCompleteness`, and you call `handle.advanceToNextStep()` directly — no separate publisher or delegate needed.
+Advance-to-next-step logic is now expressed through the new `.onFrameProcessResult` modifier. The closure receives a `handle` with access to `processResult?.resultCompleteness`, and you call `handle.advanceToNextStep()` directly - no separate publisher or delegate needed.
 
 ##### Migration
 
@@ -102,7 +386,7 @@ BlinkIDUXView(analyzer: analyzer) { scanningResultState in
 
 #### Buffer
 
-`MBSampleBufferWrapper` has been removed — pass your `CMSampleBuffer` directly to `CameraFrame` when handling camera processing yourself.
+`MBSampleBufferWrapper` has been removed - pass your `CMSampleBuffer` directly to `CameraFrame` when handling camera processing yourself.
 
 ## v7.8.0
 

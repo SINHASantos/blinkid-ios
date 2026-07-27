@@ -13,11 +13,11 @@ import UIKit
 import os.log
 @preconcurrency import AVFoundation
 
-#if canImport(BlinkIDVerify)
+#if BLINKIDVERIFYUX
 import BlinkIDVerify
-#elseif canImport(BlinkID)
+#elseif BLINKIDUX
 import BlinkID
-#elseif canImport(BlinkCard)
+#elseif BLINKCARDUX
 import BlinkCard
 #endif
 
@@ -78,6 +78,9 @@ public actor CaptureService {
     private var runtimeErrorNotificationTask: Task<Void, Never>?
     
     init() {
+        if #available(iOS 26.0, *) {
+            captureSession.automaticallyRunsDeferredStart = true
+        }
         // Create a source object to connect the preview view with the capture session.
         previewSource = DefaultPreviewSource(session: captureSession)
     }

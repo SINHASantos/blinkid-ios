@@ -24,10 +24,18 @@ public struct ScanningUXSettings {
     /// When disabled, no haptic feedback is produced.
     let allowHapticFeedback: Bool
     
-    public init(showIntroductionAlert: Bool = true, showHelpButton: Bool = true, preferredCameraPosition: Camera.CameraPosition = .back, allowHapticFeedback: Bool = true) {
+    /// Determines whether sound is played for scanning-success events.
+    ///
+    /// When enabled, scan sounds are generated during scanning-success events,
+    /// such as side scanned.
+    /// When disabled, no sound is produced.
+    let allowScanSound: Bool
+    
+    public init(showIntroductionAlert: Bool = true, showHelpButton: Bool = true, preferredCameraPosition: Camera.CameraPosition = .back, allowHapticFeedback: Bool = true, allowScanSound: Bool = true) {
         self.showIntroductionAlert = showIntroductionAlert
         self.showHelpButton = showHelpButton
         self.preferredCameraPosition = preferredCameraPosition
         self.allowHapticFeedback = allowHapticFeedback
+        self.allowScanSound = allowScanSound
     }
 }

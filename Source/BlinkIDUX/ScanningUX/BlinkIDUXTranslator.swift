@@ -5,9 +5,9 @@
 //  Created by Jura Skrlec on 19.02.2025..
 //
 
-#if canImport(BlinkIDVerify)
+#if BLINKIDVERIFYUX
 import BlinkIDVerify
-#elseif canImport(BlinkID)
+#elseif BLINKIDUX
 import BlinkID
 #endif
 
@@ -27,9 +27,9 @@ final class BlinkIDUXTranslator {
         var events: [UIEvent] = []
         
         if session.getScanningStatus() == .sideScanned && (!backSideDispatched && !passportDispatched) {
-            if let inputImageAnalysisResult = frameProcessResult.processResult?.inputImageAnalysisResult, inputImageAnalysisResult.documentClassInfo.documentType == .passport {
+            if let inputImageAnalysisResult = frameProcessResult.processResult?.inputImageAnalysisResult, inputImageAnalysisResult.documentClassInfo.documentType?.documentTypeId == .passport {
                 passportDispatched = true
-                if [Country.usa, Country.india].contains(inputImageAnalysisResult.documentClassInfo.country) {
+                if [CountryID.usa, CountryID.india].contains(inputImageAnalysisResult.documentClassInfo.country?.countryId) {
                     events.append(.requestDocumentSide(side: .passportBarcode))
                 } else {
                     events.append(.requestDocumentSide(side: .passport(inputImageAnalysisResult.documentRotation.passportOrientation)))
@@ -52,6 +52,7 @@ final class BlinkIDUXTranslator {
             if frameProcessResult.processResult?.resultCompleteness.barcode?.parsingSupported == false && canResolveBarcode(session: session) {
                 if barcodeTimerTask == nil {
                     startBarcodeScanTimer()
+                    
                 }
             }
         }
@@ -70,7 +71,7 @@ final class BlinkIDUXTranslator {
             events.append(.unsupportedDocument)
         case .scanningWrongSide, .awaitingOtherSide:
             if passportDispatched, let inputImageAnalysisResult = frameProcessResult.processResult?.inputImageAnalysisResult {
-                if [Country.usa, Country.india].contains(inputImageAnalysisResult.documentClassInfo.country) {
+                if [CountryID.usa, CountryID.india].contains(inputImageAnalysisResult.documentClassInfo.country?.countryId) {
                     events.append(.wrongSidePassportWithBarcode)
                 } else {
                     events.append(.wrongSidePassport(passportOrientation: inputImageAnalysisResult.documentRotation.passportOrientation))
