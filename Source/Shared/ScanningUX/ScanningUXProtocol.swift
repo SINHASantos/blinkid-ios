@@ -5,11 +5,11 @@
 
 import SwiftUI
 
-#if canImport(BlinkIDVerify)
+#if BLINKIDVERIFYUX
 import BlinkIDVerify
-#elseif canImport(BlinkID)
+#elseif BLINKIDUX
 import BlinkID
-#elseif canImport(BlinkCard)
+#elseif BLINKCARDUX
 import BlinkCard
 #endif
 
@@ -52,7 +52,6 @@ protocol ScanningUXProtocol {
                   showToast: Binding<Bool>,
                   showSheet: Binding<Bool>,
                   showLicenseErrorAlert: Binding<Bool>,
-                  timeoutAlertDescription: String,
                   flashlightWarningMessage: String) -> GenericContentView
     
     /// Builder for the cancel button
@@ -127,9 +126,8 @@ extension ScanningUXProtocol where Self: View {
                   showToast: Binding<Bool>,
                   showSheet: Binding<Bool>,
                   showLicenseErrorAlert: Binding<Bool>,
-                  timeoutAlertDescription: String,
                   flashlightWarningMessage: String) -> GenericContentView {
-        createMainView(reticleStateMachine: reticleStateMachine, isTorchOn: isTorchOn, showToast: showToast, showSheet: showSheet, showLicenseErrorAlert: showLicenseErrorAlert, timeoutAlertDescription: timeoutAlertDescription, flashlightWarningMessage: flashlightWarningMessage) as! GenericContentView
+        createMainView(reticleStateMachine: reticleStateMachine, isTorchOn: isTorchOn, showToast: showToast, showSheet: showSheet, showLicenseErrorAlert: showLicenseErrorAlert, flashlightWarningMessage: flashlightWarningMessage) as! GenericContentView
     }
 
     @ViewBuilder
@@ -138,7 +136,6 @@ extension ScanningUXProtocol where Self: View {
                                 showToast: Binding<Bool>,
                                 showSheet: Binding<Bool>,
                                 showLicenseErrorAlert: Binding<Bool>,
-                                timeoutAlertDescription: String,
                                 flashlightWarningMessage: String) -> some View {
         
         AnyView(
@@ -298,6 +295,7 @@ extension ScanningUXProtocol where Self: View {
                 viewModel.pauseScanning()
             }
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                viewModel.resetStepTimer()
                 viewModel.resumeScanning()
             }
         )

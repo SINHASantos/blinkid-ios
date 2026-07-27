@@ -121,3 +121,42 @@ enum DocumentBarcodeOnboardingStep: Int, OnboardingStepProtocol {
         }
     }
 }
+
+enum DocumentMrzOnboardingStep: Int, OnboardingStepProtocol {
+    case keepMrzVisible, harshLight, keepStill
+
+    var id: Int { rawValue }
+
+    var image: Image {
+        switch self {
+        case .keepMrzVisible:
+            return Image.keepMrzVisibleImage
+        case .harshLight:
+            return Image.harshLightImage
+        case .keepStill:
+            return Image.keepStillImage
+        }
+    }
+
+    var title: String {
+        switch self {
+        case .keepMrzVisible:
+            return "mb_help_screen_mrz_title1"
+        case .harshLight:
+            return "mb_help_screen_title2"
+        case .keepStill:
+            return "mb_help_screen_title3"
+        }
+    }
+
+    var description: String {
+        switch self {
+        case .keepMrzVisible:
+            return "mb_help_screen_mrz_msg1"
+        case .harshLight:
+            return "mb_help_screen_msg2"
+        case .keepStill:
+            return "mb_help_screen_msg3"
+        }
+    }
+}

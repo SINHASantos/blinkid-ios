@@ -21,8 +21,8 @@ enum UIState {
 
 @MainActor
 class ViewModel: ObservableObject {
-    // Valid: 2026-03-04
-    private let licenseKey = "sRwDAAEeY29tLm1pY3JvYmxpbmsuRGlyZWN0QVBJU2FtcGxlAQpNaWNyb2JsaW5r7s/u74AMZyT8nEZ+bl//9QiaQmoz1g5L+j92yjkzJWBdKTFy2kCc9EvZx8p+Z90wBY2n0VVeogpfD0UKr4VzvC5ZGUkyTVIwfEcWG4VgkRRP5Jwk3mKzXSwUgnTeEBlzyQEAkH5iTJbLj7uYnuglpzLwDz3lPDAppHJEhCpssw=="
+    // Valid: 2027-01-23
+    private let licenseKey = "sRwDAAEeY29tLm1pY3JvYmxpbmsuRGlyZWN0QVBJU2FtcGxlAQpNaWNyb2JsaW5r7s/u74AMZyT8nEZ+popMxYtKYBLaImASkWkrB3XWwpQ5EG/mpMEjeeuS7ViLs9KP+MJfaHl86SFkifxQ1Bga45OgrUtuC1jrVT0TA67FTVTTQfj1RQ3XS/QievP19kEFg9ueE9PFbSZv0WH2BtVbetP8WnLnWg6C1uqI"
     private var blinkIDsdk: BlinkIDSdk? = nil
     @Published var state: UIState = .loading
     
@@ -51,19 +51,23 @@ class ViewModel: ObservableObject {
             return
         }
         
-        if let session = try? await blinkIDsdk.createScanningSession(sessionSettings: BlinkIDSessionSettings(inputImageSource: .photo, scanningSettings: ScanningSettings(croppedImageSettings: CroppedImageSettings(returnDocumentImage: true, returnFaceImage: true)))) {
+        var documentCaptureModule = DocumentCaptureModuleSettings()
+        documentCaptureModule.documentImageReturnEnabled = true
+        documentCaptureModule.faceImageExtractionEnabled = true
+        
+        if let session = try? await blinkIDsdk.createScanningSession(sessionSettings: createSettings()) {
             guard let frontUIImage = UIImage(named: "front"),
                   let backUIImage = UIImage(named: "back")
             else { return }
             
-            let frontFrameProcessResult = await session.process(inputImage: InputImage(uiImage: frontUIImage))
-            if let processResult = frontFrameProcessResult.processResult {
+            let frontFrameProcessResult = try? await session.process(inputImage: InputImage(uiImage: frontUIImage))
+            if let processResult = frontFrameProcessResult?.processResult {
                 debugPrint("Processing status Frist: \(processResult)")
             }
             
             
-            let backFrameProcessResult = await session.process(inputImage: InputImage(uiImage: backUIImage))
-            if let processResult = backFrameProcessResult.processResult {
+            let backFrameProcessResult = try? await session.process(inputImage: InputImage(uiImage: backUIImage))
+            if let processResult = backFrameProcessResult?.processResult {
                 debugPrint("Processing status Second: \(processResult)")
             }
             
@@ -76,4 +80,20 @@ class ViewModel: ObservableObject {
         
         
     }
+}
+
+func createSettings() -> BlinkIDSessionSettings {
+    var documentCapture = DocumentCaptureModuleSettings()
+    documentCapture.documentImageReturnEnabled = true
+    documentCapture.faceImageExtractionEnabled = true
+    
+    let scanningSettings = ScanningSettings(
+        documentCaptureModule: documentCapture
+    )
+    
+    return BlinkIDSessionSettings(
+        inputImageSource:          .photo,
+        scanningMode:              .automatic,
+        scanningSettings:          scanningSettings
+    )
 }

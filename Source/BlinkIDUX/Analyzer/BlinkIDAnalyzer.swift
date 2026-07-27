@@ -9,9 +9,9 @@ import Foundation
 import AVFoundation
 import CoreVideo
 
-#if canImport(BlinkIDVerify)
+#if BLINKIDVERIFYUX
 import BlinkIDVerify
-#elseif canImport(BlinkID)
+#elseif BLINKIDUX
 import BlinkID
 #endif
 
@@ -45,7 +45,7 @@ public protocol BlinkIDClassFilter {
 }
 
 public enum BlinkIDExtractionMode: Sendable {
-    case barcodeOnly, documentWithBarcode, fullDocument
+    case barcodeOnly, documentWithBarcode, fullDocument, documentWithMrz
     
     init(sessionSettings: BlinkIDSessionSettings) {
         if sessionSettings.scanningSettings.documentCaptureModule == nil,
@@ -59,6 +59,12 @@ public enum BlinkIDExtractionMode: Sendable {
                   sessionSettings.scanningSettings.barcodeModule?.presenceMandatory == true,
                   sessionSettings.scanningMode == .single {
             self = .documentWithBarcode
+        } else if sessionSettings.scanningSettings.documentCaptureModule != nil,
+                  sessionSettings.scanningSettings.mrzModule?.presenceMandatory == true,
+                  sessionSettings.scanningSettings.vizModule == nil,
+                  sessionSettings.scanningSettings.barcodeModule == nil,
+                  sessionSettings.scanningMode == .single {
+            self = .documentWithMrz
         } else {
             self = .fullDocument
         }
@@ -185,6 +191,12 @@ public actor BlinkIDAnalyzer: CameraFrameAnalyzer {
             
             if events.contains(.unparsableBarcode) {
                 triggerResolveCurrentStep()
+                Task {
+                    if sessionNumber > 0 {
+                        let pinglet = UxEventPinglet(eventType: .unsupportedbarcodetimeout)
+                        await PingManager.shared.addPinglet(pinglet: pinglet, sessionNumber: sessionNumber)
+                    }
+                }
             }
 
             if events.contains(.requestDocumentSide(side: .barcode)) {
@@ -349,7 +361,7 @@ public actor BlinkIDAnalyzer: CameraFrameAnalyzer {
             let nanoseconds = UInt64(interval * Double(NSEC_PER_SEC))
             try? await Task.sleep(nanoseconds: nanoseconds)
             guard !Task.isCancelled else { return }
-            await self.scanInterrupted(with: .timeout)
+            await self.scanInterrupted(with: .inactivityTimeout)
         }
     }
     
@@ -386,8 +398,19 @@ public actor BlinkIDAnalyzer: CameraFrameAnalyzer {
         resultContinuation?.resume(returning: .interrupted(alertType))
         resultContinuation = nil
         
-        // ADR 15 - Platform implemented scan timeout
         Task {
+            if sessionNumber > 0 {
+                switch alertType {
+                case .timeout:
+                    let pinglet = UxEventPinglet(eventType: .steptimeout)
+                    await PingManager.shared.addPinglet(pinglet: pinglet, sessionNumber: sessionNumber)
+                case .inactivityTimeout:
+                    let pinglet = UxEventPinglet(eventType: .inactivitytimeout)
+                    await PingManager.shared.addPinglet(pinglet: pinglet, sessionNumber: sessionNumber)
+                default:
+                    break
+                }
+            }
             await PingManager.shared.sendPinglets()
         }
     }

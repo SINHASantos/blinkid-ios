@@ -81,6 +81,8 @@ public class ReticleStateMachine: ReticleStateMachineProtocol {
             return .barcodeSide
         case .fullDocument:
             return .front
+        case .documentWithMrz:
+            return .mrzSide
         }
     }
     

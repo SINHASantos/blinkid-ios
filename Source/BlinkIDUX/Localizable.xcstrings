@@ -9239,6 +9239,690 @@
         }
       }
     },
+    "mb_help_screen_mrz_msg1" : {
+      "comment" : "",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ak" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hwɛ sɛ womfa wo nsateaa nkata MRZ no afã horow so. Afei nso, hwɛ sɛ wobehu sunsuma a ɛnam MRZ no so na ɛma wontumi nkenkan."
+          }
+        },
+        "am" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZን በጣትዎ አለመሸፈንዎን ያረጋግጡ። እንዲሁም በMRZ ላይ የሚያርፉና ለማንበብ አስቸጋሪ ሊያደርጉ የሚችሉ የብርሃን ነጸብራቆችን ያስወግዱ።"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تأكد من عدم تغطية أجزاء من منطقة القراءة الآلية (MRZ) بإصبعك. كما يجب الانتباه إلى الانعكاسات التي تقع فوق منطقة القراءة الآلية (MRZ) والتي قد تجعلها غير قابلة للقراءة."
+          }
+        },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নিশ্চিত করুন যে আপনি আঙুল দিয়ে MRZ-এর কোনো অংশ ঢেকে রাখছেন না। এছাড়া, MRZ-এর ওপর আলোর প্রতিফলন যেন না পড়ে সেদিকেও খেয়াল রাখবেন, কারণ এর ফলে এটি পড়া অসম্ভব হয়ে পড়তে পারে।"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkontrolujte, zda část MRZ kódu nezakrýváte prstem. Také dejte pozor na odlesky, které by mohly zapříčinit, že bude nečitelný."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sørg for, at du ikke dækker dele af MRZ'en med en finger. Pas også på refleksioner henover MRZ'en, da de kan gøre den ulæselig."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Achten Sie darauf, dass Sie Teile des MRZ nicht mit einem Finger verdecken. Achten Sie außerdem auf Reflexionen, die über den MRZ fallen und diesen unlesbar machen könnten."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βεβαιωθείτε ότι δεν καλύπτετε μέρη του MRZ με το δάχτυλό σας, Επίσης, προσέξτε τις αντανακλάσεις που καλύπτουν το MRZ και μπορεί να τo καταστήσουν μη αναγνώσιμο."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Make sure you aren’t covering parts of the MRZ with a finger. Also, watch out for reflections that go over the MRZ and could make it unreadable."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Make sure you are not covering any part of the MRZ with a finger. Also, watch out for glare across the MRZ, as it may make it unreadable."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asegúrate de no cubrir partes del MRZ con el dedo. También ten cuidado con los reflejos que puedan cubrirlo y hacerlo ilegible."
+          }
+        },
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asegúrate de no cubrir partes de la MRZ con un dedo. También, tenga cuidado con los reflejos que puedan pasar sobre la MRZ, ya que podrían hacerla ilegible."
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مطمئن شوید که قسمت‌هایی از MRZ را با انگشت نمی‌پوشانید. همچنین، مراقب بازتاب‌هایی باشید که از MRZ عبور می‌کنند و می‌توانند آن را غیرقابل خواندن کنند."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Varmista, ettet peitä mitään MRZ-alueen osaa sormella. Kiinnitä lisäksi huomiota MRZ-alueella oleviin heijastuksiin, jotka voisivat estää sen lukemisen."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siguradhing hindi mo natatakpan ng daliri ang mga bahagi ng MRZ. Tingnan din kung may mga reflection sa MRZ na dahilan para hindi mabasa ito."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veillez à ce que votre doigt ne recouvre pas certaines parties du MRZ. Faites également attention aux reflets qui masquent le MRZ et peuvent le rendre illisible."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assurez-vous de ne pas couvrir certaines parties de la ZLA avec un doigt. Faites également attention aux reflets qui pourraient apparaître sur le code-barres et le rendre illisible."
+          }
+        },
+        "ha" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A tabbatar da cewa ba a rufe wasu ɓangarorin MRZ da yatsa ba. Bayan haka, a duba ko akwai wani dau na haske da ya hau kan MRZ ɗin wanda zai iya sa ba zai karantu ba."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ודאו שאינכם מכסים חלקים מה-MRZ עם האצבע. כמו כן, היזהרו מהשתקפויות על גבי ה-MRZ שעלולות להפוך אותו לבלתי קריא."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सुनिश्चित करें कि आप उंगली से MRZ के किसी हिस्से को ढक नहीं रहे हैं। साथ ही, उन प्रतिबिंबों से भी सावधान रहें जो MRZ पर पड़ सकते हैं और उसे अपठनीय बना सकते हैं।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pripazite da ne prekrivate dijelove MRZ-a prstom. Također, pazite na refleksije koje mogu prelaziti preko MRZ-a i učiniti ga nečitljivim."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ügyeljen arra, hogy az MRZ egyes részeit ne takarja el az ujjával. Ezenkívül ügyeljen az MRZ kódot átfedő tükröződésekre is, amelyek olvashatatlanná tehetik."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pastikan jari Anda tidak menutupi bagian MRZ. Selain itu, hindari pantulan cahaya pada MRZ yang dapat menjadikannya tidak terbaca."
+          }
+        },
+        "is" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gakktu úr skugga um að þú hyljir ekki hluta af véllesanlega svæðinu með fingri. Passaðu þig líka á endurskinsljósi sem fellur yfir véllesanlega svæðið og gæti gert það ólæsilegt."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assicurati di non coprire parte dell'MRZ con un dito. Verifica inoltre che non ci siano riflessi sull'MRZ che possano comprometterne la leggibilità."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZの一部を指で覆わないようにしてください。また、MRZに光が反射して読み取れなくならないようご注意ください。"
+          }
+        },
+        "ka-GE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "დარწმუნდით, რომ თითით არ ფარავთ MRZ-ის არც ერთ ნაწილს. ასევე, ყურადღება მიაქციეთ, რომ MRZ-ზე არ იყოს ანარეკლი, რომელმაც შეიძლება მისი წაკითხვა შეუძლებელი გახადოს."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Саусағыңызбен аймақ жолағын жауып қалмаңыз. Сондай-ақ, аймаққа түсетін жарықтың деректерді оқылмайтындай етіп бүркеп қалмағанына қарап қойыңыз."
+          }
+        },
+        "km-KH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ត្រូវប្រាកដថា អ្នកមិនយកម្រាមដៃរបស់អ្នកមកបាំងផ្នែកនានារបស់ MRZ។ ដូចគ្នានេះផងដែឬ ត្រូវប្រយ័ត្ននឹងចំណាំងពន្លឺដែលឆ្លងកាត់ពីលើ MRZ និងអាចធ្វើឲ្យវាមិនអាចអានបាន។"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "손가락으로 MRZ 일부를 가리지 않도록 주의하세요. 또한 MRZ 위에 반사광이 생기면 인식이 어려울 수 있으니 주의하세요."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pārliecinieties, ka neaizsedzat daļu MRZ ar pirkstu. Pārbaudiet arī to, vai MRZ neietekmē atspīdumi, kas var neļaut to nolasīt."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pastikan tiada bahagian MRZ yang terlindung oleh jari anda. Selain itu, pastikan tiada pantulan cahaya pada MRZ yang boleh menyebabkannya sukar atau gagal dibaca."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ को कुनै पनि भाग औँलाले नछोप्नुहोस्। साथै, MRZ मा उज्यालो टल्किएको छ कि छैन हेर्नुहोस्, टल्केको भाग क्यामेराले चिन्न सक्दैन।"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zorg ervoor dat u geen delen van de MRZ met een vinger bedekt. Pas ook op voor reflecties die op de MRZ vallen en deze onleesbaar kunnen maken."
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sørg for at du ikke dekker over deler av MRZ med fingeren. Vær også oppmerksom på refleksjoner som strekker seg over MRZ og kan gjøre sonen uleselig."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upewnij się, że nie zasłaniasz palcem żadnej części strefy MRZ. Uważaj też na odbicia światła na strefie MRZ, które mogą utrudnić jej odczytanie."
+          }
+        },
+        "ps-AF" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ډاډ حاصل کړئ چې د MRZ کومه برخه مو په ګوته پټه نکړئ. همدارنګه د وړانګو هغه غبرګون ته وګورئ چې پر MRZ راځي او کېدای شي هغه و نه لوستل شي."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certifique-se de que não está a cobrir partes do MRZ com um dedo. Além disso, tenha em atenção os reflexos que se sobrepõem ao MRZ e que poderão torná-lo ilegível."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Certifique-se de não cobrir nenhuma parte da MRZ com os dedos. Além disso, evite reflexos sobre a MRZ, pois eles podem torná-la ilegível."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asigurați-vă că nu acoperiți cu degetul nicio parte a zonei MRZ. De asemenea, aveți grijă să nu se formeze reflexii peste zona MRZ, deoarece o pot face ilizibilă."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Убедитесь, что вы не закрываете пальцем части МСЗ. Также остерегайтесь бликов, которые могут перекрывать МСЗ и делать ее нечитаемой."
+          }
+        },
+        "si" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ඔබේ ඇඟිල්ලකින් MRZ එකේ කොටස් ආවරණය නොවන බවට වග බලා ගන්න. එසේම බාර්කෝඩ් එකේ කොටස් කියවීම අපහසු කළ හැකි, ඒ මත ඇති වන පරාවර්තන පිළිබඳව අවධානයෙන් සිටින්න."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uistite sa, že časti strojovo čitateľnej oblasti (MRZ) nezakrývate prstom. Dávajte si tiež pozor na odrazy, ktoré prechádzajú cez túto oblasť a môžu spôsobiť, že bude nečitateľná."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ne prekrivajte nobenega dela strojno berljivega območja s prstom. Prav tako bodite pozorni na odseve svetlobe na strojno berljivem območju, zaradi katerih bi lahko postalo neberljivo."
+          }
+        },
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uverite se da ne prekrivate delove MRZ prstom. Obratite pažnju i na odsjaj preko MRZ zbog koga bi kod mogao biti nečitljiv."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrollera att du inte täcker delar av MRZ-koden med ett finger. Se också upp för reflektioner som kan göra MRZ-koden oläslig."
+          }
+        },
+        "sw" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hakikisha hujafunika sehemu za MRZ kwa kidole. Pia, kuwa mwangalifu na mwanga unaoakisiwa unaopita juu ya MRZ na unaweza kuufanya isisomeke."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตรวจสอบให้แน่ใจว่าคุณไม่ได้ปกปิดบางส่วนของ MRZ ด้วยนิ้ว นอกจากนี้ ระวังการสะท้อนที่ส่องผ่านโค้ด MRZ และอาจทำให้อ่านไม่ได้"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ'nin herhangi bir bölümünü parmağınızla kapatmadığınızdan emin olun. Ayrıca MRZ'nin okunması engelleyebilecek yansımalara dikkat edin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переконайтеся, що ви не закриваєте частини MRZ пальцем. Також стежте за відблисками, які перекривають MRZ і можуть зробити його нечитабельним."
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "یقینی بنائیں کہ آپ کی انگلی سے MRZ کا کوی حصہ نہ ڈھکا ہو۔ اس کے علاوہ، MRZ پر پڑنے والے انعکاس سے بھی بچیں، کیونکہ اس سے متن پڑھنے کے قابل نہیں رہ سکتا۔"
+          }
+        },
+        "uz" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ qismini barmogʻingiz bilan toʻsmayotganligingizga ishonch hosil qiling. Shuningdek, MRZ ustiga tushib, uni oʻqib boʻlmaydigan qilib qoʻyishi mumkin boʻlgan akslanishlardan ehtiyot boʻling."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đảm bảo bạn không dùng ngón tay che các phần của MRZ. Ngoài ra, hãy chú ý tránh để các vệt phản chiếu ánh sáng đè lên MRZ có thể khiến MRZ không đọc được."
+          }
+        },
+        "yo" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ríi dájú pé o ò fi ìka kan bo àwọn apá ibì kankan lórí MRZ náà. Bákannáà, ṣọ́ra fún àwọn ìtànyòò tó kọjá lórí MRZ náà lé yìí tí ó lè mú kí ó má ṣeé kà."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "确保手指没有遮挡机读区。此外，请留意机读区上的反光，反光可能导致机读区无法读取。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請確保手指沒有遮住 MRZ，並避免 MRZ 出現反光，以免無法辨識。"
+          }
+        }
+      }
+    },
+    "mb_help_screen_mrz_title1" : {
+      "comment" : "",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ak" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ma wonhu MRZ no"
+          }
+        },
+        "am" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ ሙሉ በሙሉ እንዲታይ ያድርጉ"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يجب أن تظل منطقة القراءة الآلية (MRZ) مرئية"
+          }
+        },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ দৃশ্যমান রাখুন"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nezakrývejte MRZ kód"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold MRZ'en synlig"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der MRZ muss sichtbar sein"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Φροντίστε να είναι ορατό το MRZ"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep the MRZ visible"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep the MRZ visible"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantén el MRZ visible"
+          }
+        },
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenga la MRZ visible"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ را قابل مشاهده نگه دارید"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pidä MRZ näkyvissä"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Panatilihing nakikita ang MRZ"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gardez le MRZ visible"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gardez la ZLA visible"
+          }
+        },
+        "ha" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajiye yadda za a iya kallon MRZ"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הקפידו שה-MRZ יישאר גלוי"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ को दृश्यमान रखें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Držite MRZ vidljivim"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ügyeljen arra, hogy az MRZ látható maradjon"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pastikan MRZ tetap terlihat"
+          }
+        },
+        "is" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haltu véllesanlega svæðinu sýnilegu"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantieni visibile l'MRZ"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZが見えるようにしてください"
+          }
+        },
+        "ka-GE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ უნდა ჩანდეს"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Машина оқитын аймақ жолағы көрініп тұрғанына көз жеткізіңіз"
+          }
+        },
+        "km-KH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "រក្សា MRZ ឲ្យនៅតែអាចមើលឃើញ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ가 잘 보이도록 유지하세요"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turiet dokumentu tā, lai būtu redzama MRZ"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pastikan MRZ jelas kelihatan."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ स्पष्ट देखिने गरी राख्नुहोस्"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Houd de MRZ zichtbaar"
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold MRZ synlig"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upewnij się, że strefa MRZ jest widoczna"
+          }
+        },
+        "ps-AF" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ باید د لیدلو وړ وي"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenha o MRZ visível"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantenha a MRZ visível"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Păstrați zona MRZ vizibilă"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "МСЗ должна быть хорошо видна"
+          }
+        },
+        "si" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ එක පෙනෙන පරිදි තබා ගන්න"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Udržujte strojovo čitateľnú oblasť (MRZ) viditeľnú"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strojno berljivo območje naj bo ves čas vidno."
+          }
+        },
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neka MRZ bude vidljiv"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Håll MRZ-koden synlig"
+          }
+        },
+        "sw" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hakikisha MRZ inaonekana"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ทำให้ MRZ มองเห็นได้"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ'nin görünür olmasına dikkat edin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тримайте MRZ повністю видимим"
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ کو نمایاں رکھیں"
+          }
+        },
+        "uz" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ koʻrinib tursin"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đảm bảo thấy rõ MRZ"
+          }
+        },
+        "yo" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jẹ́ kí MRZ náà hàn dáadáa"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保持机读区可见"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保持 MRZ 清晰可見"
+          }
+        }
+      }
+    },
     "mb_help_screen_msg1" : {
       "comment" : "",
       "extractionState" : "manual",
@@ -15737,6 +16421,348 @@
         }
       }
     },
+    "mb_mrz_id_instructions" : {
+      "comment" : "",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ak" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skane krataa no nkyɛn a ɛwɔ MRZ no"
+          }
+        },
+        "am" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "የሰነዱ የMRZ ገፅን ይቃኙ"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "امسح الجانب الذي يحتوي على منطقة القراءة الآلية (MRZ) من المستند ضوئيًا"
+          }
+        },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নথির MRZ-যুক্ত অংশটি স্ক্যান করুন"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naskenujte stranu dokumentu obsahující MRZ kód"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan den side af dokumentet, hvor der er en MRZ"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen Sie die MRZ-Seite eines Dokuments"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Σαρώστε την πλευρά του εγγράφου που περιέχει το MRZ"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan the MRZ side of a document"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan the MRZ side of a document"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escanea el lado del MRZ de un documento"
+          }
+        },
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Escanee el lado del documento con la MRZ"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اسکن سمت MRZ یک سند"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lue asiakirjan MRZ-puoli"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I-scan ang bahagi ng dokumento na may MRZ"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannez le côté MRZ d’un document"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numérisez la face du document sur laquelle se trouve la ZLA"
+          }
+        },
+        "ha" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yi sikanin gefen MRZ na takardar"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "סרקו את הצד של המסמך עם ה-MRZ"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "दस्तावेज़ के MRZ वाले हिस्से को स्कैन करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skenirajte stranu dokumenta s MRZ kodom"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olvassa be az okmány MRZ kódot tartalmazó oldalát"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pindai sisi MRZ dokumen"
+          }
+        },
+        "is" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skannaðu hlið véllesanlega svæði skjalsins"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansiona il lato con MRZ di un documento"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書類のMRZがある面をスキャンしてください"
+          }
+        },
+        "ka-GE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "დაასკანერეთ დოკუმენტის MRZ მხარე"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Құжаттың машина оқитын аймақ жағын сканерлеңіз"
+          }
+        },
+        "km-KH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ស្កេនចំហៀងសងខាង MRZ របស់ឯកសារ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문서의 MRZ 면을 스캔하세요"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noskenējiet to dokumenta pusi, kurā ir MRZ"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imbas bahagian dokumen yang mengandungi MRZ."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कागजातको MRZ भएको भाग स्क्यान गर्नुहोस्"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan de MRZ-zijde van een document"
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skann MRZ-siden av et dokument"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeskanuj stronę dokumentu ze strefą MRZ"
+          }
+        },
+        "ps-AF" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "د سند د MRZ برخه سکن کړئ"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digitalize o lado MRZ de um documento"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digitalize o lado do documento que contém a MRZ"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanați partea documentului pe care se află MRZ"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отсканируйте сторону документа с МСЗ"
+          }
+        },
+        "si" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ලේඛනයක MRZ එක ඇති පැත්ත ස්කෑන් කරන්න"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naskenujte stranu dokumentu so strojovo čitateľnou oblasťou (MRZ)"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skenirajte stran dokumenta s strojno berljivim območjem"
+          }
+        },
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skenirajte stranu dokumenta na kojoj se nalazi MRZ"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skanna den sida av dokumentet där MRZ-koden finns"
+          }
+        },
+        "sw" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skani upande wa MRZ wa hati"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สแกนด้าน MRZ ของเอกสาร"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belgenin MRZ bulunan tarafını tarayın"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відскануйте сторону документа з MRZ"
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دستاویز کے MRZ والے رخ کو اسکین کریں"
+          }
+        },
+        "uz" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujjatning MRZ mavjud tomonini skanerlang"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quét mặt có MRZ của giấy tờ"
+          }
+        },
+        "yo" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ṣe àyẹ̀wò apá MRZ ti ìwé àkọsílẹ̀ kan"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "扫描文件的机读区一面"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "掃描文件的 MRZ 面"
+          }
+        }
+      }
+    },
     "mb_need_help_tooltip" : {
       "comment" : "",
       "extractionState" : "manual",
@@ -16428,121 +17454,121 @@
         "ak" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "IDs ahorow bɛwɔ barkodu ahorow ne baabi a ɛwɔ. Hwɛ ID no anim ne akyi sɛ wobehu barkodu a."
+            "value" : "Ebia nkrataa ahorow betumi awɔ baakoodu fɔmat ne mmeae ahorow. Hwɛ krataa no anim ne akyi sɛ wobehu baakoodu a."
           }
         },
         "am" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "የተለያዩ የመታወቂያ አይነቶች የተለያየ የባርኮድ ቅርጽና መገኛ ቦታ ሊኖራቸው ይችላል። ባርኮድ መኖሩን ለማረጋገጥ የመታወቂያውን የፊትና የጀርባ ገጽ ይመልከቱ።"
+            "value" : "የተለያዩ የሰነድ አይነቶች የተለያየ የባርኮድ ቅርጽና መገኛ ቦታ ሊኖራቸው ይችላል። ባርኮድ መኖሩን ለማረጋገጥ የሰነዱን የፊትና የጀርባ ገጽ ይመልከቱ።"
           }
         },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "قد تتنوع صيغ الباركود ومواضعه على الهويات المختلفة. تحقق من الجهة الأمامية والخلفية للهوية للعثور على الباركود."
+            "value" : "قد تحتوي أنواع المستندات المختلفة على صيغ وأماكن مختلفة للرموز الشريطية. ابحث عن الرمز الشريطي في وجه المستند وظهره."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "বিভিন্ন ধরণের আইডিতে ভিন্ন বারকোডের ফরম্যাট ও অবস্থান থাকতে পারে। বারকোডটি খুঁজে পেতে আইডির সামনের ও পেছনের দিকটি দেখুন।"
+            "value" : "বিভিন্ন ধরণের নথিপত্রে বারকোডের বিন্যাস ও অবস্থান ভিন্ন হতে পারে। বারকোডটি খুঁজে পেতে নথিপত্রটির সামনের ও পেছনের অংশ দেখুন।"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Různé typy průkazů totožnosti se mohou lišit formátem a umístěním čárového kódu. Kód může být jak na přední, tak na zadní straně průkazu totožnosti."
+            "value" : "Různé typy dokumentů se mohou lišit formátem a umístěním čárového kódu. Kód může být jak na přední, tak na zadní straně dokumentu."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "På forskellige typer ID kan stregkoden have forskellige formater og placeringer. Du finder stregkoden på forsiden eller bagsiden af ID'et."
+            "value" : "Forskellige typer dokumenter kan have forskellige stregkodeformater og -placeringer. Se på forsiden og bagsiden af dokumentet for at finde en stregkode."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verschiedene Arten von Ausweisen können unterschiedliche Barcodeformate und -positionen haben. Suchen Sie auf der Vorder- und Rückseite des Ausweises nach einem Barcode."
+            "value" : "Verschiedene Arten von Dokumenten können unterschiedliche Barcodeformate und -positionen haben. Suchen Sie auf der Vorder- und Rückseite des Dokuments nach einem Barcode."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Διαφορετικοί τύποι εγγράφων ταυτότητας ενδέχεται να περιέχουν διαφορετική μορφή και θέση γραμμωτών κωδικών. Κοιτάξτε στην μπροστινή και την πίσω όψη της ταυτότητας για τον γραμμωτό κώδικα."
+            "value" : "Διαφορετικοί τύποι εγγράφων ενδέχεται να περιέχουν διαφορετική μορφή και θέση γραμμωτών κωδικών. Κοιτάξτε στην μπροστινή και την πίσω όψη του εγγράφου για τον γραμμωτό κώδικα."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Different types of IDs may have different barcode formats and locations. Look at the front and back of the ID for a barcode."
+            "value" : "Different types of documents may have different barcode formats and locations. Look at the front and back of the document for a barcode."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Different types of IDs may have different barcode formats and locations. Look at the front and back of the ID for a barcode."
+            "value" : "Different types of document may have different barcode formats and locations. Check both the front and back of the document for a barcode."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El código de barras puede variar en formato y en su ubicación dentro del documento, según el tipo de identificación. Busca el código de barras tanto en el anverso como en el reverso del documento."
+            "value" : "Cada tipo de documento puede tener un formato y una ubicación del código de barras diferente. Busca el código de barras tanto en la parte frontal como en el reverso del documento."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diferentes tipos de ID pueden tener diferentes formatos de código de barras así como su ubicación. Busque al frente y por detrás por el código de barras de la ID."
+            "value" : "Diferentes tipos de documentos pueden tener diferentes formatos de códigos de barras y ubicaciones. Revise el frente y reverso del documento para verificar si tiene un código de barras."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "انواع مختلف کارت‌های شناسایی ممکن است قالب‌ها و مکان‌های بارکد متفاوتی داشته باشند. برای یافتن بارکد، به جلو و عقب کارت شناسایی نگاه کنید."
+            "value" : "انواع مختلف اسناد ممکن است قالب‌ها و مکان‌های بارکد متفاوتی داشته باشند. برای یافتن بارکد، به جلو و عقب سند نگاه کنید."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erityyppisten henkilötodistusten viivakoodi voi olla eri muodossa tai eri paikassa. Etsi viivakoodi henkilötodistuksen etu- tai taustapuolelta."
+            "value" : "Erityyppisten asiakirjojen viivakoodin muoto ja sijainti saattavat vaihdella. Etsi viivakoodi tarkistamalla asiakirjan etu- ja kääntöpuoli."
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Maaaring may iba't ibang format at lokasyon ng barcode ang iba't ibang uri ng ID. Tingnan ang harap at likod ng ID para sa barcode."
+            "value" : "Maaaring may iba't ibang format at lokasyon ng barcode ang iba't ibang uri ng mga dokumento. Tingnan ang harap at likod ng dokumento para sa barcode."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les différents types de pièces d’identité peuvent avoir des formats et des emplacements de codes-barres différents. Examinez le recto et le verso de la pièce d’identité à la recherche d’un code-barres."
+            "value" : "Les différents types de documents peuvent avoir des formats et des emplacements de codes-barres différents. Examinez le recto et le verso du document à la recherche d’un code-barres."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les différents types de pièces d'identité peuvent posséder des formats et des emplacements de code-barres différents. Vérifiez la présence d'un code-barres au recto et au verso de la pièce d'identité."
+            "value" : "Les différents types de document peuvent posséder des formats et des emplacements de code-barres distincts. Vérifiez la présence d'un code-barres au recto et au verso du document."
           }
         },
         "ha" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Katunan shaida mabambanta suna iya zuwa da tsarin barcode mabambanta sanan a wuri daban-daban. A duba gaba da bayan katin shaida domin ganin barcode ɗin."
+            "value" : "Takardu mabambanta suna iya zuwa da tsarin barcode mabambanta sanan da wuri daban-daban. A duba gaba da bayan takardar don barcode ɗin."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הברקוד בסוגים שונים של מסמכי זיהוי עשויים להיות בפורמטים ובמיקומים שונים. חפשו ברקוד בחלק הקדמי והאחורי של מסמך הזיהוי."
+            "value" : "לסוגים שונים של מסמכים עשויים להיות פורמטים ומיקומים שונים של ברקוד. חפשו ברקוד בחלק הקדמי והאחורי של המסמך."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "विभिन्न प्रकार के पहचान पत्रों में बारकोड के फार्मेट और स्थान अलग-अलग हो सकते हैं। बारकोड के लिए पहचान पत्र के आगे और पीछे दोनों तरफ देखें।"
+            "value" : "विभिन्न प्रकार के दस्तावेज़ों में बारकोड के फार्मेट और स्थान अलग-अलग हो सकते हैं। बारकोड के लिए दस्तावेज़ के आगे और पीछे दोनों तरफ देखें।"
           }
         },
         "hr" : {
@@ -16554,103 +17580,103 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A különböző típusú dokumentumok eltérő vonalkód-formátummal és helyekkel rendelkezhetnek. Nézze meg az azonosító elejét és hátulját, hogy megtalálja a vonalkódot."
+            "value" : "A különböző típusú okmányok eltérő vonalkód-formátummal és -helyekkel rendelkezhetnek. Nézze meg az okmány elejét és hátulját, hogy megtalálja a vonalkódot."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jenis ID berbeda dapat memiliki format dan lokasi kode batang yang berbeda juga. Lihat sisi depan dan belakang ID untuk menemukannya."
+            "value" : "Jenis dokumen berbeda dapat memiliki format dan lokasi kode batang yang berbeda juga. Lihat sisi depan dan belakang dokumen untuk menemukannya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mismunandi gerðir skilríkja geta haft mismunandi strikamerkjaform og staðsetningar. Leitaðu að strikamerki á fram- og bakhlið skilríkisins."
+            "value" : "Mismunandi gerðir skjala geta haft mismunandi strikamerkjasnið og staðsetningar. Leitaðu að strikamerki á fram- og bakhlið skjalsins."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Su tipi diversi di documenti d'identità possono essere riportati codici a barre con formati e posizioni differenti. Cerca un codice a barre sul fronte e sul retro del documento d'identità."
+            "value" : "Diversi tipi di documenti possono riportare codici a barre con formati e posizioni differenti. Cerca un codice a barre sul fronte e sul retro del documento."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "IDの種類が異なると、バーコードの形式と位置も異なる可能性があります。IDの表面と裏面のバーコードを確認してください。"
+            "value" : "書類の種類によって、バーコードの形式や位置は異なる場合があります。書類の表面と裏面を確認し、バーコードを探してください。"
           }
         },
         "ka-GE" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "სხვადასხვა ტიპის პირადობის მოწმობებზე შტრიხკოდები სხვადასხვა ფორმატით და სხვადასხვა ადგილას შეიძლება იყოს დატანილი. დაათვალიერეთ პირადობის მოწმობის წინა და უკანა მხარეს შტრიხკოდის სანახავად."
+            "value" : "სხვადასხვა ტიპის დოკუმენტს შეიძლება სხვადასხვა ფორმატის შტრიხკოდი ჰქონდეს და ის სხვადასხვა ადგილას იყოს განთავსებული. დაათვალიერეთ დოკუმენტის წინა და უკანა მხარეები შტრიხკოდის საპოვნელად."
           }
         },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Жеке куәліктің әртүрлі түрлерінде штрихкодтардың форматы мен орналасуы әртүрлі болуы мүмкін. Штрихкодты куәліктің алдыңғы және артқы беттерінен іздеу керек."
+            "value" : "Әр түрлі құжаттарда штрих-кодтың пішімі мен орналасуы әртүрлі болуы мүмкін. Құжаттың екі бетінен штрих-кодты іздеп көріңіз."
           }
         },
         "km-KH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ប្រភេទខុសៗគ្នានៃប័ណ្ណសម្គាល់អាចនឹងមានទ្រង់ទ្រាយ និងទីតាំងបារកូដខុសគ្នា។ សូមមើលទៅខាងមុខ និងខាងក្រោយនៃប័ណ្ណសម្គាល់រកមើលបារកូដ។"
+            "value" : "ប្រភេទឯកសារខុសគ្នាអាចនឹងមានទ្រង់ទ្រាយបារកូដ និងទីតាំងខុសគ្នា។ សូមពិនិត្យផ្នែកខាងមុខ និងខាងក្រោយនៃឯកសាររកមើលបារកូដ។"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "신분증 종류에 따라 바코드 형식과 위치가 다를 수 있습니다. 신분증 앞뒤에서 바코드를 확인하세요."
+            "value" : "문서 종류에 따라 바코드 형식과 위치가 다를 수 있습니다. 문서 앞뒤에서 바코드를 확인하세요."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dažādiem personu apliecinošajiem dokumentiem var būt dažādi svītrkoda formāti un atrašanās vietas. Lai atrastu svītrkodu, aplūkojiet personu apliecinošā dokumenta priekšpusi un aizmuguri."
+            "value" : "Dažādiem dokumentiem var būt dažādi svītrkoda formāti un atrašanās vietas. Lai atrastu svītrkodu, aplūkojiet dokumenta priekšpusi un aizmuguri."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jenis ID yang berbeza mungkin mempunyai format dan lokasi kod bar yang berbeza. Periksa bahagian hadapan dan belakang ID untuk mencari kod bar."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ulike typer ID-er har ulike typer strekkoder plassert på ulike steder. Strekkoden kan befinne seg på både forsiden og baksiden av ID-en."
+            "value" : "Jenis dokumen yang berbeza mungkin mempunyai format dan lokasi kod bar yang berbeza. Lihat bahagian depan dan belakang dokumen untuk kod bar."
           }
         },
         "ne" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "परिचयपत्र अनुसार बारकोडको रूप र यो कहाँ हुन्छ भन्ने कुरा फरक पर्न सक्छ। त्यसैले, बारकोड खोज्नका लागि आफ्नो कार्डको अगाडि र पछाडि दुवैतिर राम्ररी हेर्नुहोस्।"
+            "value" : "कागजात अनुसार बारकोडको रूप र यो कहाँ हुन्छ भन्ने कुरा फरक पर्न सक्छ। त्यसैले, बारकोड खोज्नका लागि आफ्नो कागजातको अगाडि र पछाडि दुवैतिर राम्ररी हेर्नुहोस्।"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verschillende soorten ID's kunnen verschillende soorten barcodes hebben. Deze kunnen op verschillende plaatsen zitten. Kijk goed naar de voorkant en achterkant van de ID voor de barcode."
+            "value" : "Verschillende soorten documenten kunnen verschillende formaten en locaties van de streepjescode hebben. Kijk op de voor- en achterzijde van het document voor een streepjescode."
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ulike typer dokumenter kan ha strekkoder i ulike formater og på ulike steder. Se etter en strekkode både på forsiden og baksiden av dokumentet."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Różne typy dokumentów tożsamości mogą mieć odmienne formaty kodów kreskowych oraz ich umiejscowienie. Obejrzyj przód i tył dokumentu, aby znaleźć kod kreskowy."
+            "value" : "Różne typy dokumentów mogą mieć odmienne formaty kodów kreskowych oraz ich umiejscowienie. Obejrzyj przód i tył dokumentu, aby znaleźć kod kreskowy."
           }
         },
         "ps-AF" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "بېلا بېلې ID ګانې کېدای شي د بارکوډ متفاوتې بڼې او موقعیتونه ولري. د ID مخ او شا د بارکوډ لپاره وګورئ."
+            "value" : "بېلا بېل سندونه کېدای شي د بارکوډ متفاوتې بڼې او موقعیتونه ولري. د سند مخ او شا د بارکوډ لپاره وګورئ."
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Os formatos e a localização dos códigos de barras podem variar conforme o tipo de documento. Procure um código de barras na frente e no verso do documento."
+            "value" : "Diferentes tipos de documentos podem ter diferentes formatos e localizações de códigos de barras. Procure um código de barras na frente e no verso do documento."
           }
         },
         "pt-BR" : {
@@ -16662,103 +17688,103 @@
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Diferitele tipuri de acte de identitate pot avea formate și amplasări diferite ale codului de bare. Verificați partea din față și cea din spate a actului de identitate pentru a localiza codul de bare."
+            "value" : "Diversele tipuri de documente pot avea formate și amplasări diferite ale codului de bare. Priviți atât partea din față, cât și din spate a documentului pentru a localiza codul de bare."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Разные типы удостоверений могут иметь разные форматы и расположение штрихкодов. Штрихкод может находиться на лицевой или оборотной стороне удостоверения."
+            "value" : "Разные типы документов могут иметь разные форматы и расположение штрихкодов. Штрихкод может находиться на лицевой или оборотной стороне документа."
           }
         },
         "si" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "විවිධ වර්ගයේ හැඳුනුම්පත්වල විවිධ බාර්කෝඩ් ආකෘති තිබිය හැකි අතර, එය තිබෙන ස්ථානය ද වෙනස් විය හැක. බාර්කෝඩ් එකක් සොයා ගැනීමට හැඳුනුම්පතේ ඉදිරිපස සහ පිටුපස බලන්න."
+            "value" : "විවිධ වර්ගයේ ලේඛනවල විවිධ බාර්කෝඩ් ආකෘති තිබිය හැකි අතර, එය තිබෙන ස්ථානය ද වෙනස් විය හැක. බාර්කෝඩ් එකක් සොයා ගැනීමට ලේඛනයේ ඉදිරිපස සහ පිටුපස බලන්න."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rôzne typy preukazov totožnosti môžu mať rôzne formáty čiarových kódov a rôzne umiestnenia. Pozrite sa na prednú a zadnú stranu preukazov totožnosti, kde nájdete čiarový kód."
+            "value" : "Rôzne typy dokumentov môžu mať rôzne formáty a umiestnenia čiarových kódov. Vyhľadajte čiarový kód na prednej alebo zadnej strane dokumentu."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Različne vrste osebnih dokumentov imajo lahko različne oblike in različna mesta črtnih kod. Na sprednji in zadnji strani dokumenta poiščite črtno kodo."
+            "value" : "Različne vrste dokumentov imajo lahko različne oblike črtnih kod, ki so lahko na različnih mestih. Poiščite črtno kodo na sprednji ali zadnji strani dokumenta."
           }
         },
         "sr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Različiti tipovi identifikacionih dokumenata će možda imati različite formate i lokacije bar-kodova. Tražite bar-kod na prednjoj ili zadnjoj strani dokumenta."
+            "value" : "Različiti tipovi dokumenata će možda imati različite formate i lokacije bar-kodova. Tražite bar-kod na prednjoj ili zadnjoj strani dokumenta."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Olika typer av ID-kort kan ha olika streckkodsformat och placeringar. Titta på fram- och baksidan av ID-korten för att se om det finns en streckkod."
+            "value" : "Olika typer av dokument kan ha olika streckkodsformat, och placeringen kan variera. Titta på båda sidorna av dokumentet för att hitta streckkoden."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aina tofauti za vitambulisho vinaweza kuwa na miundo na maeneo tofauti ya msimbopau. Angalia upande wa mbele na nyuma wa kitambulisho ili uone msimbopau."
+            "value" : "Aina tofauti za hati zinaweza kuwa na miundo na sehemu tofauti ya msimbopau. Angalia upande wa mbele na nyuma wa hati ili uone msimbopau."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "บัตรประจำตัวต่างๆ อาจมีรูปแบบบาร์โค้ดและตำแหน่งที่แตกต่างกัน ดูบาร์โค้ดที่ด้านหน้าและด้านหลังบัตรประจำตัว"
+            "value" : "เอกสารประเภทต่างๆ อาจมีรูปแบบบาร์โค้ดและตำแหน่งที่แตกต่างกัน โปรดดูบาร์โค้ดที่ด้านหน้าและด้านหลังเอกสาร"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Farklı kimlik türlerinin barkod formatları ve konumları değişiklik gösterebilir. Barkod için kimliğin ön ve arka yüzüne bakın."
+            "value" : "Farklı belge türlerinde barkod biçimleri ve yerleri farklı olabilir. Barkodu bulmak için belgenin ön ve arka yüzüne bakın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Різні типи посвідчень особи можуть мати різні формати та розташування штрих-коду. Щоб знайти штрих-код, перегляньте лицьовий та зворотний бік посвідчення особи."
+            "value" : "Різні типи документів можуть мати різні формати та розташування штрих-коду. Щоб знайти штрих-код, перегляньте лицьовий та зворотний бік документа."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "مختلف اقسام کی IDs میں بار کوڈ کے فارمیٹس اور ان کی جگہ مختلف ہو سکتی ہے۔ بار کوڈ کے لیے ID کے سامنے اور پیچھے والے حصے کو دیکھیں۔"
+            "value" : "مختلف اقسام کی دستاویزات میں بارکوڈ کے فارمیٹس اور مقامات مختلف ہو سکتے ہیں۔ بارکوڈ تلاش کرنے کے لیے دستاویز کے اگلے اور پچھلے رخ کو دیکھیں۔"
           }
         },
         "uz" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Turli ID hujjatlarida shtrix-kod formatlari va joylari ham har xil boʻlishi mumkin. Shtrix-kodni ID hujjatning old va orqa tomonidan qidiring."
+            "value" : "Har xil turdagi hujjatlarda shtrixkod formati va joylashuvi turlicha boʻlishi mumkin. Shtrixkodni hujjatning old va orqa tomonidan qidiring."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Các loại thẻ ID khác nhau có thể có định dạng và vị trí mã vạch khác nhau. Hãy xem mặt trước và mặt sau của thẻ ID để tìm mã vạch."
+            "value" : "Các loại giấy tờ khác nhau có thể có định dạng và vị trí mã vạch khác nhau. Hãy xem mặt trước và mặt sau của giấy tờ để tìm mã vạch."
           }
         },
         "yo" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oríṣiríṣi irú àwọn ID ló ní oríṣiríṣi ọ̀nà àgbékalẹ̀ rẹ̀ àti àwọn ààyè tó le dúró sí. Wo iwájú àti ẹ̀yìn ID náà fún kóòdù onílà náà."
+            "value" : "Oríṣiríṣi irú àwọn ìwé àkọsílẹ̀ ló ní àgbékalẹ kóòdù onílà ọ̀tọ̀ọ̀tọ̀ àti àwọn ààyè tí ó le dúró sí. Wo iwájú àti ẹ̀yìn ìwé àkọsílẹ̀ náà fún kóòdù onílà kan."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "身份证类型不同，其条形码的格式和位置也可能不同。请在身份证正面和反面查找条形码。"
+            "value" : "文件类型不同，其条形码的格式和位置也可能不同。请在文件正反面寻找条形码。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "不同類型的證件可能會有不同的條碼格式和位置。請在證件正反面尋找條碼。"
+            "value" : "不同類型的文件可能會有不同的條碼格式和位置。請查看文件正反面，找到條碼。"
           }
         }
       }
@@ -16770,121 +17796,121 @@
         "ak" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hwehwɛ barkodu no wɔ ID no so"
+            "value" : "Hwehwɛ baakoodu wɔ krataa no so"
           }
         },
         "am" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ባርኮዱን በመታወቂያው ላይ ይፈልጉ"
+            "value" : "የሰነዱ የባርኮድ ገፅን ያግኙ"
           }
         },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "حدد موضع الباركود على الهوية"
+            "value" : "حدد مكان الرمز الشريطي على المستند"
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "আইডিতে বারকোডটি খুঁজুন"
+            "value" : "নথিতে বারকোডটি খুঁজে বের করুন"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vyhledejte na průkazu totožnosti čárový kód"
+            "value" : "Vyhledejte na dokumentu čárový kód"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Find stregkoden på ID'et"
+            "value" : "Find stregkoden på dokumentet"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Barcode auf Ausweis lokalisieren"
+            "value" : "Finden Sie den Barcode auf dem Dokument"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Εντοπίστε τον γραμμωτό κώδικα στην ταυτότητα"
+            "value" : "Εντοπίστε τον γραμμωτό κώδικα στο έγγραφο"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Locate barcode on ID"
+            "value" : "Locate barcode on the document"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Locate barcode on ID"
+            "value" : "Locate the barcode on the document"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Busca el código de barras en el documento de identidad"
+            "value" : "Localiza el código de barras en el documento"
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ubique el código de barras en la ID"
+            "value" : "Localice el código de barras en el documento"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "بارکد را روی کارت شناسایی پیدا کنید"
+            "value" : "پیدا کردن بارکد روی سند"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Etsi viivakoodi henkilötodistuksesta"
+            "value" : "Etsi asiakirjan viivakoodi"
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hanapin ang barcode sa ID"
+            "value" : "Hanapin ang barcode sa dokumento"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Localiser le code-barres sur la pièce d’identité"
+            "value" : "Repérez le code-barres sur le document"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Localisez le code-barres sur la pièce d'identité"
+            "value" : "Localisez le code-barres sur le document"
           }
         },
         "ha" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A dubo barcode a kan katin shaida"
+            "value" : "Nemi barcode akan takardar"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "אתרו את הברקוד על מסמך הזיהוי"
+            "value" : "אתרו ברקוד במסמך"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "आईडी पर बारकोड ढूंढें"
+            "value" : "दस्तावेज़ पर बारकोड को ढूंढें"
           }
         },
         "hr" : {
@@ -16896,211 +17922,211 @@
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Keresse meg a vonalkódot az azonosítón"
+            "value" : "Keresse meg a vonalkódot az okmányon"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Temukan kode batang di ID"
+            "value" : "Temukan kode batang pada dokumen"
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Finndu strikamerkið á skilríkinu"
+            "value" : "Finndu strikamerki skjalsins"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Individua il codice a barre sul documento d'identità"
+            "value" : "Individua il codice a barre sul documento"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "IDのバーコードを見つけます"
+            "value" : "書類にあるバーコードを探してください"
           }
         },
         "ka-GE" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "მოძებნეთ შტრიხკოდი პირადობის მოწმობაზე"
+            "value" : "მოძებნეთ შტრიხკოდი დოკუმენტზე"
           }
         },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Жеке куәліктегі штрихкодты табыңыз."
+            "value" : "Құжаттан штрих-кодты іздеңіз."
           }
         },
         "km-KH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "រកទីតាំងបារកូដនៅលើប័ណ្ណសម្គាល់"
+            "value" : "រកមើលទីតាំងបារកូដនៅលើឯកសារ"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "신분증에서 바코드를 찾으세요"
+            "value" : "문서에서 바코드를 찾으세요"
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Atrodiet svītrkodu uz personu apliecinošā dokumenta"
+            "value" : "Atrodiet dokumentā svītrkodu"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cari kod bar pada ID"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Finn strekkoden på ID-en"
+            "value" : "Cari kod bar pada dokumen"
           }
         },
         "ne" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "परिचयपत्रमा बारकोड कहाँ छ खोज्नुहोस्"
+            "value" : "कागजातमा बारकोड भएको भाग पत्ता लगाउनुहोस्"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zoek de barcode op de ID."
+            "value" : "Lokaliseer de streepjescode op het document"
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finn strekkoden på dokumentet"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Znajdź kod kreskowy na dowodzie tożsamości"
+            "value" : "Zlokalizuj kod kreskowy na dokumencie"
           }
         },
         "ps-AF" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "پر ID موجود بارکوډ ومومئ"
+            "value" : "بارکوډ په سند کې مومئ"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Procure o código de barras no documento"
+            "value" : "Localize o código de barras no documento"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Localize o código de barras no documento de identidade"
+            "value" : "Localize o código de barras no documento"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Localizați codul de bare pe actul de identitate"
+            "value" : "Găsiți codul de bare pe document"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Найдите штрихкод на удостоверении"
+            "value" : "Найдите в документе штрихкод"
           }
         },
         "si" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "හැඳුනුම්පතේ බාර්කෝඩ් එක ඇති තැන සොයා ගන්න"
+            "value" : "ලේඛනයේ බාර්කෝඩ් එක ඇති තැන සොයා ගන්න"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nájdite na preukaze totožnosti čiarový kód"
+            "value" : "Nájdite na dokumente čiarový kód"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Poiščite črtno kodo na osebnem dokumentu"
+            "value" : "Poiščite črtno kodo na dokumentu"
           }
         },
         "sr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nađite bar-kod na identifikacionom dokumentu"
+            "value" : "Pronađite bar-kod na dokumentu"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Leta reda på streckkoden på ID-kortet"
+            "value" : "Leta reda på dokumentets streckkod"
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tafuta msimbopau kwenye kitambulisho"
+            "value" : "Tafuta msimbopau kwenye hati"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "หาบาร์โค้ดบนบัตรประจำตัว"
+            "value" : "ค้นหาบาร์โค้ดบนเอกสาร"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kimlik üzerindeki barkodu bulun"
+            "value" : "Belgede barkodu bulun"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Знайдіть штрих-код на посвідченні особи"
+            "value" : "Знайдіть штрих-код на документі"
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ID پر بار کوڈ تلاش کریں"
+            "value" : "دستاویز پر بارکوڈ تلاش کریں"
           }
         },
         "uz" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ID hujjatda shtrix-kodni toping"
+            "value" : "Hujjatdagi shtrixkodni toping"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Xác định vị trí mã vạch trên thẻ ID"
+            "value" : "Xác định vị trí mã vạch trên giấy tờ"
           }
         },
         "yo" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ṣàwarí kóòdù onílà lórí ID"
+            "value" : "Ṣàwarí kóòdù onílà lórí ìwé àkọsílẹ̀ náà"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "定位身份证上的条形码"
+            "value" : "找到文件上的条形码"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "對準證件上的條碼"
+            "value" : "找到文件上的條碼"
           }
         }
       }
@@ -17778,7 +18804,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "定位并扫描条形码"
+            "value" : "找到并扫描条形码"
           }
         },
         "zh-Hant" : {
@@ -18127,6 +19153,690 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "確保文件光線充足。所有文件欄位在相機螢幕都應清楚可見。"
+          }
+        }
+      }
+    },
+    "mb_onboarding_dialog_mrz_id_message" : {
+      "comment" : "",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ak" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wubehu nkyerɛwde atenten bi wɔ krataa no ase wɔ n’anim anaa n’akyi, a wɔakyekyɛ mu ayɛ no nkyerɛwde 2 anaa 3 na wɔde aro (<< anaa >>) atew ntam."
+          }
+        },
+        "am" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "በሰነዱ ፊት ወይም ጀርባ የታችኛው ክፍል ላይ፣ በ2 ወይም 3 መስመሮች የተከፈለና በቀስቶች (<< ወይም >>) የተለያየ ረጅም የቁምፊዎች ተርታ ያገኛሉ።"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ستجد سلسلة طويلة من الأحرف في أسفل الصفحة الأمامية أو الخلفية للمستند، مقسمة إلى سطرين أو 3 أسطر ومفصولة بأسهم (<< أو >>)."
+          }
+        },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নথির সামনের বা পেছনের অংশের নিচের দিকে আপনি অক্ষর ও চিহ্নের একটি দীর্ঘ সারি দেখতে পাবেন, যা দুই বা তিনটি লাইনে বিভক্ত এবং তীরচিহ্ন (<< বা >>) দ্বারা আলাদা করা।"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ve spodní části přední či zadní strany dokumentu najdete dlouhý řetězec znaků, který je rozdělený do 2 nebo 3 řádků a přerušovaný šipkami (<< nebo >>)."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du finder en lang række tegn nederst på forsiden eller bagsiden af dokumentet, opdelt i 2 eller 3 linjer og adskilt af pile (<< eller >>)."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Am unteren Rand der Vorder- oder Rückseite des Dokuments finden Sie eine lange Zeichenfolge. Sie ist in 2 oder 3 Zeilen geteilt und durch Pfeile (<< oder >>) getrennt."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Θα βρείτε μια μεγάλη αλληλουχία χαρακτήρων στο κάτω μέρος της μπροστινής ή της πίσω πλευράς του εγγράφου, διαχωρισμένη σε 2 ή 3 γραμμές με βέλη (<< ή >>)."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You’ll find a long string of characters at the bottom of the front or back of the document, split into 2 or 3 lines and separated by arrows (<< or >>)."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You'll find a long string of characters at the bottom of the front or back of the document, arranged in 2 or 3 lines and separated by chevrons (<< or >>)."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En la parte inferior de la parte frontal o del reverso del documento encontrarás una larga cadena de caracteres dividida en 2 o 3 líneas y separada por flechas (<< o >>)."
+          }
+        },
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrará una larga cadena de caracteres en la parte inferior del frente o el reverso del documento, dividida en 2 o 3 líneas y separada por flechas (<< o >>)."
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "شما یک رشته طولانی از کاراکترها را در پایین جلو یا عقب سند خواهید یافت که به ۲ یا ۳ خط تقسیم شده و با فلش (<< یا >>) از هم جدا شده‌اند."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löydät asiakirjan etu- tai kääntöpuolen alareunasta pitkän merkkijonon, joka on jaettu 2 tai 3 riville ja jonka osat on erotettu toisistaan nuolilla (<< tai >>)."
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Makakakita ka ng mahabang string ng mga character sa ibaba ng harap o likod ng dokumento. Nahahati ito sa 2 o 3 linya at pinaghihiwalay ng mga arrow (<< o >>)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous trouverez une longue chaîne de caractères en bas du recto ou du verso du document, divisée en deux ou trois lignes et séparée par des flèches (<< ou >>)."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous trouverez une longue suite de caractères au bas de la première ou de la dernière page du document, répartie sur deux ou trois lignes et séparée par des flèches (<< ou >>)."
+          }
+        },
+        "ha" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za ka nemi dogon jerin haruffa a kasa a gaba ko bayan takardar, raba shi zuwa layuka 2 ko 3 kuma a raba da kibiyoyi (<< ko >>)."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תמצאו מחרוזת ארוכה של תווים בתחתית החלק הקדמי או האחורי של המסמך. היא מחולקת ל-2 או 3 שורות ומופרדת על ידי חיצים (<< ו->>)."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आप दस्तावेज़ के आगे या पीछे, सबसे नीचे अक्षरों की एक लंबी स्ट्रिंग पाएँगे, जो 2 या 3 पंक्तियों में बँटी होती है और तीर (<< या >>) से अलग की जाती है।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na dnu prednje ili stražnje strane dokumenta pronaći ćete dugačak niz znakova, raspoređen u 2 ili 3 retka i odvojen strelicama (<< ili >>)."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az okmény elején vagy hátoldalán egy hosszú karaktersort talál, amely 2 vagy 3 sorra van osztva, valamint (<< vagy >>) nyilak választják el."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anda akan menemukan deretan karakter panjang di bagian bawah sisi depan atau belakang dokumen, terbagi menjadi 2 atau 3 baris dan dipisahkan oleh tanda panah (<< atau >>)."
+          }
+        },
+        "is" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Þú finnur langa röð af táknum neðst á forsíðu eða bakhlið skjalsins, skipt í 2 eða 3 línur og aðskilin með örvum (&lt;&lt; eða &gt;&gt;)."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Troverai una lunga serie di caratteri nella parte inferiore del fronte o del retro del documento, suddivisa in 2 o 3 righe e separata da frecce (<< o >>)."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書類の表面または裏面の下部に、「<<」または「>>」で区切られた2～3行の長い文字列があります。"
+          }
+        },
+        "ka-GE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "დოკუმენტის წინა ან უკანა მხარეს, ქვედა ნაწილში ნახავთ სიმბოლოების გრძელ მიმდევრობას, რომელიც დაყოფილია 2 ან 3 სტრიქონად და შეიცავს გამყოფ ნიშნებს << ან >>."
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Құжаттың алдыңғы немесе артқы бетінің төменгі жағынан 2–3 жолдан тұратын таңбалар мен көрсеткілермен (<< немесе >>) бөлінген ұзын жолды табыңыз."
+          }
+        },
+        "km-KH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "អ្នកនឹងឃើញសំណុំអក្សរវែងនៅខាងក្រោមនៃផ្នែកខាងមុខ ឬខាងក្រោយរបស់ឯកសារ ដែលត្រូវបានចែកជា 2 ឬ 3 បន្ទាត់ និងញែកដោយសញ្ញាព្រួញ (<< ឬ >>)។"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문서의 앞면 또는 뒷면 하단에서 화살표(<< 또는 >>)로 구분된 2~3줄의 긴 문자열을 찾을 수 있습니다."
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokumenta priekšpuses vai aizmugures apakšdaļā jūs atradīsiet garu virkni rakstzīmju, kas ir izvietota 2–3 rindās un sadalīta ar bultiņām (<< vai >>)."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anda akan menemukan rentetan aksara yang panjang di bahagian bawah muka hadapan atau belakang dokumen, terdiri daripada 2 atau 3 baris dan dipisahkan oleh simbol anak panah (<< atau >>)."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "तपाईंले कागजातको अगाडि वा पछाडिको भागको तल्लो तर्फ अक्षर र अंकहरूको एउटा लामो लहर भेट्टाउनुहुनेछ, जुन 2 वा 3 हरफमा विभाजित भई तीरका चिह्नहरू (<< वा >>) द्वारा छुट्याइएको हुन्छ।"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "U zult een lange reeks tekens vinden onderaan de voor- of achterzijde van het document, verdeeld over 2 of 3 lijnen en gescheiden door pijlen (<< of >>)."
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du finner en lang rekke med tegn på bunnen av forsiden eller baksiden av dokumentet, delt inn i 2–3 linjer og skilt med piler (<< eller >>)."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na dole przedniej lub tylnej strony dokumentu znajdziesz długi ciąg znaków, podzielony na 2 lub 3 wiersze i oddzielony strzałkami (<< lub >>)."
+          }
+        },
+        "ps-AF" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تاسو به د سند د مخ یا شا په ښکته برخه کې د کرکټرونو یوه اوږده لیکه وګورئ چې په 2 یا 3 کرښو وېشل شوې ده او د (<< یا >>) وېکتور نښو په وسیله جلا شوې دي."
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrará uma longa sequência de carateres na parte inferior da frente ou do verso do documento, dividida em 2 ou 3 linhas e separada por setas (<< ou >>)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você encontrará uma longa sequência de caracteres na parte inferior da frente ou do verso do documento, dividida em 2 ou 3 linhas e separada por símbolos de seta (<< ou >>)."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veți găsi un șir lung de caractere în partea de jos a documentului, pe fața sau pe spatele acestuia, întins pe 2 sau 3 rânduri și separat prin săgeți (<< sau >>)."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Внизу, на лицевой или оборотной стороне документа, находится длинный перечень символов на 2 или 3 строках, разделенный стрелками (<< или >>)."
+          }
+        },
+        "si" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ලේඛනයේ ඉදිරිපස හෝ පිටුපස පැත්තේ පතුලේ, ඔබට ඊතල (<< හෝ >>) මගින් වෙන් වූ පේළි 2 කට හෝ 3 කට බෙදුණු දිගු අක්ෂර මාලාවක් දක්නට ලැබෙනු ඇත."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "V spodnej časti prednej alebo zadnej strany dokumentu nájdete dlhý reťazec znakov. Je rozdelená na 2 alebo 3 riadky a oddelená šípkami (<< alebo >>)."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na spodnjem delu sprednje ali zadnje strani dokumenta boste našli dolg niz znakov, razdeljen v dve ali tri vrstice ter ločen s puščicami (<< ali >>)."
+          }
+        },
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pronaći ćete niz znakova u donjem delu prednjeg ili zadnjeg dela dokumenta. Podeljen je u 2 ili 3 reda i podeljenim strelicama (<< ili >>)."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Längst ner på dokumentets fram- eller baksida finns två eller tre rader med tecken som separeras av pilar (<< eller >>)."
+          }
+        },
+        "sw" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utapata mfululizo mrefu wa herufi chini ya sehemu ya mbele au nyuma ya hati, uliogawanywa katika mistari 2 au 3 na kutenganishwa na mishale (<< au >>)."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คุณจะพบชุดอักขระยาวที่ด้านล่างของส่วนหน้าหรือส่วนหลังของเอกสาร แยกออกเป็น 2 หรือ 3 บรรทัดและคั่นด้วยลูกศร (<< หรือ >>)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belgenin ön veya arka yüzünün alt kısmında 2 veya 3 satıra ayrılmış ve oklarla (<< veya >>) ayrılmış uzun bir karakter dizisi göreceksiniz."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви знайдете довгий рядок символів внизу передньої або задньої сторони документа, розділений на 2 або 3 рядки та відокремлений стрілками (<< або >>)."
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دستاویز کے اگلے یا پچھلے رخ کے نچلے حصے میں حروف کی ایک طویل لڑی موجود ہوگی، جو 2 یا 3 سطروں میں تقسیم اور تیر کے نشانات (<< یا >>) سے جدا ہوگی۔"
+          }
+        },
+        "uz" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujjatning old yoki orqa tomonining pastki qismida 2 yoki 3 qatorga boʻlingan va strelkalar (<< yoki >>) bilan ajratilgan uzun belgilar qatorini topasiz."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bạn sẽ tìm thấy một chuỗi ký tự dài ở phía dưới mặt trước hoặc mặt sau của giấy tờ, chia thành 2 hoặc 3 dòng và được phân tách bằng mũi tên (<< hoặc >>)."
+          }
+        },
+        "yo" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wàá rí àwọn òǹkọ̀wé tó gùn gan-an ní ìsàlẹ̀ iwájú tàbí ẹ̀yìn ìwé àkọsílẹ̀ náà, tó pín sí àwọn ilà 2 tàbí 3 tí àwọn àmì ọfà là láàárín (<< or >>)."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您将在文件正面或反面的底部找到一长串字符，分为 2 到 3 行，并由箭头（<< 或 >>）分隔。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您可以在文件正面或背面的底部找到一長串字元，通常會分成 2 到 3 行，並以箭頭符號 (<< 或 >>) 分隔。"
+          }
+        }
+      }
+    },
+    "mb_onboarding_dialog_mrz_id_title" : {
+      "comment" : "",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ak" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hwehwɛ MRZ wɔ krataa no so"
+          }
+        },
+        "am" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "የሰነዱ የMRZ ገፅን ያግኙ"
+          }
+        },
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حدد مكان منطقة القراءة الآلية (MRZ) في المستند"
+          }
+        },
+        "bn" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "নথিতে MRZ খুঁজে বের করুন"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyhledejte na dokumentu MRZ kód"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find MRZ på dokumentet"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finden Sie den MRZ auf dem Dokument"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εντοπίστε το MRZ στο έγγραφο"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locate MRZ on the document"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locate the MRZ on the document."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localiza el MRZ en el documento"
+          }
+        },
+        "es-MX" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localice la MRZ en el documento"
+          }
+        },
+        "fa" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ را روی سند پیدا کنید"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etsi asiakirjan MRZ"
+          }
+        },
+        "fil" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hanapin ang MRZ sa dokumento"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repérez MRZ sur le document"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localisez la ZLA sur le document"
+          }
+        },
+        "ha" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nemi MRZ akan takardar"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אתרו את ה-MRZ על המסמך"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "दस्तावेज़ पर MRZ को ढूंढें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locirajte MRZ na dokumentu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keresse meg az MRZ kódot az okmányon"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temukan MRZ pada dokumen"
+          }
+        },
+        "is" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finndu véllesanlega svæði skjalsins"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Individua l'MRZ sul documento"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書類のMRZを探してください"
+          }
+        },
+        "ka-GE" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "მოძებნეთ MRZ დოკუმენტზე"
+          }
+        },
+        "kk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Машина оқитын аймақ жолағын табыңыз."
+          }
+        },
+        "km-KH" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "រកមើលទីតាំង MRZ នៅលើឯកសារ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문서에서 MRZ를 찾으세요"
+          }
+        },
+        "lv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atrodiet dokumentā MRZ"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kenal pasti MRZ pada dokumen."
+          }
+        },
+        "ne" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कागजातको MRZ भएको भाग पत्ता लगाउनुहोस्"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokaliseer MRZ op het document"
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finn MRZ på dokumentet"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Znajdź strefę MRZ na dokumencie"
+          }
+        },
+        "ps-AF" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MRZ په سند ومومئ"
+          }
+        },
+        "pt" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localize o MRZ no documento"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Localize a MRZ no documento"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Găsiți MRZ pe document"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найдите в документе МСЗ"
+          }
+        },
+        "si" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ලේඛනයේ MRZ එක ඇති තැන සොයා ගන්න"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nájdite na dokumente strojovo čitateľnú oblasť (MRZ)"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poiščite strojno berljivo območje na dokumentu"
+          }
+        },
+        "sr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pronađite MRZ na dokumentu"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leta reda på dokumentets MRZ-kod"
+          }
+        },
+        "sw" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tafuta MRZ kwenye hati"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค้นหา MRZ บนเอกสาร"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belgede MRZ'yi bulun"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знайдіть MRZ на документі"
+          }
+        },
+        "ur" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دستاویز پر MRZ تلاش کریں"
+          }
+        },
+        "uz" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hujjatdan MRZ'ni toping"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xác định vị trí MRZ trên giấy tờ"
+          }
+        },
+        "yo" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ṣàwárí MRZ lórí ìwé àkọsílẹ̀ náà"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到文件上的机读区"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "找到文件上的 MRZ"
           }
         }
       }
@@ -18822,337 +20532,337 @@
         "ak" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wontumi nkan krataa no. Yɛsrɛw san yɛ bio."
+            "value" : "Hwɛ hu sɛ nkekae biara nni krataa no so, wotumi hu no yiye, na asum biara nni so."
           }
         },
         "am" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ሰነዱን ማንበብ አልተቻለም እባክዎ እንደገና ይሞክሩ።"
+            "value" : "የሰነዱ ቦታ በቂ ብርሃን እንደሚያገኝ፣ በደንብ እንደሚታይና ነጸብራቅ እንደሌለበት ያረጋግጡ።"
           }
         },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "غير قادر على قراءة المستند. يُرجى المحاولة مرة أخرى."
+            "value" : "تأكد من أن المستند مضاء جيدًا ومرئي بالكامل وخالٍ من الانعكاسات الضوئية."
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ডকুমেন্টটি পড়া যাচ্ছে না। অনুগ্রহ করে পুনরায় চেষ্টা করুন।"
+            "value" : "নিশ্চিত করুন যে নথিতে পর্যাপ্ত আলো রয়েছে, এটি সম্পূর্ণ দৃশ্যমান এবং এতে কোনো চকচকে ভাব নেই।"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dokument se nepodařilo přečíst. Zkuste to znovu."
+            "value" : "Ujistěte se, že je dokument dobře osvětlený, zcela viditelný a bez odlesků."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kunne ikke læse dokumentet. Prøv igen."
+            "value" : "Sørg for, at dokumentet er godt belyst og fuldt ud synligt, samt at der ikke er noget genskin."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Das Dokument kann nicht gelesen werden. Bitte versuchen Sie es erneut."
+            "value" : "Achten Sie darauf, dass das Dokument gut belichtet und vollständig sichtbar ist und nicht blendet."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Δεν είναι δυνατή η ανάγνωση του εγγράφου. Δοκιμάστε ξανά."
+            "value" : "Βεβαιωθείτε ότι το έγγραφο είναι καλά φωτισμένο, πλήρως ορατό και δεν έχει αντανακλάσεις."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unable to read the document. Please try again."
+            "value" : "Make sure the document is well lit, fully visible, and free of glare."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Unable to read the document. Please try again."
+            "value" : "Make sure the document is well lit, fully visible and free from glare."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No se puede leer el documento. Por favor, inténtelo de nuevo."
+            "value" : "Asegúrate de que el documento esté bien iluminado, se vea completamente y no haya reflejos."
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No se puede leer el documento. Inténtalo de nuevo."
+            "value" : "Asegúrese de que el documento esté bien iluminado, completamente visible y libre de reflejos."
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "قادر به خواندن سند نیست. لطفاً دوباره امتحان کنید."
+            "value" : "مطمئن شوید که سند به خوبی روشن، کاملاً قابل مشاهده و بدون تابش خیره کننده باشد."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asiakirjan lukeminen ei onnistu. Yritä uudelleen."
+            "value" : "Varmista, että asiakirja on hyvin valaistu, se näkyy kokonaisuudessaan eikä siinä ole heijastuksia."
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hindi mabasa ang dokumento. Pakisubukan ulit."
+            "value" : "Siguraduhing sapat na naiilawan ang dokumento, ganap na nakikita, at walang glare."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de lire le document. Veuillez réessayer."
+            "value" : "Assurez-vous que le document est bien éclairé, entièrement visible et sans reflet."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible de lire le document. Veuillez réessayer."
+            "value" : "Vérifiez que le document est bien éclairé, entièrement visible et exempt de reflets."
           }
         },
         "ha" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "An kasa karanta takardar. A sake gwadawa."
+            "value" : "Tabbatar cewa an haska takardar da kyau, ana gani cikakke, kuma ba wani dishi-dishi."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "לא ניתן לקרוא את המסמך. נא לנסות שוב."
+            "value" : "ודא שהמסמך מואר היטב, גלוי לחלוטין ולא מוסתר כלל ע\\\"י בוהק."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "दस्तावेज़ पढ़ा नहीं जा सका. कृपया दोबारा प्रयास करें."
+            "value" : "सुनिश्चित करें कि दस्तावेज़ पर अच्छी रोशनी हो, वह पूरा दिख रहा हो और किसी भी तरह की चमक से मुक्त हो।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dokument nije moguće očitati. Molimo pokušajte ponovo."
+            "value" : "Pripazite da je dokument dobro osvijetljen, u potpunosti vidljiv i bez odsjaja."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nem sikerült elolvasni a dokumentumot. Kérjük, próbálja újra."
+            "value" : "Ügyeljen rá, hogy az okmány jól meg legyen világítva, teljesen látható legyen és ne legyen rajta becsillanás."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tak dapat membaca dokumen. Silakan coba lagi."
+            "value" : "Pastikan dokumen cukup terang, terlihat sepenuhnya, dan bebas dari silau cahaya."
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ekki tókst að lesa skjalið. Reynið aftur."
+            "value" : "Gakktu úr skugga um að skjalið sé vel upplýst, fulllega sýnilegt og laust við endurskin."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossibile leggere il documento. Riprova."
+            "value" : "Assicurati che il documento sia ben illuminato, interamente visibile e senza riflessi."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "書類を読み取れません。もう一度お試しください。"
+            "value" : "書類全体が十分に明るく写り、すべてが画面内に収まり、反射がないことを確認してください。"
           }
         },
         "ka-GE" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "დოკუმენტის წაკითხვა ვერ ხერხდება. ხელახლა სცადეთ."
+            "value" : "დარწმუნდით, რომ დოკუმენტი კარგად არის განათებული, სრულად ჩანს კადრში და არ აქვს ანარეკლი."
           }
         },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Құжатты оқу мүмкін болмады. Әрекетті қайталаңыз."
+            "value" : "Құжатты жарық жерге, толықтай көрінетінін және жарық шағылыспайтын жерге қойыңыз."
           }
         },
         "km-KH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "មិនអាចអានឯកសារបានទេ។ សូមព្យាយាមម្តងទៀត។"
+            "value" : "ត្រូវប្រាកដថា ឯកសារភ្លឺច្បាស់ មើលឃើញពេញ និងគ្មានចំណាំងពន្លឺ។"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "문서를 읽을 수 없습니다. 다시 시도하세요."
+            "value" : "문서에 빛이 충분하고, 전체가 보이며, 빛이 반사되지 않는지 확인하세요."
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nevar nolasīt dokumentu. Lūdzu, mēģiniet vēlreiz."
+            "value" : "Pārliecinieties, ka dokuments ir labi apgaismots, pilnībā redzams un to neietekmē atspīdums."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tidak dapat membaca dokumen. Sila cuba semula."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kunne ikke lese dokumentet. Prøv igjen."
+            "value" : "Pastikan dokumen mempunyai pencahayaan yang mencukupi, kelihatan sepenuhnya dan bebas daripada silau."
           }
         },
         "ne" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "कागजात पढ्न सकेन। कृपया पुन: प्रेस गर्नुहोस्।"
+            "value" : "कागजात पर्याप्त उज्यालोमा रहेको, पूर्ण रूपमा देखिएको र नचम्किएको हुनुपर्छ।"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kon het document niet lezen. Probeer het alstublieft opnieuw."
+            "value" : "Zorg ervoor dat het document goed verlicht en volledig zichtbaar is en of er geen schitteringen op te zien zijn."
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sørg for at dokumentet er godt opplyst, helt synlig og uten gjenskinn."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nie można odczytać dokumentu. Spróbuj ponownie."
+            "value" : "Upewnij się, że dokument jest dobrze oświetlony, w pełni widoczny i bez odblasków."
           }
         },
         "ps-AF" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "د سند لوستلو توان نه لرم. مهرباني وکړئ بیا هڅه وکړئ."
+            "value" : "ډاډ حاصل کړئ چې سند ښه روښانه، په بشپړ ډول د لیدو وړ دی او هېڅ د رڼا وړانګې پرې نشته."
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Não foi possível ler o documento. Tente novamente."
+            "value" : "Garanta que o documento esteja bem iluminado, totalmente visível e sem reflexos."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Não foi possível ler o documento. Tente novamente."
+            "value" : "Certifique-se de que o documento esteja bem iluminado, totalmente visível e sem reflexos."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Documentul nu poate fi citit. Încercați din nou."
+            "value" : "Asigurați-vă că documentul este bine iluminat, vizibil în întregime și fără nicio reflexie."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не удалось прочитать документ. Повторите попытку."
+            "value" : "Убедитесь, что документ хорошо освещен, полностью виден и нет бликов."
           }
         },
         "si" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ලේඛනය කියවිය නොහැක. කරුණාකර නැවත උත්සාහ කරන්න."
+            "value" : "ලේඛනයට හොඳින් ආලෝකය වැටෙන බවත්, සම්පූර්ණයෙන් පෙනෙන බවත්, දිලිසීමෙන් තොර බවත් සහතික කර ගන්න."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dokument sa nepodarilo prečítať. Prosím, skúste znova."
+            "value" : "Uistite sa, že je dokument dobre osvetlený, plne viditeľný a bez odleskov."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dokumenta ni mogoče prebrati. Poskusite znova."
+            "value" : "Poskrbite, da bo dokument dobro osvetljen, v celoti viden in brez odsevov."
           }
         },
         "sr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nije moguće pročitati dokument. Molimo Vas, pokušajte ponovo."
+            "value" : "Vodite računa da dokument bude dobro osvetljen, u potpunosti vidljiv i na na njemu nema odsjaja."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Det gick inte att läsa dokumentet. Försök igen."
+            "value" : "Kontrollera att belysningen är god och att hela dokumentet är synligt och fritt från reflektioner."
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imeshindwa kusoma hati. Tafadhali jaribu tena."
+            "value" : "Hakikisha hati ina mwanga wa kutosha, inaonekana vizuri, na haina mng'ao."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ไม่สามารถอ่านเอกสาร โปรดลองอีกครั้ง"
+            "value" : "ตรวจสอบว่าเอกสารของคุณเห็นได้ครบถ้วนดีและไม่มีแสงสะท้อน"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Belge okunamıyor. Lütfen tekrar dene."
+            "value" : "Belgenin iyi aydınlatılmış ve tamamen görünür olmasına ve belge üzerinde bir parlama olmamasına dikkat edin."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не вдалося зчитати документ. Будь ласка, спробуйте ще раз."
+            "value" : "Переконайтеся, що документ добре освітлений, повністю видимий та без відблисків."
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "دستاویز پڑھنے میں ناکامی۔ براہ کرم دوبارہ کوشش کریں۔"
+            "value" : "یقینی بنائیں کہ دستاویز پر مناسب روشنی پڑ رہی ہو، وہ مکمل طور پر نظر آ رہی ہو اور اس پر چمک نہ ہو۔"
           }
         },
         "uz" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hujjatni oʻqish imkonsiz. Qayta urining."
+            "value" : "Hujjat yaxshi yoritilgan, toʻliq koʻrinadigan va unda yaltiroq joylar yoʻq ekanligiga ishonch hosil qiling."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Không thể đọc tài liệu. Xin vui lòng thử lại."
+            "value" : "Đảm bảo giấy tờ được chiếu sáng tốt, có thể nhìn rõ toàn bộ và không bị lóa."
           }
         },
         "yo" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A kò rí ìwé àkọsílẹ̀ náà kà. Jọ̀wọ́ tún gbìyànjú."
+            "value" : "Ríi dájú pé ìmọ́lẹ̀ tàn sórí ìwé àkọsílẹ̀ náà dáadáa, hàn kedere pátápátá, àti pé kò ní ìtànyòò."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "未能读取文件,请重试。"
+            "value" : "确保文件光线充足、完全可见且无眩光。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法讀取文件,請再試一次。"
+            "value" : "確保文件處於光線充足的環境中、完整入鏡，且沒有反光。"
           }
         }
       }
@@ -19506,337 +21216,337 @@
         "ak" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skane no ankɔ yiye"
+            "value" : "Wontumi nkenkan krataa no"
           }
         },
         "am" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "መቃኘት አልተሳካም"
+            "value" : "ሰነዱን ማንበብ አልተቻለም"
           }
         },
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تمت عملية المسح بنجاح"
+            "value" : "تتعذر قراءة المستند"
           }
         },
         "bn" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "স্ক্যান ব্যর্থ হয়েছে"
+            "value" : "নথিটি পড়া যাচ্ছে না"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skenování neúspěšné"
+            "value" : "Dokument nelze přečíst"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scanning mislykkedes"
+            "value" : "Dokumentet kunne ikke læses"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan nicht erfolgreich"
+            "value" : "Das Dokument kann nicht gelesen werden"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Η σάρωση ήταν ανεπιτυχής."
+            "value" : "Δεν είναι δυνατή η ανάγνωση του εγγράφου"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan unsuccessful"
+            "value" : "Unable to read the document"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan unsuccessful"
+            "value" : "Unable to read the document"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Escaneo fallido"
+            "value" : "No se ha podido leer el documento"
           }
         },
         "es-MX" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Error de escaneo"
+            "value" : "No se pudo leer el documento"
           }
         },
         "fa" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "اسکن ناموفق بود"
+            "value" : "قادر به خواندن سند نیست"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skannaus epäonnistui"
+            "value" : "Asiakirjaa ei voitu lukea"
           }
         },
         "fil" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hindi matagumpay ang pag-scan"
+            "value" : "Hindi mabasa ang dokumento"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Numérisation infructueuse"
+            "value" : "Impossible de lire le document"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Échec de la numérisation"
+            "value" : "Impossible de lire le document"
           }
         },
         "ha" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "An yi nasarar ɗaukar hoto"
+            "value" : "An gaza karanta takardar"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הסריקה נכשלה"
+            "value" : "לא ניתן לקרוא את המסמך"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "स्कैन असफल हुआ"
+            "value" : "दस्तावेज़ पढ़ा नहीं जा सका"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skeniranje nije uspjelo"
+            "value" : "Dokument nije moguće očitati."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sikertelen szkennelés"
+            "value" : "Az okmány nem olvasható"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pemindaian gagal"
+            "value" : "Tidak dapat membaca dokumen"
           }
         },
         "is" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skönnun mistókst"
+            "value" : "Ekki tókst að lesa skjalið"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scansione non riuscita"
+            "value" : "Lettura del documento non riuscita"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "スキャンに失敗しました"
+            "value" : "書類を読み取りできません"
           }
         },
         "ka-GE" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "სკანირება წარუმატებელია"
+            "value" : "დოკუმენტის წაკითხვა ვერ ხერხდება"
           }
         },
         "kk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Сканерлене алмады"
+            "value" : "Құжатты оқи алмады"
           }
         },
         "km-KH" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ស្កេនមិនជោគជ័យ"
+            "value" : "មិនអាចអានឯកសារបានទេ"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "스캔 실패"
+            "value" : "문서를 읽을 수 없습니다"
           }
         },
         "lv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skenēšana neizdevās"
+            "value" : "Nevar nolasīt dokumentu"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pengimbasan tidak berjaya"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skanning mislyktes"
+            "value" : "Dokumen tidak dapat dibaca."
           }
         },
         "ne" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "स्क्यान हुन सकेन"
+            "value" : "कागजात पढ्न सकेन"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan niet gelukt"
+            "value" : "Kan het document niet lezen."
+          }
+        },
+        "no" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunne ikke lese dokumentet"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nieudane skanowanie"
+            "value" : "Nie można odczytać dokumentu."
           }
         },
         "ps-AF" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "سکین ناکام شو"
+            "value" : "نشئ کولای سند ولولئ"
           }
         },
         "pt" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A digitalização falhou"
+            "value" : "Não foi possível ler o documento"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Falha na digitalização"
+            "value" : "Não foi possível ler o documento."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scanare nereușită"
+            "value" : "Documentul nu poate fi citit."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Не удалось отсканировать документ"
+            "value" : "Не удалось прочитать документ"
           }
         },
         "si" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ස්කෑන් කිරීම අසාර්ථකයි"
+            "value" : "ලේඛනය කියවිය නොහැක"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skenovanie neúspešné"
+            "value" : "Dokument sa nedá prečítať"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Optično branje ni uspelo"
+            "value" : "Dokumenta ni mogoče prebrati"
           }
         },
         "sr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skeniranje neuspešno"
+            "value" : "Nije moguće očitavanje dokumenta"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skanningen misslyckades"
+            "value" : "Dokumentet kunde inte läsas"
           }
         },
         "sw" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Imeshindwa kuskani"
+            "value" : "Imeshindwa kusoma hati"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "สแกนไม่สำเร็จ"
+            "value" : "ไม่สามารถอ่านเอกสาร"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tarama başarısız"
+            "value" : "Belge okunamıyor"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Сканування не вдалося"
+            "value" : "Не вдалося зчитати документ"
           }
         },
         "ur" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "اسکین ناکام رہا"
+            "value" : "دستاویز پڑھی نہیں جا سکی"
           }
         },
         "uz" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Skanerlandi"
+            "value" : "Hujjatni oʻqish imkonsiz"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Quét không thành công"
+            "value" : "Không thể đọc giấy tờ"
           }
         },
         "yo" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ṣíṣe ẹ̀dà àwòrán kò yege"
+            "value" : "O kò rí ìwé àkọsílẹ̀ náà kà"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "扫描失败"
+            "value" : "无法读取文件"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "掃描成功"
+            "value" : "無法讀取文件"
           }
         }
       }

@@ -7,8 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FFB72B5D2DA904BE00BCE4BE /* BlinkID in Frameworks */ = {isa = PBXBuildFile; productRef = FFB72B5C2DA904BE00BCE4BE /* BlinkID */; };
+		A2C6DEF4301775E700FBDC98 /* BlinkIDUX in Frameworks */ = {isa = PBXBuildFile; productRef = A2C6DEF3301775E700FBDC98 /* BlinkIDUX */; };
+		A2C6DF093017770B00FBDC98 /* BlinkIDUX in Embed Frameworks */ = {isa = PBXBuildFile; productRef = A2C6DEF3301775E700FBDC98 /* BlinkIDUX */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A2C6DF0A3017770B00FBDC98 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A2C6DF093017770B00FBDC98 /* BlinkIDUX in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FFB72B092DA7D6E200BCE4BE /* DirectAPISample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirectAPISample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFB72B5D2DA904BE00BCE4BE /* BlinkID in Frameworks */,
+				A2C6DEF4301775E700FBDC98 /* BlinkIDUX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +75,7 @@
 				FFB72B052DA7D6E200BCE4BE /* Sources */,
 				FFB72B062DA7D6E200BCE4BE /* Frameworks */,
 				FFB72B072DA7D6E200BCE4BE /* Resources */,
+				A2C6DF0A3017770B00FBDC98 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -70,7 +86,7 @@
 			);
 			name = DirectAPISample;
 			packageProductDependencies = (
-				FFB72B5C2DA904BE00BCE4BE /* BlinkID */,
+				A2C6DEF3301775E700FBDC98 /* BlinkIDUX */,
 			);
 			productName = DirectAPISample;
 			productReference = FFB72B092DA7D6E200BCE4BE /* DirectAPISample.app */;
@@ -101,7 +117,7 @@
 			mainGroup = FFB72B002DA7D6E200BCE4BE;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				FFB72B5B2DA904BE00BCE4BE /* XCRemoteSwiftPackageReference "blinkid-swift-package" */,
+				A2C6DEF2301775E700FBDC98 /* XCLocalSwiftPackageReference "../../../../blinkid-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FFB72B0A2DA7D6E200BCE4BE /* Products */;
@@ -334,22 +350,17 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		FFB72B5B2DA904BE00BCE4BE /* XCRemoteSwiftPackageReference "blinkid-swift-package" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BlinkID/blinkid-swift-package";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		A2C6DEF2301775E700FBDC98 /* XCLocalSwiftPackageReference "../../../../blinkid-ios" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../../blinkid-ios";
 		};
-/* End XCRemoteSwiftPackageReference section */
+/* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		FFB72B5C2DA904BE00BCE4BE /* BlinkID */ = {
+		A2C6DEF3301775E700FBDC98 /* BlinkIDUX */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FFB72B5B2DA904BE00BCE4BE /* XCRemoteSwiftPackageReference "blinkid-swift-package" */;
-			productName = BlinkID;
+			productName = BlinkIDUX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,16 +6,17 @@
 //
 
 import AVFoundation
+import AudioToolbox
 import Foundation
 import CoreImage
 import SwiftUI
 import Combine
 
-#if canImport(BlinkIDVerify)
+#if BLINKIDVERIFYUX
 import BlinkIDVerify
-#elseif canImport(BlinkID)
+#elseif BLINKIDUX
 import BlinkID
-#elseif canImport(BlinkCard)
+#elseif BLINKCARDUX
 import BlinkCard
 #endif
 
@@ -211,6 +212,15 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
     
     let showDemoOverlayImage: Bool
     let showProductionOverlayImage: Bool
+    
+    // MARK: - sound
+    private let scanBeepID: SystemSoundID = {
+        var id: SystemSoundID = 0
+        if let url = Bundle.frameworkBundle.url(forResource: "MBbeep", withExtension: "wav") {
+            AudioServicesCreateSystemSoundID(url as CFURL, &id)
+        }
+        return id
+    }()
     
     /// Initializes a new scanning UX model with the specified document analyzer.
     /// - Parameter analyzer: The analyzer responsible for processing camera frames and detecting documents.
@@ -438,6 +448,11 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
         if uxSettings.allowHapticFeedback {
             UINotificationFeedbackGenerator().notificationOccurred(.success)
         }
+        
+        if uxSettings.allowScanSound {
+            AudioServicesPlaySystemSound(scanBeepID)
+        }
+        
         cardImage = frontFlipImage
         UIAccessibility.post(notification: .announcement, argument: firstSideFinishedText)
         showSuccessImage = true
@@ -488,6 +503,9 @@ public class ScanningViewModel<T, U, V: ReticleStateMachineProtocol, A: AlertTyp
     private func animateSuccess() async {
         if uxSettings.allowHapticFeedback {
             UINotificationFeedbackGenerator().notificationOccurred(.success)
+        }
+        if uxSettings.allowScanSound {
+            AudioServicesPlaySystemSound(scanBeepID)
         }
         showSuccessImage = true
         UIAccessibility.post(notification: .announcement, argument: scanFinishedText)
