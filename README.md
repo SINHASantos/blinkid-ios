@@ -106,8 +106,10 @@ dependencies: [
 Normally you'll want to depend on the `BlinkIDUX` target:
 
 ```swift
-.product(name: "BlinkIDUX", package: "BlinkIDUX")
+.product(name: "BlinkIDUX", package: "blinkid-ios")
 ```
+
+> The package manifest is named `BlinkIDUX`, but Swift Package Manager identifies a package by its repository name, so the `package:` argument is `"blinkid-ios"`.
 
 > `BlinkIDUX` has a binary target dependency on `BlinkID`, so **use this package only if you are also using our UX.**
 
@@ -162,7 +164,7 @@ This will add the local Swift package as a dependency to your Xcode project.
 
 #### <a name="ai-coding-assistants"></a> AI coding assistants
 
-If you integrate with the help of an AI coding assistant, install the BlinkID **skills** - packaged instructions that teach the assistant this SDK's API, so it writes integration code against the real types instead of guessing.
+If you integrate with the help of an AI coding assistant, install the BlinkID **skills** — packaged instructions that teach the assistant this SDK's API, so it writes integration code against the real types instead of guessing.
 
 Download `BlinkID-ux-skill.zip` and/or `BlinkID-core-skill.zip` from the [latest release](https://github.com/microblink/blinkid-ios/releases) and unzip them into your project:
 
@@ -172,7 +174,7 @@ unzip BlinkID-ux-skill.zip   -d .claude/skills   # scanning screen, custom UX, t
 unzip BlinkID-core-skill.zip -d .claude/skills   # headless / Direct API, results, resources
 ```
 
-Install the UX skill if you use `BlinkIDUX`, the Core skill if you process images without our camera UI, or both. The skills are versioned with the SDK - re-download them when you upgrade.
+Install the UX skill if you use `BlinkIDUX`, the Core skill if you process images without our camera UI, or both. The skills are versioned with the SDK — re-download them when you upgrade.
 
 ### <a name="initiating-the-blinkid-process"></a> Initiating the document scanning process
 
@@ -393,7 +395,7 @@ The class implements the `Sendable` protocol and uses actor isolation (`@Process
 
 ### ScanningSettings
 
-`ScanningSettings` is the central configuration for how a document is scanned. It groups together the individual extraction modules - document capture, MRZ, barcode, and VIZ - along with the data-matching tolerance. It's passed to `BlinkIDSessionSettings`, which in turn configures a scanning session.
+`ScanningSettings` is the central configuration for how a document is scanned. It groups together the individual extraction modules — document capture, MRZ, barcode, and VIZ — along with the data-matching tolerance. It's passed to `BlinkIDSessionSettings`, which in turn configures a scanning session.
 
 Each module is optional. A `nil` module means that module is disabled; a non-`nil` module means it runs with the supplied settings. By default every module is enabled with its standard settings.
 
@@ -462,7 +464,7 @@ Handles detection and parsing of the Machine Readable Zone found on passports, v
 |----------|------|---------|-------------|
 | `presenceMandatory` | `Bool` | `false` | Require an MRZ regardless of document rules. In Single mode it must be on the scanned side; in Automatic mode on one of the scanned sides. |
 
-If a timeout advances the flow and an MRZ was detected but not extractable, the presence requirement is treated as fulfilled - MRZ extraction won't block completion on the next side.
+If a timeout advances the flow and an MRZ was detected but not extractable, the presence requirement is treated as fulfilled — MRZ extraction won't block completion on the next side.
 
 ---
 
@@ -511,9 +513,9 @@ If a front-side VIZ isn't fully extracted before a timeout advances the flow, ex
 
 Controls how `DocumentCaptureModuleSettings.cropType` treats the input image with respect to document localization and perspective correction.
 
-- `notCropped` - default. The image is treated as raw and runs through the full detection and perspective-correction pipeline. Applicable to both `Photo` and `Video` sources.
-- `unknown` - the image may be cropped, but there's no guarantee. The SDK first attempts to treat it as cropped and, if extraction fails, falls back to the normal detect-and-crop pipeline. `Photo` source only.
-- `cropped` - the image is already cropped and perspective-corrected. `Photo` source only.
+- `notCropped` — default. The image is treated as raw and runs through the full detection and perspective-correction pipeline. Applicable to both `Photo` and `Video` sources.
+- `unknown` — the image may be cropped, but there's no guarantee. The SDK first attempts to treat it as cropped and, if extraction fails, falls back to the normal detect-and-crop pipeline. `Photo` source only.
+- `cropped` — the image is already cropped and perspective-corrected. `Photo` source only.
 
 > Using `unknown` or `cropped` with a `Video` input source causes a validation error.
 
@@ -521,19 +523,19 @@ Controls how `DocumentCaptureModuleSettings.cropType` treats the input image wit
 
 Controls how `DocumentCaptureModuleSettings.inputImageSelectionStrategy` picks the best frame from a pool of stable input images. A larger pool improves the chance of a high-quality capture but can add a slight delay. `Video` source only.
 
-- `singleImage` - selects the first acceptable stable image.
-- `optimizeForSpeed` - faster, but may pick a lower-quality image (smaller pool considered).
-- `balanced` - default. Trade-off between speed and quality.
-- `optimizeForQuality` - slower; considers a larger pool to select a higher-quality image.
+- `singleImage` — selects the first acceptable stable image.
+- `optimizeForSpeed` — faster, but may pick a lower-quality image (smaller pool considered).
+- `balanced` — default. Trade-off between speed and quality.
+- `optimizeForQuality` — slower; considers a larger pool to select a higher-quality image.
 
 #### SensitivityLevel
 
 Configures detection sensitivity for blur, glare, and tilt.
 
-- `off` - detection disabled
-- `low` - less sensitive
-- `mid` - balanced (default for quality checks)
-- `high` - most sensitive
+- `off` — detection disabled
+- `low` — less sensitive
+- `mid` — balanced (default for quality checks)
+- `high` — most sensitive
 
 #### DPI
 
@@ -574,7 +576,7 @@ Describes what gets redacted from a scanned document.
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `mode` | `RedactionMode` | `.fullResult` | The mode of redaction applied to the document. |
-| `fields` | `[FieldType]` | - | The specific fields to redact. |
+| `fields` | `[FieldType]` | — | The specific fields to redact. |
 | `documentNumberRedactionSettings` | `DocumentNumberRedactionSettings?` | `nil` | Partial redaction of the document number. See [DocumentNumberRedactionSettings](#documentnumberredactionsettings). |
 | `redactMrz` | `Bool` | `false` | If `true`, the entire MRZ result is redacted. |
 | `redactBarcode` | `Bool` | `false` | If `true`, the entire barcode result is redacted. |
@@ -594,7 +596,7 @@ let redaction = RedactionSettings(
 
 ##### getDefaultRedactionSettings(for:)
 
-Returns the SDK's built-in default `RedactionSettings` for a given document class, or `nil` if none apply. Use it as a starting point when you want to tweak - rather than fully replace - the defaults for a document class.
+Returns the SDK's built-in default `RedactionSettings` for a given document class, or `nil` if none apply. Use it as a starting point when you want to tweak — rather than fully replace — the defaults for a document class.
 
 ```swift
 static func getDefaultRedactionSettings(for classInfo: DocumentClassInfo) -> RedactionSettings?
@@ -641,7 +643,7 @@ struct MyResolver: RedactionSettingsResolver {
 }
 ```
 
-> **Note:** Returning `nil` applies the SDK defaults automatically - you only need `getDefaultRedactionSettings(for:)` when you want to *modify* the defaults, not accept them as-is. Because the resolver may be invoked from any actor or task context in the scanning pipeline, conforming types must be `Sendable`.
+> **Note:** Returning `nil` applies the SDK defaults automatically — you only need `getDefaultRedactionSettings(for:)` when you want to *modify* the defaults, not accept them as-is. Because the resolver may be invoked from any actor or task context in the scanning pipeline, conforming types must be `Sendable`.
 
 > `RedactionMode`, `FieldType`, `AlphabetType`, and `DocumentClassInfo` are defined elsewhere in the SDK; refer to the [API reference](#additional-info) for their full set of cases.
 
@@ -682,7 +684,7 @@ An enumeration that defines the possible statuses that can occur during the scan
 - `cancelled`: Scanning was cancelled
 
 ##### ResultCompleteness
-A structure tracking the completeness of the extraction process for a scanned document. It indicates whether specific components - VIZ, MRZ, barcode, and images - have been successfully extracted. All properties are optional and `nil` when not applicable to the scanned document.
+A structure tracking the completeness of the extraction process for a scanned document. It indicates whether specific components — VIZ, MRZ, barcode, and images — have been successfully extracted. All properties are optional and `nil` when not applicable to the scanned document.
 - `viz`: `[VizCompleteness?]?` - Completeness of VIZ extraction for one or more VIZ models
 - `mrz`: `MrzCompleteness?` - Completeness of MRZ extraction
 - `barcode`: `BarcodeCompleteness?` - Completeness of barcode extraction
@@ -860,12 +862,12 @@ let inputImage2 = InputImage(cameraFrame: cameraFrame)
 
 `BlinkIDSdkSettings` is the top-level configuration passed to `BlinkIDSdk.createBlinkIDSdk(withSettings:)`. It conforms to two protocols:
 
-- `SdkSettings` - licensing plus base resource configuration (`resourcesConfiguration`).
-- `OtaSdkSettings` - over-the-air resource configuration (`otaResourcesConfiguration`).
+- `SdkSettings` — licensing plus base resource configuration (`resourcesConfiguration`).
+- `OtaSdkSettings` — over-the-air resource configuration (`otaResourcesConfiguration`).
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `licenseKey` | `String` | - | License key for the native SDK. |
+| `licenseKey` | `String` | — | License key for the native SDK. |
 | `licensee` | `String?` | `nil` | Optional licensee string if the license key is not tied to a single application id. |
 | `helloLogEnabled` | `Bool` | `false` | Enables hello-log output. |
 | `resourcesConfiguration` | `ResourcesConfig` | `.init()` | Base resource configuration. See [ResourcesConfig](#configuring-resources). |
@@ -920,8 +922,8 @@ The SDK supports both downloaded and bundled resources:
 
 Resource behavior is configured through two objects on `BlinkIDSdkSettings`:
 
-- `resourcesConfiguration` - a `ResourcesConfig` for the base machine-learning resources.
-- `otaResourcesConfiguration` - an `OTAResourcesConfig` for over-the-air resource updates.
+- `resourcesConfiguration` — a `ResourcesConfig` for the base machine-learning resources.
+- `otaResourcesConfiguration` — an `OTAResourcesConfig` for over-the-air resource updates.
 
 **`ResourcesConfig`**
 
@@ -1038,13 +1040,13 @@ let settings = BlinkIDSdkSettings(
 
 In addition to the base resources, the SDK can keep its machine-learning resources up to date **over the air (OTA)**. OTA resources are managed separately from the base resources: they are downloaded from a dedicated host and cached in their own folder, and their update behavior is controlled independently through `OTAResourcesConfig` on `BlinkIDSdkSettings.otaResourcesConfiguration`.
 
-OTA is **enabled by default** - the default `OTAResourcesConfig` checks for updates on initialization and falls back gracefully if an update can't be downloaded.
+OTA is **enabled by default** — the default `OTAResourcesConfig` checks for updates on initialization and falls back gracefully if an update can't be downloaded.
 
 **`OTAResourcesConfig`**
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `checkForUpdates` | `Bool` | `true` | When `true`, the SDK checks for and downloads **updated** OTA resources on init. When `false`, cached resources are reused as-is with no update check - **except** on first run, when resources are missing locally and are downloaded regardless. |
+| `checkForUpdates` | `Bool` | `true` | When `true`, the SDK checks for and downloads **updated** OTA resources on init. When `false`, cached resources are reused as-is with no update check — **except** on first run, when resources are missing locally and are downloaded regardless. |
 | `strict` | `Bool` | `false` | Controls how a failed OTA download is handled during init. When `true`, initialization **throws** if the OTA update fails to download. When `false`, initialization continues silently and falls back to the currently bundled/cached version. |
 | `serviceUrl` | `String` | `https://blinkid-ota.microblink.com` | Host URL for OTA resources. |
 | `localFolder` | `String` | `OTAMLModels` | Name of the subfolder within your app's cache folder where OTA resources are cached. |
@@ -1088,11 +1090,11 @@ let settings = BlinkIDSdkSettings(
 
 #### <a name="clearing-cached-resources"></a> Clearing cached resources
 
-The SDK provides two ways to remove cached resources from the device - for example on logout, on "delete my data" flows, when freeing storage, or to force a fresh download on the next initialization. Both clear the base **and** OTA caches and reset the SDK's internal OTA-managed state, and both silently ignore deletion errors so cleanup is never interrupted.
+The SDK provides two ways to remove cached resources from the device — for example on logout, on "delete my data" flows, when freeing storage, or to force a fresh download on the next initialization. Both clear the base **and** OTA caches and reset the SDK's internal OTA-managed state, and both silently ignore deletion errors so cleanup is never interrupted.
 
 **`deleteCachedResources(resourcesLocalFolder:otaResourcesLocalFolder:)`**
 
-A static utility that deletes the cached resource folders. It does **not** require a running SDK instance and does **not** terminate the SDK - it only removes files.
+A static utility that deletes the cached resource folders. It does **not** require a running SDK instance and does **not** terminate the SDK — it only removes files.
 
 ```swift
 // Using the default folder names (MLModels + OTAMLModels)
@@ -1121,11 +1123,11 @@ Task { @ProcessingActor in
 
 | | `deleteCachedResources(...)` | `terminateBlinkIDSdkAndDeleteCachedResources()` |
 |---|---|---|
-| Terminates the SDK | No - deletes files only | Yes - also calls `terminateBlinkIDSdk()` |
-| Requires an active instance | No - pure static utility | Yes - no-op when no instance exists |
+| Terminates the SDK | No — deletes files only | Yes — also calls `terminateBlinkIDSdk()` |
+| Requires an active instance | No — pure static utility | Yes — no-op when no instance exists |
 | How folders are located | From **parameters** (default `MLModels` / `OTAMLModels`) | From the **live instance's** actual resource paths |
-| Actor requirement | None - callable from anywhere | Must be called within the `ProcessingActor` context |
-| Risk of clearing the wrong folder | Possible if names don't match your config | None - uses the instance's real paths |
+| Actor requirement | None — callable from anywhere | Must be called within the `ProcessingActor` context |
+| Risk of clearing the wrong folder | Possible if names don't match your config | None — uses the instance's real paths |
 
 - **SDK currently initialized and you want to shut it down and wipe data:** use `terminateBlinkIDSdkAndDeleteCachedResources()`. Since it uses the live instance's paths, it always targets the correct folders regardless of any custom `localFolder`.
 - **SDK not running (or already terminated) and you just need to clear files:** use `deleteCachedResources(...)`, passing the same folder names you configured.
@@ -1621,6 +1623,40 @@ And that's it! You have created a custom SwiftUI View and ViewModel!
 Our app supports localization following Apple’s recommended approach. We provide a `Localizable.xcstrings` file that you can use or modify as needed. Localization is determined by the system settings, meaning you must define 
 supported languages in your app’s `Info.plist` under the `Localizations` key, ensuring all required keys are included. Once configured, users can change the app’s language via Settings > [App Name] > Language. Note that in-app 
 language switching is not supported, as we adhere to Apple’s intended localization flow.
+
+### <a name="custom-translations"></a> Providing your own translations
+
+If you want to override some or all of the SDK's built-in strings — for example to change the wording, or to ship a language we don't provide out of the box — you can point the SDK at your own translations bundle through the theme.
+
+Add the keys you want to override (the SDK's string keys are prefixed with `mb_`, e.g. `mb_back_instructions`) to your app's `Localizable.xcstrings` (or a dedicated `.strings`/`.stringsdict` table), then configure the theme before presenting the scanning UI:
+
+```swift
+import BlinkIDUX
+
+// Load overrides from your app's main bundle.
+BlinkIDTheme.shared.localizationBundle = .main
+
+// Optional: if your overrides live in a dedicated table (e.g. BlinkIDStrings.xcstrings),
+// set its name here. Leave it as nil to use the default `Localizable` table.
+BlinkIDTheme.shared.localizationTableName = "BlinkIDStrings"
+```
+
+For every string, the SDK first looks up the key in `localizationBundle` and falls back to its own built-in translation when the key isn't found — so you only need to provide the strings you actually want to change. Set `localizationBundle` back to `nil` to restore the SDK's own translations.
+
+### <a name="forcing-a-language"></a> Forcing a specific language (in-app language switching)
+
+By default the SDK follows the device's system language. If you want to display the scanning UI in a specific language regardless of the device settings — for example to let users switch language from within your app — set the language on the theme:
+
+```swift
+import BlinkIDUX
+
+BlinkIDTheme.shared.language = "de"   // force German
+// BlinkIDTheme.shared.language = nil // follow the system language (default)
+```
+
+The language must be present in the SDK's bundled translations (or in your `localizationBundle`); if it isn't, the SDK falls back to the system language. Right-to-left languages (Arabic, Hebrew, …) automatically flip the scanning UI's layout direction.
+
+Configure this **before presenting the scanning UI** — SwiftUI does not re-render an already-visible scanning screen when the value changes, so set it prior to launching a new scan.
 
 ## <a name="sdk-integration-troubleshooting"></a> SDK Integration Troubleshooting
 
