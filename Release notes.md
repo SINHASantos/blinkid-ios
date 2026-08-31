@@ -1,5 +1,10 @@
 # Release notes
 
+## v8001.0.1
+
+- Fixed internal bugs related to resource initialization
+- Added support for setting a custom localization bundle and switching the in-app language at runtime
+
 ## v8001.0.0
 
 ### What's new
